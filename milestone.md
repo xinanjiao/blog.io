@@ -2,7 +2,7 @@
 layout: page
 title: "milestone"
 description: "我的成长记录"
-header-img: "img/zhihu.jpg"
+header-img: "img/article_bg.jpg"
 ---
 
 上传就绪中
