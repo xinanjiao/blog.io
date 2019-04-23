@@ -9,7 +9,7 @@ description: 文章金句。
 
 这里是博客正文。
 
-<img src="dolphin.gif">
+<img src="img\dolphin.gif">
 
 
 
