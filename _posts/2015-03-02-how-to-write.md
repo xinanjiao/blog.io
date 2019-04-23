@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: 为什么创建一个博客
 date: 2019-4-22
 categories: blog
