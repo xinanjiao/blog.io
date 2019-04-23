@@ -60,6 +60,29 @@ comments :
   gitalk_owner: 'xinanjiao'
   gitalk_admin: 'xinanjiao'
   distractionFreeMode: true
+  <!-- Gitalk 评论 start  -->
+      {% if site.gitalk.enable %}
+<!-- Link Gitalk 的支持文件  -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+ 
+<div id="gitalk-container"></div>
+    <script type="text/javascript">
+    var gitalk = new Gitalk({
+ 
+    // gitalk的主要参数
+        clientID: `c475b826c3d8067f7a84`,
+        clientSecret: `0a7b3c67b3edca039bbaeab755746f405d461de5`,
+        repo: `xinanjiao.github.io`,
+        owner: 'xinanjiao',
+        admin: ['xinanjiao'],
+        id: 'indow.location.pathname',
+       distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+</script>
+{% endif %}
+<!-- Gitalk end -->
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:  # 填写你  google_analytics id
