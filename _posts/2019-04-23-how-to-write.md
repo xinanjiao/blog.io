@@ -9,7 +9,7 @@ description: 文章金句。
 
 这里是博客正文。
 
-![飞跃的鲸鱼](https://github.com/xinanjiao/xinanjiao2.github.io/blob/master/img/dolphin.gif)
+![飞跃的鲸鱼](https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/dolphin.gif)
 
 
 
