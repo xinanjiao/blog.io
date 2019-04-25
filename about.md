@@ -65,7 +65,7 @@ header-img: "img/archives-widget.jpg"
 
 <h4>章斌</h4>
 重量级人物，我们寝室的午夜闹钟。两个作用，1，提醒我们睡觉，在他后面睡觉的人，你确定你还睡得着吗？？2，可能打鼾声可能把你从梦乡中拉出来（以上开玩笑）~~你看我像是在开玩笑？~~，人称斌哥，他本人人预测30以后才能找女朋友了，~~我看悬,hhh,开玩笑~~。，<br/>
-<img src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about5.jpg">
+<img width="600" height="300" src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about5.jpg">
 
 <h4>李长振</h4>
 宿舍早出晚归之人，沉迷学习，无法自拔，无绯闻，洁身自好，不闻女色，活脱脱一在世佛陀，~~主要是计算机学院也没几个妹子，软件看不上~~，向他学习<br/>
