@@ -51,7 +51,7 @@ header-img: "img/archives-widget.jpg"
 
 会篮球，会rap，会唱跳的不只是蔡徐坤，他还可能是刘元旭<br>
 ~~风流倜傥~~，万千妹子为之着迷，~~我也不知道为什么，可是我也不敢问~~。<br/>
-<img width="100" height="300" src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about6.jpg">
+<img width="300" height="600" src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about6.jpg">
 
 <h4>马健</h4>
 此人可不止一个名字，~~马建模~~，~~马开门~~，~~马老板~~，~~马队~~，具体为什么是这样，我也不详说了。<br/>
