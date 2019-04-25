@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 测式博客
+title: Function
 date: 2019-4-22
 categories: blog
 tags: [算法,记忆化搜索]
