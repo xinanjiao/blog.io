@@ -6,7 +6,7 @@ header-img: "img/archives-widget.jpg"
 ---
 
 ## 行了 开始自我介绍了
-**郑子豪** 男 ~~你能找到女生和我一个名字我和你一个姓~~，重庆人喔，抄得一手标准川普，对之，普通话也还行叭，只不过，40，14，刘，牛，永远是我的痛罢了。这个图片就是本人辽，画我就要哭死，你懂的，我不喜欢自拍~~人太丑~~。<img src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about1.jpg"><br/>
+**郑子豪** 男 ~~你能找到女生和我一个名字我和你一个姓~~，重庆人喔，抄得一手标准川普，对之，普通话也还行叭，只不过，40，14，刘，牛，永远是我的痛罢了。这个图片就是本人辽，画质我要哭死，你懂的，我不喜欢自拍~~人太丑~~。<img src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about1.jpg"><br/>
 
 <h4>本人：</h4>
 ~~小鲜肉一枚~~但是我确实挺嫩，不管是做什么，总有人说：你啊，还是~~太嫩了~~太帅了！<br/>
@@ -30,7 +30,8 @@ header-img: "img/archives-widget.jpg"
 
 **现居住于中国青岛山东科技大学学生公寓JB14 113 5号床**<br/>
 
-学习交流可以联系我QQ：925079798           微信（电话）：15310451436
+学习交流可以联系我QQ：925079798<br/>
+微信（电话）：15310451436
 
 
 
@@ -50,7 +51,7 @@ header-img: "img/archives-widget.jpg"
 
 会篮球，会rap，会唱跳的不只是蔡徐坤，他还可能是刘元旭<br>
 ~~风流倜傥~~，万千妹子为之着迷，~~我也不知道为什么，可是我也不敢问~~。<br/>
-<img src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about6.jpg">
+<img width="100" height="300" src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about6.jpg">
 
 <h4>马健</h4>
 此人可不止一个名字，~~马建模~~，~~马开门~~，~~马老板~~，~~马队~~，具体为什么是这样，我也不详说了。<br/>
@@ -58,12 +59,12 @@ header-img: "img/archives-widget.jpg"
 <img src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about4.jpg">
 
 <h4>张淼</h4>
-~风情万种~，撩得一手好妹子，当然日常也经常呼唤妹子，游戏也是很厉害的~~比我厉害一丢丢~~，人送外号张三水。<br/>
+~~风情万种~~，撩得一手好妹子，当然日常也经常呼唤妹子，游戏也是很厉害的~~比我厉害一丢丢~~，人送外号张三水。<br/>
 两个女朋友，不好惹。鞭炮一挂，谁都不怕！！！！<br/>
 <img src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about2.jpg">
 
 <h4>章斌</h4>
-重量级人物，我们寝室的午夜闹钟。两个作用，1，提醒我们睡觉，在他后面睡觉的人，你确定你还睡得着吗？？2，可能打鼾声可能把你从梦乡中拉出来（以上开玩笑）~~你看我像是在开玩笑？~~，人称斌哥，个人预测30以后才能找女朋友了，~~我看悬,hhh,开玩笑~~。，<br/>
+重量级人物，我们寝室的午夜闹钟。两个作用，1，提醒我们睡觉，在他后面睡觉的人，你确定你还睡得着吗？？2，可能打鼾声可能把你从梦乡中拉出来（以上开玩笑）~~你看我像是在开玩笑？~~，人称斌哥，他本人人预测30以后才能找女朋友了，~~我看悬,hhh,开玩笑~~。，<br/>
 <img src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about5.jpg">
 
 <h4>李长振</h4>
