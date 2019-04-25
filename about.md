@@ -6,7 +6,7 @@ header-img: "img/archives-widget.jpg"
 ---
 
 ## 行了 开始自我介绍了
-**郑子豪** 男 ~~你能找到女生和我一个名字我和你一个姓~~，重庆人喔，抄得一手标准川普，对之，普通话也还行叭，只不过，40，14，刘，牛，永远是我的痛罢了。这个图片就是本人辽，画质我要哭死，你懂的，我不喜欢自拍~~人太丑~~。<img src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about1.jpg"><br/>
+**郑子豪** 男 ~~你能找到女生和我一个名字我和你一个姓~~，重庆人喔，抄得一手标准川普，对之，普通话也还行叭，只不过，40，14，刘，牛，永远是我的痛罢了。这个图片就是本人辽，画质我要哭死，你懂的，我不喜欢自拍~~人太丑~~。<img width="400" height="600" src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about1.jpg"><br/>
 
 <h4>本人：</h4>
 ~~小鲜肉一枚~~但是我确实挺嫩，不管是做什么，总有人说：你啊，还是~~太嫩了~~太帅了！<br/>
@@ -65,7 +65,7 @@ header-img: "img/archives-widget.jpg"
 
 <h4>章斌</h4>
 重量级人物，我们寝室的午夜闹钟。两个作用，1，提醒我们睡觉，在他后面睡觉的人，你确定你还睡得着吗？？2，可能打鼾声可能把你从梦乡中拉出来（以上开玩笑）~~你看我像是在开玩笑？~~，人称斌哥，他本人人预测30以后才能找女朋友了，~~我看悬,hhh,开玩笑~~。，<br/>
-<img width="600" height="300" src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about5.jpg">
+<img width="400" height="300" src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about5.jpg">
 
 <h4>李长振</h4>
 宿舍早出晚归之人，沉迷学习，无法自拔，无绯闻，洁身自好，不闻女色，活脱脱一在世佛陀，~~主要是计算机学院也没几个妹子，软件看不上~~，向他学习<br/>
