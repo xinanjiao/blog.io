@@ -55,7 +55,7 @@ header-img: "img/archives-widget.jpg"
 
 <h4>马健</h4>
 此人可不止一个名字，~~马建模~~，~~马开门~~，~~马老板~~，~~马队~~，具体为什么是这样，我也不详说了。<br/>
-体育高材生，可能名字有马，跑起来也是哒哒哒，Biu~~就没人影了，行了，此人也是个~~迁客骚人~~狠角色。
+体育高材生，可能名字有马，跑起来也是哒哒哒，Biu~就没人影了，行了，此人也是个~~迁客骚人~~狠角色。
 <img src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about4.jpg">
 
 <h4>张淼</h4>
@@ -68,5 +68,5 @@ header-img: "img/archives-widget.jpg"
 <img width="400" height="300" src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about5.jpg">
 
 <h4>李长振</h4>
-宿舍早出晚归之人，沉迷学习，无法自拔，无绯闻，洁身自好，不闻女色，活脱脱一在世佛陀，~~主要是计算机学院也没几个妹子，软件看不上~~，向他学习<br/>
+宿舍早出晚归之人，沉迷学习，无法自拔，无绯闻，洁身自好，不闻女色，活脱脱一在世佛陀，~~主要是计算机学院也没几个妹子，人家看不上~~，向他学习<br/>
 <img src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about3.jpg">
