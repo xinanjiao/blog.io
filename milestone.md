@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "milestone"
-description: "我的成长记录"
+title: "Marvel"
+description: "比肩凡人"
 header-img: "img/article_bg.jpg"
 ---
 
