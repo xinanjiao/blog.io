@@ -38,7 +38,7 @@ description: 语言
 
 所以上面那个题，后面的判断都不需要，偶数位直接跳出就行。
 
-![飞呀飞](img/dolphin.gif)
+![飞呀飞](/img/dolphin.gif)
 
 
 
