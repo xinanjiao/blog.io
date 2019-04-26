@@ -49,7 +49,16 @@ header-img: "img/archives-widget.jpg"
 ## 这下面就是我个人生活的介绍啦
 
 **大学生活，SB宿舍室友必不可少**
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 <h4>刘元旭</h4>
 
