@@ -15,9 +15,9 @@ header-img: "img/banner.jpg"
 ## 基因列表
 
 
-<div id='tag_cloud' style="color: blue;">
+<div id='tag_cloud' >
 {% for tag in site.tags %}
-<a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
+<a style="color: blue;" href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
 {% endfor %}
 </div>
 
