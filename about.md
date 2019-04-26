@@ -9,7 +9,7 @@ header-img: "img/archives-widget.jpg"
 **郑子豪** <br/>
 男 ~~你能找到女生和我一个名字我和你一个姓~~，重庆人喔，抄得一手标准川普，对之，普通话也还行叭，只不过，40，14，刘，牛，永远是我的痛罢了。这个图片就是本人辽，画质我要哭死，你懂的，我不喜欢自拍~~人太丑~~。
 <img width="400" height="300" src="https://raw.githubusercontent.com/xinanjiao/xinanjiao2.github.io/master/img/about1.jpg"><br/>
-
+img:"img/about1.jpg"
 <h4>本人：</h4>
 ~~小鲜肉一枚~~但是我确实挺嫩，不管是做什么，总有人说：你啊，还是~~太嫩了~~太帅了！<br/>
 <p>我总是虚心接受，因为毕竟这是事实嘛，</p>
