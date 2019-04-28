@@ -53,13 +53,7 @@ comments :
     short_name :  # 填写你的 disqus id
   disqus :
       short_name :  # 填写你的 disqus id
-      gitalk: true
-  gitalk_clientID: 'c475b826c3d8067f7a84'
-  gitalk_Secret: '0a7b3c67b3edca039bbaeab755746f405d461de5'
-  gitalk_repo: 'xinanjiao2.github.io'
-  gitalk_owner: 'xinanjiao'
-  gitalk_admin: 'xinanjiao'
-  distractionFreeMode: true
+ 
 
 
 # Analytics and webmaster tools stuff goes here
