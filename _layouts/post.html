@@ -64,11 +64,9 @@ layout: default
         </div>
 
 
-<div id="gitalk-container"></div>
 
-  mounted(){
-  this.gitalk.render("gitalk-container");
-   }
+
+
 <!-- Gitalk 评论 start  -->
 {% if site.gitalk.enable %}
 <!-- Link Gitalk 的支持文件  -->
@@ -78,7 +76,7 @@ layout: default
 
     <script type="text/javascript">
     var gitalk = new Gitalk({
-
+<div id="gitalk-container"></div>
     // gitalk的主要参数
         clientID: `05a5225b6dd425309b9c`,
         clientSecret: `a505e3330508b71d8b15f5e6ea1ebe9d98be2dbe`,
@@ -88,7 +86,7 @@ layout: default
         id: 'window.location.pathnam',
     
     });
-    gitalk.render('gitalk-container');
+     gitalk.render('gitalk-container');
 </script>
 {% endif %}
 <!-- Gitalk end -->
