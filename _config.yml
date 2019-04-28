@@ -48,7 +48,7 @@ defaults:
 
 # Comments 
 comments :
-  provider : disqus # 使用 disqus 评论模块，读者翻墙才能看见
+  provider : gitalk # 使用 disqus 评论模块，读者翻墙才能看见
   duoshuo :
     short_name :  # 填写你的 disqus id
   disqus :
