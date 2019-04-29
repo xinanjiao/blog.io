@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 测式博客
+title: BF（暴风算法）
 date: 2019-4-29
 categories: blog
 tags: [算法,BF]
