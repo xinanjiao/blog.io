@@ -3,7 +3,7 @@ layout: post
 title: 快读大法
 date: 2019-4-28
 categories: blog
-tags: [算法，模拟]
+tags: [算法,模拟]
 description: 语言
 ---
 
