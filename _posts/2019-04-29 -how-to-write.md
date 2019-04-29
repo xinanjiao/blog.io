@@ -2,7 +2,7 @@
 layout: post
 title: Cantor表
 date: 2019-4-29
-categories: blog
+categories: blog2
 tags: [算法,模拟]
 description: 语言
 ---
