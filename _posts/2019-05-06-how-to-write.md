@@ -20,27 +20,27 @@ description: 文章金句。
 当输入quit时，结束操作并输出0到n-1的位置上的木块情况
 
 ### sample input
-10
-move 9 onto 1
-move 8 over 1
-move 7 over 1
-move 6 over 1
-pile 8 over 6
-pile 8 over 5
-move 2 over 1
-move 4 over 9
-quit
+10<br/>
+move 9 onto 1<br/>
+move 8 over 1<br/>
+move 7 over 1<br/>
+move 6 over 1<br/>
+pile 8 over 6<br/>
+pile 8 over 5<br/>
+move 2 over 1<br/>
+move 4 over 9<br/>
+quit<br/>
 ### sample output
- 0: 0
- 1: 1 9 2 4
- 2:
- 3: 3
- 4:
- 5: 5 8 7 6
- 6:
- 7:
- 8:
- 9:
+ 0: 0<br/>
+ 1: 1 9 2 4<br/>
+ 2:<br/>
+ 3: 3<br/>
+ 4:<br/>
+ 5: 5 8 7 6<br/>
+ 6:<br/>
+ 7:<br/>
+ 8:<br/>
+ 9:<br/>
 
 ### 想法
 没有学c++之前，你会怎么想，创一个一维数组和一个二维数组，模拟上述四步操作，最后分别输出0到9中的数字？这种方法我看行，但是c++STL提供了一种更简单便捷的操作方式,叫容器，这个vector就是顺序容器之一，后面还有关联容器。
@@ -48,21 +48,21 @@ vector是一个向量容器，它可以像数组一样存储数据，所以我�
 1. 他可以自由压缩空间，而且通过你读入的数据进行分配空间，也就是说，你可以自由删除和添加元素，而不用在进行其他操作。
 2. vector容器包括定义赋值，插入，删除，显示等操作，定义和显示需要着重理解一下，而其他则由具体的实现函数实现。
 
-vector操作：
-定义：vector<类型> a;//定义空的元素
-赋值:c1=c2//c2元素全部赋值给c1
-访问：
-1. c.at[n]//直接访问n所标识的元素，若下标越界返回"out_of_range";
-2. c[n]//访问n的元素，没有at安全
-3. c.back()//返回最后一个元素
-其它操作：
-c.push_back(n)//尾部插入n元素
-c.insert(pos,n)//在pos位置插入e元素，并返回新元素的位置
-c.pop_back()//删除最后一个元素
-c.erase(pos)//删除pos位置的元素
-c.clear()//删除所有元素
-c.size()//返回元素个数
-c.rsize(n)//重新定义元素个数.
+vector操作：<br/>
+定义：vector<类型> a;//定义空的元素<br/>
+赋值:c1=c2//c2元素全部赋值给c1<br/>
+访问：<br/>
+1. c.at[n]//直接访问n所标识的元素，若下标越界返回"out_of_range";<br/>
+2. c[n]//访问n的元素，没有at安全<br/>
+3. c.back()//返回最后一个元素<br/>
+其它操作：<br/>
+c.push_back(n)//尾部插入n元素<br/>
+c.insert(pos,n)//在pos位置插入e元素，并返回新元素的位置<br/>
+c.pop_back()//删除最后一个元素<br/>
+c.erase(pos)//删除pos位置的元素<br/>
+c.clear()//删除所有元素<br/>
+c.size()//返回元素个数<br/>
+c.rsize(n)//重新定义元素个数.<br/>
 
 行了，都准备就绪了，那就开始吧！<br/>
 
