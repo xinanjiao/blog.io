@@ -1,13 +1,12 @@
 ---
 layout: post
-title: 测式博客
-date: 2019-4-22
+title: 正方形
+date: 2019-05-06
 categories: blog
-tags: [算法,搜索]
+tags: [算法,uva]
 description: 文章金句。
 ---
 
-这里是博客正文。
 
 
 
