@@ -105,6 +105,23 @@ when
 喔，其中有个迭代器，iterator,这个记住就行了，它用来遍历容器的元素个数的.<br/>
 
 
+关于set集合的排序问题，你可以写结构体来重新定义排序方式，下面是int类型和string类型的升序排列结构体的例子;
+
+
+    struct intComp {
+	bool operator() (const int& lhs, const int& rhs) const{
+		return lhs > rhs;
+	}
+    };
+    struct strComp
+    {
+	bool operator() (const string& str1, const string& str2) const {
+		return str1.length() < str2.length();
+	}
+    };
+
+定义时只需要：set<int,intcomp>,这就是int类型的升序排列，
+string类型的相同.
 
 
 
