@@ -3,7 +3,7 @@ layout: post
 title: UVA象棋
 date: 2019-5-6
 categories: blog
-tags: [算法,模拟]
+tags: [算法,模拟,uva]
 description: 语言
 ---
 ![象棋](/img/uva1589.png)
