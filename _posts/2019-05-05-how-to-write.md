@@ -7,7 +7,7 @@ tags: [算法,uva,枚举]
 description: 文章金句。
 ---
 
-![题目PDF](https://uva.onlinejudge.org/external/2/201.pdf)
+[题目PDF](https://uva.onlinejudge.org/external/2/201.pdf)
 
 ### 题目大意
 
