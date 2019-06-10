@@ -1,7 +1,7 @@
 ---
 layout: post
 title: UVA象棋
-date: 2019-5-6
+date: 2019-5-12
 categories: blog
 tags: [算法,模拟,uva]
 description: 语言
