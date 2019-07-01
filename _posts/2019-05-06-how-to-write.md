@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 木块vector数组
-date: 2019-5-6
+date: 2019-05-06
 categories: blog
 tags: [算法,uva]
 description: 文章金句。
