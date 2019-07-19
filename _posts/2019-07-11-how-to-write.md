@@ -3,7 +3,7 @@ layout: post
 title: 搬椅子
 date: 2019-7-11
 categories: blog
-tags: [算法,贪心，模拟]
+tags: [算法,贪心,模拟]
 description: 语言
 ---
 ### 题目描述
