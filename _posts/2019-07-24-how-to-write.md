@@ -6,8 +6,6 @@ categories: blog
 tags: [算法,广度搜索,训练]
 description: 文章金句。
 ---
-## DFS专练
-
 ### ball (AOJ 0033)
 题目链接:<https://vjudge.net/problem/Aizu-0033#author=0><br/>
 **题目大意**<br/>
