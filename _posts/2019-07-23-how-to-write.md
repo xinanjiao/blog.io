@@ -185,6 +185,7 @@ description: 语言
             cout<<a[i]<<" ";
     }
     }
+
 在大佬代码里还可以学到不少东西<br/>
 ### icetower
 题目链接:<http://codeforces.com/gym/101194/attachments><br/>
