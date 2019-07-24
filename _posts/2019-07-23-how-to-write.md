@@ -334,7 +334,8 @@ description: 语言
     }
     }
 ### Property Distribution (AOJ 0118)
-[题目链接](https://vjudge.net/problem/Aizu-0118#author=0)<br/>
+
+**题目大意**<br/>
 有四种符号组成的矩阵，判断有多少四联通块,染色+dfs<br/>
 
     #include <iostream>
@@ -548,6 +549,7 @@ DFS巧用，实际上不用把落下的小球存起来，只要判断它是否�
     }
     //out.close();
     }
+
 
 
 
