@@ -336,7 +336,7 @@ description: 语言
 ### Property Distribution (AOJ 0118)
 [题目链接](https://vjudge.net/problem/Aizu-0118#author=0)<br/>
 **题目大意**<br/>
-有四种符号组成的矩阵，判断有多少四联通块,染色+dfs<br>
+有四种符号组成的矩阵，判断有多少四联通块,染色+dfs<br/>
 
     #include <iostream>
     #include <cstdio>
@@ -386,6 +386,7 @@ description: 语言
         cout<<sum<<endl;
     }
     }
+
 ### ball (AOJ 0033)
 [题目链接](https://vjudge.net/problem/Aizu-0033#author=0)<br/>
 **题目大意**<br/>
