@@ -1,12 +1,13 @@
 ---
 layout: post
-title: ACM训练日记-第一天
+title: ACM训练日记第一天
 date: 2019-7-23
 categories: blog
 tags: [算法,深度搜索,训练]
 description: 语言
 ---
 ### 做题及题解
+
 #### 个人赛
 ### Another Crosses Problem 
 题目链接:<https://vjudge.net/problem/CodeForces-1194B><br/>
