@@ -9,7 +9,7 @@ description: 语言
 ### 做题及题解
 #### 个人赛
 ### Another Crosses Problem 
-[题目链接](https://vjudge.net/problem/CodeForces-1194B)<br/>
+题目链接:<https://vjudge.net/problem/CodeForces-1194B><br/>
 
 **题目大意**<br/>
 给你由字符组成的矩阵，让你判断由某种字符联通上下左右至少需要添加几个相同的字符<br/>
@@ -69,7 +69,7 @@ description: 语言
      ios::sync_with_stdio(false);
  
 ### world cup
-[题目链接](http://codeforces.com/gym/101194/attachments)<br/>
+题目链接:<http://codeforces.com/gym/101194/attachments><br/>
 **题目大意**<br/>
 模拟世界杯的计分方式，4个队，共6场，赢一场得3分，平局个得1分，输了没有分数，给出四个最终分数，判断是否正确，如果有多种比赛情况得出的分数输出”NO“<br/>
 刚开始不知道怎么做，打算暴力模拟出所有情况，苦于没有好的方法，也就没有做出了，结束后看他们的代码，受益匪浅。主要是状态的储存，开一个四维数组储存每种情况出现的次数，就这样暴力枚举所有情况就可以了<br/>
@@ -131,7 +131,7 @@ description: 语言
     }
 上面代码中define很漂亮，可以省去很多重复且不重要的代码，节约时间<br/>
 ### 排列
-[题目链接](http://acm.hdu.edu.cn/showproblem.php?pid=6235)<br/>
+题目链接:<http://acm.hdu.edu.cn/showproblem.php?pid=6235><br/>
 **题目大意**<br/>
 给出一种规则，按这种规则排列数字。pi%(pi-pi-2)恒等于零(pi为第i个数字，pi-2为i-2个数字)<br/>
 比赛中我是没看懂题（orz),果然理解能力有待提高。赛后重补这道题，思路也很复杂，看了看题解，想要恒为0，只要除余1就行了(orz),所以把数字间隔为2排列<br/>
@@ -186,7 +186,7 @@ description: 语言
     }
 在大佬代码里还可以学到不少东西<br/>
 ### icetower
-[题目链接](http://codeforces.com/gym/101194/attachments)<br/>
+题目链接:<http://codeforces.com/gym/101194/attachments><br/>
 **题目大意**
 给出一种规则，最下层的冰淇淋大于等于上一层的冰淇淋2倍，给出N种冰淇淋，和需要M层，判断这些冰淇淋能叠的最高层数<br/>
 表面为贪心，每次选最大的冰淇淋放在最下面，但又和普通贪心不一样，因为这样不一定得到最优解，所以选用二分法+贪心，二分法枚举答案，正难则反，通过答案来枚举是否能得到这个解。<br/>
@@ -274,7 +274,7 @@ description: 语言
 
 
 ### Red and Black (POJ 1979)
-[题目链接](https://vjudge.net/problem/POJ-1979#author=0)<br/>
+题目链接:<https://vjudge.net/problem/POJ-1979#author=0><br/>
 **题目大意**<br/>
 有三种符号组成的矩阵，其中'@'表示这个人起始位置，判断这个人能连续通过的瓷砖数（‘.’表示瓷砖）<br/>
 显然是深搜<br/>
@@ -388,7 +388,7 @@ description: 语言
     }
 
 ### ball (AOJ 0033)
-[题目链接](https://vjudge.net/problem/Aizu-0033#author=0)<br/>
+题目链接:<https://vjudge.net/problem/Aizu-0033#author=0><br/>
 **题目大意**<br/>
 从1到10连续编号的小球从容器开口A放入。通过调整枢轴E的方向，可以使小球经过D而落入左侧B筒或者右侧C筒。现给出从A放入小球的顺序，请你判断能否最终小球落入B和C时，号码大的球总是位于号码小的球的上侧。如果可能则在一行中输出”YES”，否则输出 “NO”<br/>
 <br/>
@@ -446,7 +446,7 @@ DFS巧用，实际上不用把落下的小球存起来，只要判断它是否�
     }
 通过判断前面一个小球的大小，实现DFS的巧用<br/>
 ### Curling 2.0 (POJ 3009)
-[题目链接](https://vjudge.net/problem/POJ-3009)<br/>
+题目链接:<https://vjudge.net/problem/POJ-3009><br/>
 **题目大意**<br/>
 小球在给出的矩阵中运动，规则如下：运动为四个方向，且一旦运动并会一直运动下去直到碰到障碍物，碰到障碍物，障碍物会消失，且这时小球必须改变方向，这时只有3个方向，最终到达目的地则结束，如果小球出界和超过10步则失败。<br/>
 典型DFS回溯，注意回溯是步数减一，标记的点将回到最初状态<br/>
