@@ -269,14 +269,13 @@ description: 语言
     }
 二分查找实际上是个模板，可以记住！<br/>
 
-
 ## DFS专练
 
 
 
 ### Red and Black (POJ 1979)
 题目链接:<https://vjudge.net/problem/POJ-1979#author=0><br/>
-**题目大意**<br/>
+题目大意<br/>
 有三种符号组成的矩阵，其中'@'表示这个人起始位置，判断这个人能连续通过的瓷砖数（‘.’表示瓷砖）<br/>
 显然是深搜<br/>
 
@@ -334,10 +333,11 @@ description: 语言
         cout<<sum<<endl;
     }
     }
+
 ### Property Distribution (AOJ 0118)
 题目链接:<https://vjudge.net/problem/Aizu-0118#author=0><br>
-**题目大意**<br/>
-有四种符号组成的矩阵，判断有多少四联通块,染色+dfs<br/>
+题目大意<br/>
+有四种符号组成的矩阵，判断有多少四联通块,染色+dfs
 
     #include <iostream>
     #include <cstdio>
@@ -551,6 +551,8 @@ DFS巧用，实际上不用把落下的小球存起来，只要判断它是否�
     //out.close();
     }
 
+  嗯！
+  继续加油
 
 
 
