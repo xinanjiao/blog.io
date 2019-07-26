@@ -6,7 +6,8 @@ categories: blog
 tags: [算法,广度搜索,训练]
 description: 文章金句。
 ---
-Property Distribution (AOJ 0118)<br>
+
+### Property Distribution (AOJ 0118)
 有四种符号组成的矩阵，判断有多少四联通块,染色+dfs<br>
 
     #include <iostream>
