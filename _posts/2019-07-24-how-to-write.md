@@ -10,6 +10,12 @@ description: 语言
 题目链接:<https://vjudge.net/problem/Aizu-0118#author=0><br/>
 有四种符号组成的矩阵，判断有多少四联通块,染色+dfs<br>
    
+
+
+
+
+
+   
     #include <iostream>
     #include <cstdio>
     using namespace std;
@@ -58,6 +64,7 @@ description: 语言
         cout<<sum<<endl;
     }
     }
+
 
 
 
