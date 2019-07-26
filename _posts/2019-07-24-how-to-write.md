@@ -8,7 +8,8 @@ description: 文章金句。
 ---
 ### Property Distribution （AOJ 0118）
 题目链接:<https://vjudge.net/problem/Aizu-0118><br/>
-题目大意:输入由四种字符组成的矩阵，判断4联通块<br/>
+**题目大意**<br/>
+输入由四种字符组成的矩阵，判断4联通块<br/>
 DFS+染色<br/>
 
     #include <iostream>
