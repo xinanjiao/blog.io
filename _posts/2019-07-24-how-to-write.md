@@ -9,55 +9,14 @@ description: 语言
 ### Property Distribution (AOJ 0118)
 题目链接:<https://vjudge.net/problem/Aizu-0118#author=0><br>
 有四种符号组成的矩阵，判断有多少四联通块,染色+dfs<br>
+未知错误代码无法显示！！！<br/>
 
-    #include <iostream>
-    #include <cstdio>
-    using namespace std;
-    const int inf=0x3f3f3f;
-    char map1[110][110];
-    int dir[4][2]={{0,1},{0,-1},{1,0},{-1,0}};
-    char ch;
-    int sum;
-    int h,w;
-    void dfs(int m,int n,char ch)
-    {
-    map1[m][n]='.';
-    for(int i=0;i<4;i++)
-    {
-        int hm=m+dir[i][0];
-        int hn=n+dir[i][1];
-        if(hm>=0&&hm<h&&hn>=0&&hn<w&&map1[hm][hn]==ch)
-        {
-            map1[hm][hn]='.';
-            dfs(hm,hn,ch);
-        }
-    }
-    }
-    int main()
-    {
-    while(cin>>h>>w)
-    {
-        if(h==0&&w==0)
-            break;
-            sum=0;
-        for(int i=0;i<h;i++)
-         for(int j=0;j<w;j++)
-         cin>>map1[i][j];
-        for(int i=0;i<h;i++)
-        {
-            for(int j=0;j<w;j++)
-            {
-                if(map1[i][j]=='*'||map1[i][j]=='#'||map1[i][j]=='@')
-                    {
-                        ch=map1[i][j];
-                        dfs(i,j,ch);
-                        sum++;
-                    }
-            }
-        }
-        cout<<sum<<endl;
-    }
-    }
+### ball (AOJ 0033)
+题目链接:<https://vjudge.net/problem/Aizu-0033#author=0><br/>
+**题目大意**<br/>
+从1到10连续编号的小球从容器开口A放入。通过调整枢轴E的方向，可以使小球经过D而落入左侧B筒或者右侧C筒。现给出从A放入小球的顺序，请你判断能否最终小球落入B和C时，号码大的球总是位于号码小的球的上侧。如果可能则在一行中输出”YES”，否则输出 “NO”<br/>
+<br/>
+DFS巧用，实际上不用把落下的小球存起来，只要判断它是否大于前面一个数即可，原来我想多了，不用回溯，不行就是不行，不用考虑其他情况<br/>
 
 
 
