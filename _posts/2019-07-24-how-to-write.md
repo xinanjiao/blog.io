@@ -6,9 +6,6 @@ categories: blog
 tags: [算法,广度搜索,训练]
 description: 文章金句。
 ---
-### Property Distribution （AOJ 0118）
-题目链接:<https://vjudge.net/problem/Aizu-0118><br>
-DFS+染色<br>
 
     #include <iostream>
     #include <cstdio>
