@@ -18,7 +18,6 @@ description: 文章金句。
 
     #include <iostream>
     #include <cstdio>
-    #include <fstream>
     #include <algorithm>
     #include <cmath>
     using namespace std;
