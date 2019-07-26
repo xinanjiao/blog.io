@@ -18,7 +18,57 @@ description: 语言
 <br/>
 DFS巧用，实际上不用把落下的小球存起来，只要判断它是否大于前面一个数即可，原来我想多了，不用回溯，不行就是不行，不用考虑其他情况<br/>
 
-
+    #include <iostream>
+    #include <cstdio>
+    #include <fstream>
+    #include <algorithm>
+    #include <cmath>
+    #include <deque>
+    #include <vector>
+    #include <queue>
+    #include <string>
+    #include <cstring>
+    #include <map>
+    #include <stack>
+    #include <set>
+    #include <sstream>
+    using namespace std;
+    const int inf=0x3f3f3f;
+    const int maxn=1010;
+    int ball[maxn];
+    bool ok;
+    void dfs(int x,int r,int l)
+    {
+    if(x==10)
+        return;
+    if(ball[x]>r)
+        dfs(x+1,ball[x],l);
+    else if(ball[x]>l)
+        dfs(x+1,r,ball[x]);
+    else
+    {
+        ok=true;
+        return;
+    }
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int n;
+    cin>>n;
+    while(n--)
+    {
+        for(int i=0;i<10;i++)
+            cin>>ball[i];
+        ok=false;
+        dfs(0,0,0);
+        if(!ok)
+            cout<<"YES"<<endl;
+        else
+            cout<<"NO"<<endl;
+    }
+    }
+通过判断前面一个小球的大小，实现DFS的巧用<br/>
 
 
 
