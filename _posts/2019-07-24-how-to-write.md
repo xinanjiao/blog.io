@@ -194,16 +194,6 @@ Bessie在0时刻时处于原点，且只能行于第一象限，以平行与坐�
 
 寻找Bessie到达安全地点所需的最短时间。
 
-    int map1[maxn][maxn];
-    int book[maxn][maxn];
-    int n;
-    int time2=0;
-    int dir[5][2]={{1,0},{0,1},{-1,0},{0,-1},{0,0}};
-    struct bome
-    {
-    int x,y;
-    int time;
-    }bome1[maxr];
     struct girl
     {
     int x;
