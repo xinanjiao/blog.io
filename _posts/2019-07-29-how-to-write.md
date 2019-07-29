@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ACM第7天
+title: ACM训练第7天
 date: 2019-7-29
 categories: blog
 tags: [算法,动态规划]
@@ -14,7 +14,7 @@ description: 语言
 
 
 ### 动态规划（题目后补）
-1. 最长上升子序列（LIS)
+1. 最长上升子序列（LIS)<br>
 题目：个人赛C2 array array array<br>
 2. 最长重复子序列（LCS)
 
