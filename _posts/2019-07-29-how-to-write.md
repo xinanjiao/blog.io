@@ -3,7 +3,7 @@ layout: post
 title: ACM训练第7天
 date: 2019-7-29
 categories: blog
-tags: [算法,动态规划]
+tags: [算法,动态规划,训练]
 description: 语言
 ---
 
