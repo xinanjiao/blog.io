@@ -16,9 +16,12 @@ description: 语言
 ### 动态规划（题目后补）
 1. 最长上升子序列（LIS)<br>
 题目：个人赛C2 array array array<br>
+题目链接:<https://vjudge.net/contest/313304#problem/B><br/>
 2. 最长重复子序列（LCS)
-
-
+3. B组B题B - Blocking Buffer 规律题<br/>
+题目链接:<https://vjudge.net/contest/313274#problem/B><br/>
+网上题解：<https://www.cnblogs.com/ultmaster/p/6144605.html><br/>
+目测又是一道找规律题
 
 
 
