@@ -3,7 +3,7 @@ layout: post
 title: ACM训练第5天
 date: 2019-7-27
 categories: blog
-tags: [算法,搜索]
+tags: [算法,搜索,训练]
 description: 语言
 ---
 
