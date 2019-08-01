@@ -25,7 +25,7 @@ description: 语言
 贪心加二分，二分不难，但贪心策略要选好，所以慢慢总结叭！<br/>
 
 
-##题目（代码后补）
+## 题目（代码后补）
 
 ### exam (Codeforce 732D)
 题目链接：<https://vjudge.net/problem/CodeForces-732D><br/>
