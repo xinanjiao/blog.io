@@ -110,9 +110,46 @@ NO
     }
     }
 
+### B - Nauuo and Chess 
+题目链接:<https://vjudge.net/contest/316455#problem/B><br/>
+题目大意:在一个 m×m 的棋盘上放 n 颗棋子，第 i 颗棋子的坐标为 (ri,ci)，需要满足 |ri−rj|+|ci−cj|≥|i−j|，求 m 的最小值以及任意一种摆放方案。依次输出m和每个棋子的(ri,ci)。<br/>
 
 
+题目思路：构造，找规律，很多时候并不是需要output给出的输出，需要自己找<br>
+如下图规律:
 
+![规律](/img/cf1.jpg)
+
+代码：（无头文件）
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=1e5+10;
+    const int INF=0x3f3f3f3f;
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int n;
+    cin>>n;
+    int m=n/2+1;//推导可以得出
+    cout<<m<<endl;
+    fro(i,1,m+1)
+    {
+        cout<<1<<" "<<i<<endl;
+        n--;
+    }
+    for(int i=2;i<=m&&n;i++)
+    {
+        cout<<i<<" "<<m<<endl;
+        n--;
+    }
+    }
 
 
 
