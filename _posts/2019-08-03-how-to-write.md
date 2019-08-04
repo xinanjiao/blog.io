@@ -218,5 +218,111 @@ no no yes no no no
     return 0;
     }
 
+### Ehab and a Special Coloring Problem 
+题目链接：<https://vjudge.net/contest/316455#problem/D><br/>
+题目大意：给一个正整数n，要求构造一个数组a[]，数组的下标i从2到n。对于任意i, j (i != j)，如果i和j互质的话，那么要求a[i]和a[j]不同。<br/>
 
+思路：<br/>
+两个不同的素数肯定互素。<br/>
+两个不同的合数如果没有公共质因子，那么他们互素。<br/>
+也就是说只有素数的倍数不互素<br/>
+素数筛的过程中给素数赋予新值，素数的倍数赋予和这个素数相同的值即可<br/>
+这里提到了素数筛下，下面会讲到，思路和素数筛一样。<br/>
 
+code:
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=2e5+10;
+    const int INF=0x3f3f3f3f;
+    int a[maxn];
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    mem(a,0);
+    int n;
+    cin>>n;
+    int pos=0;
+    fro(i,2,n+1)
+    {
+        if(!a[i])
+        {
+            pos++;
+            for(int j=1;j*i<=n;j++)
+            {
+                if(!a[j*i])
+                    a[j*i]=pos;
+            }
+        }
+    }
+    fro(i,2,n+1)
+    {
+        if(a[i])
+            printf(i<n?"%d ":"%d\n",a[i]);
+    }
+    }
+
+## 埃拉托斯特尼(Eratosthenes)素筛法 快速筛选素数 复杂度log(n)乘以log(n)
+
+详细讲解链接：<https://blog.csdn.net/qq_41117236/article/details/81152055><br/>
+
+具体做法是：给出要筛数值的范围n，找出n以内的素数p1，p2，p3，......，pk。先用2去筛，即把2留下，把2的倍数剔除掉；再用下一个素数，也就是3筛，把3留下，把3的倍数剔除掉；接下去用下一个素数5筛，把5留下，把5的倍数剔除掉；不断重复下去......。<br/>
+因为希腊人是把数写在涂腊的板上，每要划去一个数，就在上面记以小点，寻求质数的工作完毕后，这许多小点就像一个筛子，所以就把埃拉托斯特尼的方法叫做“埃拉托斯特尼筛法”，简称“筛法”。<br/>
+
+核心思想：找到每个素数把素数的倍数一个个剔除<br/>
+
+code:
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=2e6+10;
+    const int INF=0x3f3f3f3f;
+    bool a[maxn];
+    bool b[maxn];
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    mem(a,true);
+    int n;
+    cin>>n;
+    //初始版本
+    for(int i=2;i<=sqrt(n);i++)
+    {
+        if(a[i])
+        {
+            for(int j=2;j*i<=n;j++)
+            {
+                a[i*j]=false;
+            }
+        }
+    }
+    //升级版本
+    for(int i=2;i<=sqrt(n);i++)
+    {
+        if(b[i])
+        {
+            for(int j=i*i;j<=n;j+=i)
+            {
+                b[j]=false;
+            }
+        }
+    }
+    //输出
+    fro(i,2,n+1)
+    {
+        if(a[i])
+            printf(i<n+1?"%d ":"%d\n",i);
+    }
+    }
