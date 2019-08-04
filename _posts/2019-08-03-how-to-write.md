@@ -151,7 +151,55 @@ NO
     }
     }
 
+### Fibonacci Again
+题目链接：<https://vjudge.net/contest/316455#problem/K><br/>
+Problem Description
+There are another kind of Fibonacci numbers: F(0) = 7, F(1) = 11, F(n) = F(n-1) + F(n-2) (n>=2).
+ 
 
+Input
+Input consists of a sequence of lines, each containing an integer n. (n < 1,000,000).
+ 
+
+Output
+Print the word "yes" if 3 divide evenly into F(n).
+
+Print the word "no" if not.
+ 
+
+Sample Input
+0 1 2 3 4 5
+ 
+
+Sample Output
+no no yes no no no
+
+题目大意：斐波那契数列我们很熟悉了，今天这道题也是，给出数组下标，叫你判断该数组下标对应的数是否能被3整除。<br/>
+斐波那契数列到大概数组下标为44的时候连long long 都会溢出，更不用说1000000了，所以这也是一道规律题，先写一个暴力判断前面能被3整除的数的规律，进而得出答案，这里的规律是，小标除余4等于2的则为答案。（我空想了好久ORZ）<br/>
+
+代码：
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=2e6+10;
+    ll a[maxn];
+    int main()
+    {
+    int n;
+    while(cin>>n)
+    {
+        if(n%4==2)
+            cout<<"yes"<<endl;
+        else
+            cout<<"no"<<endl;
+    }
+    }
 
 
 
