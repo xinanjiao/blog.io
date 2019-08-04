@@ -201,6 +201,22 @@ no no yes no no no
     }
     }
 
+### Vladik and fractions  CodeForces - 743C
+题目链接:<https://vjudge.net/contest/313334#problem/A><br/>
+题目大意：输入一个数n，叫你根据给出的式子2/n=1/x+1/y+1/z来确定x,y,z的值，答案不唯一.<br/>
+第一眼看到这个题懵了一下，想到了暴力，但暴力没有上界，只说了x,y,z的数据范围1e9，不可能循环模拟，所以是一道数学+规律+构造题，我想了很久。。。。太菜了，别人十几分钟搞定的题，我想了一个多小时，还没有想出来，还是大佬讲的。。。，长知识了。<br/>
+实际上上面个式子变形为2/n=1/n+1/(1+n)+1/(nx(n+1))刚好成立，所以代码也很简单<br/>
+
+    #include<bits/stdc++.h>
+    using namespace std;
+    int main()
+    {
+    int n;
+    scanf("%d",&n);
+    if(n==1) puts("-1");
+    else printf("%d %d %d\n",n,n+1,n*(n+1));
+    return 0;
+    }
 
 
 
