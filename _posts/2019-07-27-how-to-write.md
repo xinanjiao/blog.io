@@ -9,9 +9,8 @@ description: 语言
 
 ### DFS与BFS
 
-1. 迷宫问题：（路径打印）<br/>
+1. 迷宫问题：（路径打印）
 题目链接：<https://vjudge.net/contest/314142#problem/A><br>
-}
 
 code:
 
@@ -60,7 +59,7 @@ code:
     }
     }
 
-2. 棋盘问题:（简单版8皇后问题）<br/>
+2. 棋盘问题:（简单版8皇后问题）
 题目链接:<https://vjudge.net/contest/314142#problem/B><br/>
 
 code:
@@ -109,7 +108,7 @@ code:
     }
     }
 
-3. 哈密顿绕行世界问题（DFS）<br>
+3. 哈密顿绕行世界问题（DFS）
 题目链接：<https://vjudge.net/contest/314142#problem/C><br/>
 
 code:
