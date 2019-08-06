@@ -74,9 +74,49 @@ code
     ll bb=b/y;
     cout<<min(aa,bb)<<endl;
     }
-    
+
 3. K - Medians and Partition（技巧，也是不要模拟！！！)<br/>
 题目链接:<https://vjudge.net/contest/313317#problem/K><br/>
+题目大意：输入两个整数m,n。m表示数组中有m个数，求该数组能分为几个子数组，该每个子数组满足中位数大于等于n,模拟了半天，最后还是错的，实际上只要找到数组中大于n的个数减去小于n的个数就行了<br/>
+
+code
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const int maxn=5e4+10;
+    const int INF=0x3f3f3f3f;
+    int a[maxn];
+    int suba[maxn];
+    int m;
+    int main()
+    {
+    int n;
+    cin>>n>>m;
+        mem(suba,0);
+        mem(a,0);
+    int counta=0;
+    int countb=0;
+    int sum=0;
+    fro(i,0,n)
+    {
+        cin>>a[i];
+    }
+    fro(i,0,n)
+    {
+        if(a[i]>=m)
+            counta++;
+        else
+            countb++;
+    }
+    if(counta-countb>=1)
+        sum=counta-countb;
+    cout<<sum<<endl;
+    }
+    
 4. H - Theater Square （这道题虽然也是技巧，但读懂题也很难，长一波记性)<br>
 题目链接:<https://vjudge.net/contest/313317#problem/H><br/>
 5. D - Strange fuction （C3题，二分找答案，范围注意1e-6）<br/>
