@@ -13,8 +13,68 @@ C3是贪心和二分，二分得好好学学，贪心简单的简单，也得好
 ### 题（代码后补）
 1. I - Heist (很简单，但还是长个记性叭)<br/>
 题目链接:<https://vjudge.net/contest/313317#problem/I><br/>
+题目大意：一个歹徒抢劫，他只会按照编号抢，输入剩下没有被抢的店标号，输出他抢了几个店<br/>
+
+code 
+ 
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const int maxn=1e9+10;
+    const int INF=0x3f3f3f3f;
+    int a[1001];
+    int main()
+    {
+    int n;
+    cin>>n;
+    fro(i,0,n)
+    {
+        cin>>a[i];
+    }
+    sort(a,a+n);
+    int sum=a[n-1]-a[0]+1;
+    cout<<sum-n<<endl;
+    }
+
 2. J - Buying a TV Set （技巧，不要暴力）<br/>
 题目链接:<https://vjudge.net/contest/313317#problem/J><br/>
+题目大意：输入整数a,b,c,d。c和d是要买电视的尺寸，如c/d，问在a到b的数中满足c/d的尺寸有多少个。此题暴力必超时，技巧就是，a/c和b/d比较当中最小的一个就行！！<br/>
+
+code 
+  
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const int maxn=1e9+10;
+    ll gcd(ll a,ll b)
+    {
+    return b?gcd(b,a%b):a;
+    }
+    int main()
+    {
+    ll a,b;
+    ll x,y;
+    cin>>a>>b>>x>>y;
+    ll gg;
+    if(x<y)
+    {
+        gg=gcd(y,x);
+    }
+    else
+        gg=gcd(x,y);
+    x/=gg;y/=gg;
+    //cout<<x<<" "<<y<<endl;
+    ll aa=a/x;
+    ll bb=b/y;
+    cout<<min(aa,bb)<<endl;
+    }
+    
 3. K - Medians and Partition（技巧，也是不要模拟！！！)<br/>
 题目链接:<https://vjudge.net/contest/313317#problem/K><br/>
 4. H - Theater Square （这道题虽然也是技巧，但读懂题也很难，长一波记性)<br>
