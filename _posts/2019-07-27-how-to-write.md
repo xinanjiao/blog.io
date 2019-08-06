@@ -12,53 +12,6 @@ description: 语言
 1. 迷宫问题：（路径打印）
 题目链接：<https://vjudge.net/contest/314142#problem/A>
 
-code:
-
-    using namespace std;
-    typedef pair<int,int> P;
-    const int inf=0x3f3f3f;
-    int maze[5][5];
-    vector<P> a;
-    int book[5][5];
-    int dir[4][2]={{1,0},{0,1},{-1,0},{0,-1}};
-    bool dfs(int m,int n)
-    {
-    if(m==4&&n==4)
-        return true;
-    fro(i,0,4)
-    {
-        int nm=m+dir[i][0];
-        int nn=n+dir[i][1];
-        if(nm>=0&&nm<5&&nn>=0&&nn<5&&book[nm][nn]==0&&maze[nm][nn]==0)
-        {
-            book[nm][nn]=1;
-            if(dfs(nm,nn))//直接判断是否可以到终点
-            {
-            P s(nm,nn);
-            a.push_back(s);
-            return true;
-            }
-        }
-    }
-    return false;
-    }
-    int main()
-    {
-    ios::sync_with_stdio(false);
-    fro(i,0,5)
-     fro(j,0,5)
-      cin>>maze[i][j];
-      mem(book,0);
-      book[0][0]=1;
-      P s(0,0);
-    dfs(0,0);
-    a.push_back(s);
-    pre(i,0,a.size())
-    {
-        cout<<"("<<a[i].first<<", "<<a[i].second<<")"<<endl;
-    }
-    }
-
 2. 棋盘问题:（简单版8皇后问题）
 题目链接:<https://vjudge.net/contest/314142#problem/B><br/>
 
