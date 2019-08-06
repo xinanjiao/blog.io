@@ -162,6 +162,7 @@ code:
     }
 4. Ignatius and the Princess III（整数划分）<br/>
 题目链接：<http://acm.hdu.edu.cn/showproblem.php?pid=1028><br/>
+dp各种状态转移方程归类:<https://blog.csdn.net/sun897949163/article/details/49559679><br/>
 此类问题归类详解：<https://www.cnblogs.com/xiaoxian1369/archive/2011/09/12/2174212.html><br/>
 题意：把一个整数划分为可相同的正整数有多少种分发<br>
 1.将n划分成不大于m的划分法： 
