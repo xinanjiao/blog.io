@@ -193,7 +193,74 @@ code
 题目链接：<https://vjudge.net/problem/POJ-3111><br/>
 这道题时均分值问题的升级版，均分问题只叫输出均分的最大数值，而这是问你选哪几个编号，这就要开结构体储存标号<br/>
 
+code
 
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const int maxn=5e5+10;
+    const int INF=0x3f3f3f3f;
+    struct node
+    {
+    int v,w,id;
+    double y;
+    }a[maxn];
+    int w[maxn],v[maxn];
+    double cur[maxn];
+    int m,n;
+    bool cmp(node a,node b)
+    {
+    return a.y>b.y;
+    }
+    bool cheack(double aa)
+    {
+    fro(i,0,m)
+    {
+        a[i].y=a[i].v-a[i].w*aa;//因为是平均值，所以看每个
+        //乘以平均值后的数值
+    }
+    sort(a,a+m,cmp);
+    double sum=0;
+    fro(i,0,n)//贪心选最大
+    {
+        sum+=a[i].y;
+    }
+    return sum>=0;//sum大于零说明平均值小了
+    }
+    int main()
+    {
+    cin>>m>>n;
+    double maxd=0;
+    fro(i,0,m)
+    {
+        cin>>a[i].v>>a[i].w;
+        a[i].id=i+1;
+        maxd=max(maxd,(double)a[i].v/a[i].w);
+    }
+    double rightd=maxd;
+    double leftd=0;
+    while(rightd-leftd>1e-6)//二分
+    {
+        double mid=(rightd+leftd)/2;
+        if(cheack(mid))
+            leftd=mid;
+        else
+            rightd=mid;
+    }
+    //cout<<leftd<<endl;
+    fro(i,0,n)
+    {
+        if(i==0)
+            cout<<a[i].id;
+        else
+            cout<<" "<<a[i].id;
+    }
+    cout<<endl;
+    }
+    
 ### Strange fuction (HDU 2899)
 题目链接：<https://vjudge.net/problem/HDU-2899><br/>
 给你一个计算公式，求他当x为1到100时的最大值，由数学公式知道，它是递增函数，就二分1到100，求导，二分+贪心,注意二分跳出条件1e-6<br/>
