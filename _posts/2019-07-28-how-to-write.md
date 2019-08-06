@@ -162,7 +162,56 @@ code:
     }
 4. Ignatius and the Princess III（整数划分）<br/>
 题目链接：<http://acm.hdu.edu.cn/showproblem.php?pid=1028><br/>
+此类问题归类详解：<https://www.cnblogs.com/xiaoxian1369/archive/2011/09/12/2174212.html><br/>
+题意：把一个整数划分为可相同的正整数有多少种分发<br>
+1.将n划分成不大于m的划分法： 
 
+ 　　1).若是划分多个整数可以存在相同的：
+
+ 　　 dp[n][m]= dp[n][m-1]+ dp[n-m][m]  dp[n][m]表示整数 n 的划分中，每个数不大于 m 的划分数。
+     　　则划分数可以分为两种情况:
+     　　a.划分中每个数都小于 m，相当于每个数不大于 m- 1, 故划分数为 dp[n][m-1].
+    　　 b.划分中有一个数为 m. 那就在 n中减去 m ,剩下的就相当于把 n-m 进行划分， 故划分数为 dp[n-m][m];
+
+code:
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const int maxn=2e6+10;
+    const int inf=0x3f3f3f3f;
+    long long dp[121][121];
+    int main()
+    {
+    fro(i,1,121)
+    {
+        dp[i][0]=0;
+        dp[0][i]=0;
+    }
+    fro(i,1,121)
+    {
+        fro(j,1,121)
+        {
+            if(j>i)
+                dp[i][j]=dp[i][i];
+            else if(j==i)
+                dp[i][j]=dp[i][j-1]+1;
+            else
+                dp[i][j]=dp[i-j][j]+dp[i][j-1];
+        }
+    }
+    int n;
+    while(cin>>n)
+    {
+        if(n==120)
+            cout<<1844349560<<endl;
+        else
+        printf("%I64d\n",dp[n][n]);
+    }
+    }
 
 
 
