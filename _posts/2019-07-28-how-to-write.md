@@ -55,6 +55,65 @@ code
     }
 2. 数塔 <br/>
 题目链接：<https://vjudge.net/contest/315044#problem/A><br/>
+dp运用，记录原来的最小数据，最优子结构
+
+code:
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    #define pi 3.1415926
+    typedef pair<int,int> P;
+    const int maxn=1e7+10;
+    const int inf=0x3f3f3f3f;
+    int main()
+    {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+       int n;
+       cin>>n;
+       int a[101][101];
+       int dp[101][101];
+       mem(a,0);mem(dp,0);
+       int temp=1,ac;
+       fro(i,0,n)
+       {
+           fro(j,0,temp)
+           {
+               cin>>a[i][j];
+           }
+           temp++;
+       }
+       dp[0][0]=a[0][0];
+       fro(i,0,n)
+       {
+           fro(j,0,n)
+           {
+               if(j==0&&i!=0)
+               {
+                   dp[i][j]=dp[i-1][j]+a[i][j];
+               }
+              else if(i==j&&i&&j)
+               {
+                   dp[i][j]=a[i][j]+dp[i-1][j-1];
+               }
+               else if(i>0&&j>0&&i!=j)
+                   dp[i][j]=max(dp[i-1][j-1]+a[i][j],dp[i-1][j]+a[i][j]);
+           }
+       }
+       int max1=0;
+       fro(j,0,n)
+       {
+           max1=max(max1,dp[n-1][j]);
+           //cout<<dp[3][j]<<" ";
+       }
+       cout<<max1<<endl;
+    }
+    }
 3. 最少拦截系统 :(最长上升子序列)<br/>
 题目链接:<https://vjudge.net/contest/315044#problem/F><br/>
 4. Ignatius and the Princess III（整数划分）<br/>
