@@ -137,7 +137,57 @@ code
 ### Cable master(POJ 1064)
 题目链接:<https://vjudge.net/problem/POJ-1064><br/>
 注意输出时的floor()函数，为向下取整函数，目的时因为题目有限制，一根木棒最多切100次<br/>
+贪心加二分<br/>
 
+code
+
+    typedef pair<int,int> P;
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=5e4+10;
+    const int INF=0x3f3f3f3f;
+    int n,m;
+    double a[maxn];
+    bool cheack(double s)
+    {
+    if(s==0)
+        return false;
+    else
+        {
+           int temp=0;
+    fro(i,0,m)
+    {
+        temp+=(int)(a[i]/s);
+    }
+    if(temp<n)
+        return true;
+    else
+        return false;
+        }
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    cin>>m>>n;
+    double maxd=0.0;
+    fro(i,0,m)
+    {
+        cin>>a[i];
+        maxd=max(maxd,a[i]);
+    }
+    double lefta=0.0;
+    double righta=maxd;
+    while(righta-lefta>=EPS)
+    {
+        double mid=(righta+lefta)/2;
+        if(cheack(mid))
+            righta=mid;
+        else
+            lefta=mid;
+    }
+    printf("%.2lf\n",floor(righta*100)/100);//floor向下取整
+    //ceil()向上取整函数
+    }
 
 ### K Best （POJ 3111）
 题目链接：<https://vjudge.net/problem/POJ-3111><br/>
