@@ -66,6 +66,72 @@ code
 ### Pie（POJ 3122)
 题目链接:<https://vjudge.net/problem/POJ-3122><br/>
 把蛋糕最多均分给m+1个人，问最大的分法，但是注意只能同一个蛋糕分，不能不同蛋糕凑成一个体积<br/>
+题目大意：我有N个不同口味、不同大小的派。<br/>
+
+有F个朋友会来参加我的派对，每个人会拿到一块派（不能由几个派的小块拼成；可以是一整个派）。<br/>
+所有人拿到的派必须是同样大小的（但不需要是同样形状的）。<br/>
+当然，我也要给自己留一块，而这一块也要和其他人的同样大小。<br/>
+每个派都是一个高为1，半径不等的圆柱体。<br/>
+请问我们每个人拿到的派最大是多少？<br/>
+
+题目思路：找到最大的蛋糕体积，开始二分查找答案，因为要么蛋糕不能凑成一个体积，只能一个分，所以贪心时只对每个贪心除就行<br/>
+
+code
+   
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-4;
+    const int maxn=5e4+10;
+    const int INF=0x3f3f3f3f;
+    double r[maxn];
+    int m,n;
+    bool cheack(double a)
+    {
+    int temp=0;
+    fro(i,0,m)
+    {
+        temp+=(int)(r[i]/a);
+    }
+    if(temp<n)
+        return true;
+    else
+        return false;
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        cin>>m>>n;
+        n+=1;
+        fro(i,0,m)
+         cin>>r[i];
+        double maxd=0.0;
+        fro(i,0,m)
+        {
+            r[i]=PI*r[i]*r[i];
+            maxd=max(maxd,r[i]);
+        }
+        double lefts=0;
+        double rights=maxd;
+        while(rights-lefts>=EPS)
+        {
+            double mid=(rights+lefts)/2;
+            if(cheack(mid))
+                rights=mid;
+            else
+                lefts=mid;
+        }
+        printf("%.4lf\n",lefts);
+    }
+    }
 
 
 ### Cable master(POJ 1064)
