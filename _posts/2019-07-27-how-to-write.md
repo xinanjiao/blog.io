@@ -10,7 +10,7 @@ description: 语言
 ### DFS与BFS
 
 1. 迷宫问题：（路径打印）
-题目链接：<https://vjudge.net/contest/314142#problem/A><br>
+题目链接：<https://vjudge.net/contest/314142#problem/A>
 
 code:
 
