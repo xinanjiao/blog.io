@@ -11,6 +11,7 @@ description: 语言
 
 1. 迷宫问题：（路径打印）<br/>
 题目链接：<https://vjudge.net/contest/314142#problem/A><br>
+}
 
 code:
 
