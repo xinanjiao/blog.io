@@ -15,10 +15,6 @@ description: 语言
 code:
 
     using namespace std;
-    #define ll long long int
-    #define fro(i,a,n) for(ll i=a;i<n;i++)
-    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
-    #define mem(a,b) memset(a,b,sizeof(a))
     typedef pair<int,int> P;
     const int inf=0x3f3f3f;
     int maze[5][5];
@@ -69,10 +65,6 @@ code:
 code:
 
     using namespace std;
-    #define ll long long int
-    #define fro(i,a,n) for(ll i=a;i<n;i++)
-    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
-    #define mem(a,b) memset(a,b,sizeof(a))
     typedef pair<int,int> P;
     const int maxn=1e5+10;
     const int inf=0x3f3f3f;
@@ -122,10 +114,6 @@ code:
 code:
 
     using namespace std;
-    #define ll long long int
-    #define fro(i,a,n) for(ll i=a;i<n;i++)
-    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
-    #define mem(a,b) memset(a,b,sizeof(a))
     typedef pair<int,int> P;
     const int maxn=1e5+10;
     const int inf=0x3f3f3f;
@@ -195,10 +183,6 @@ code:
 code
 
     using namespace std;
-    #define ll long long int
-    #define fro(i,a,n) for(ll i=a;i<n;i++)
-    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
-    #define mem(a,b) memset(a,b,sizeof(a))
     typedef pair<int,int> P;
     const int maxn=1e6+10;
     const int inf=0x3f3f3f;
