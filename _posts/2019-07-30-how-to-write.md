@@ -116,11 +116,52 @@ code
         sum=counta-countb;
     cout<<sum<<endl;
     }
-    
+
 4. H - Theater Square （这道题虽然也是技巧，但读懂题也很难，长一波记性)<br>
 题目链接:<https://vjudge.net/contest/313317#problem/H><br/>
 5. D - Strange fuction （C3题，二分找答案，范围注意1e-6）<br/>
 题目链接:<https://vjudge.net/contest/313332#problem/D><br>
+题目大意：Now, here is a fuction: 
+  F(x) = 6 * x^7+8*x^6+7*x^3+5*x^2-y*x (0 <= x <=100) 
+Can you find the minimum value when x is between 0 and 100.<br/>
+贪心+二分模板可套用！！！<br/>
+
+code
+  
+    typedef pair<int,int> P;
+    const double EPS=1e-6;
+    const int maxn=5e4+10;
+    const int INF=0x3f3f3f3f;
+    double y;
+    double reslut(double x,double y)
+    {
+    return 6*pow(x,7)+8*pow(x,6)+7*pow(x,3)+5*pow(x,2)-y*x;
+    }
+    double daohan(double x,double y)
+    {
+    return 42*pow(x,6)+48*pow(x,5)+21*pow(x,2)+10*x-y;
+    }
+    int main()
+    {
+    int t;
+    cin>>t;
+    double mid;
+    while(t--)
+    {
+        cin>>y;
+        double lefta=0.0;
+        double righta=100.0;
+        while(righta-lefta>=EPS)//二分
+        {
+             mid=(righta+lefta)/2;
+            if(daohan(mid,y)>0)
+               righta=mid;
+            else
+               lefta=mid;
+        }
+        printf("%.4lf\n",reslut(mid,y));
+    }
+    }
 
 
 
