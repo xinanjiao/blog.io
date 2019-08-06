@@ -17,6 +17,65 @@ description: 语言
 1. 最长上升子序列（LIS)<br>
 题目：个人赛C2 array array array<br>
 题目链接:<https://vjudge.net/contest/313304#problem/B><br/>
+思路：分别求两次最长上升子序列，分别是正序和逆序，找到最小的序列数和数组长度减去移动次数比较，这里的最初上升子序列为优化过的方法，里面的lower_pound()为二分查找不大于一个数在数组中的位置，复杂度减少为n乘以logn<br/>
+
+code：
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const int maxn=1e5+10;
+    const int INF=0x3f3f3f3f;
+    int a[maxn],dp[maxn];
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,k;
+        cin>>n>>k;
+        fro(i,0,n)
+        cin>>a[i];
+        int ans=0;
+        int temp=0;
+        //dp[0]=a[0];
+        mem(dp,0);
+        fro(i,0,n)
+        {
+            int p=upper_bound(dp,dp+temp,a[i])-dp;//二分法求dp[i]>=a[i]
+            if(p==temp)
+            {
+                dp[temp++]=a[i];
+                ans=max(ans,temp);
+            }
+            else
+                dp[p]=a[i];
+        }
+        temp=0;
+        mem(dp,0);
+        pre(i,n-1,0)
+        {
+            int p=upper_bound(dp,dp+temp,a[i])-dp;
+            if(p==temp)
+            {
+                dp[temp++]=a[i];
+                ans=max(ans,temp);
+            }
+            else
+                dp[p]=a[i];
+        }
+        if(n-k>ans)
+            cout<<"A is not a magic array."<<endl;
+        else
+            cout<<"A is a magic array."<<endl;
+    }
+    }
+   
 2. 最长重复子序列（LCS)
 3. B组B题B - Blocking Buffer 规律题<br/>
 题目链接:<https://vjudge.net/contest/313274#problem/B><br/>
