@@ -12,8 +12,56 @@ description: 语言
 ## 贪心+二分（代码后补）
 ### Aggressive cows （POJ 2456）
 题目链接：<https://vjudge.net/problem/POJ-2456><br/>
-枚举答案，在贪心寻找<br/>
+题目大意：农夫为了防止牛打架，决定把每头牛分开放在离其他牛尽可能远的位置，求最大的最小距离。类似最大化最小值或者最小值最大化问题，通常用二分搜索就可以很好解决，再加上贪心搜索就可以了<br/>
+枚举答案，在贪心寻找，简单区间枚举<br/>
 
+code
+ 
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const int maxn=5e5+10;
+    const int INF=0x3f3f3f3f;
+    int m,n;
+    int a[maxn];
+    int cheack(int temp)//贪心寻找
+    {
+    int count1=1;
+    int p=a[0];
+    fro(i,0,m)
+    {
+        if(a[i]-p>=temp)
+            {
+                count1++;
+                p=a[i];
+            }
+    }
+    return count1;
+    }
+    int main()
+    {
+    cin>>m>>n;
+    fro(i,0,m)
+    cin>>a[i];
+    sort(a,a+m);
+    int lefta=0;
+    int righta=a[m-1];
+    while(lefta<=righta)//区间枚举
+    {
+        //cout<<1<<endl;
+        int mid=(lefta+righta)/2;
+        if(cheack(mid)<n)
+        {
+            righta=mid-1;
+        }
+        else
+            lefta=mid+1;
+    }
+    cout<<lefta-1<<endl;
+    }
 
 ### Pie（POJ 3122)
 题目链接:<https://vjudge.net/problem/POJ-3122><br/>
