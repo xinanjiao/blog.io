@@ -62,6 +62,7 @@ code:
         cout<<"("<<a[i].first<<", "<<a[i].second<<")"<<endl;
     }
     }
+
 2. 棋盘问题:（简单版8皇后问题）<br/>
 题目链接:<https://vjudge.net/contest/314142#problem/B><br/>
 
@@ -114,6 +115,7 @@ code:
     cout<<count1<<endl;
     }
     }
+
 3. 哈密顿绕行世界问题（DFS）<br>
 题目链接：<https://vjudge.net/contest/314142#problem/C><br/>
 
@@ -185,6 +187,8 @@ code:
        dfs(mm,0);
     }
     }
+
+
 4. 火柴棒等式(暴力求解)<br>
 题目链接:<https://vjudge.net/contest/314142#problem/D><br>
 
