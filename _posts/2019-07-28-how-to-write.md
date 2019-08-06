@@ -53,6 +53,7 @@ code
         cout<<dp[m][sum]<<endl;
     }
     }
+  
 2. 数塔 <br/>
 题目链接：<https://vjudge.net/contest/315044#problem/A><br/>
 dp运用，记录原来的最小数据，最优子结构
@@ -114,6 +115,7 @@ code:
        cout<<max1<<endl;
     }
     }
+
 3. 最少拦截系统 :(最长上升子序列)<br/>
 题目链接:<https://vjudge.net/contest/315044#problem/F><br/>
 
@@ -160,6 +162,7 @@ code:
     cout<<ans<<endl;
     }
     }
+
 4. Ignatius and the Princess III（整数划分）<br/>
 题目链接：<http://acm.hdu.edu.cn/showproblem.php?pid=1028><br/>
 dp各种状态转移方程归类:<https://blog.csdn.net/sun897949163/article/details/49559679><br/>
