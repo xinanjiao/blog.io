@@ -116,6 +116,50 @@ code:
     }
 3. 最少拦截系统 :(最长上升子序列)<br/>
 题目链接:<https://vjudge.net/contest/315044#problem/F><br/>
+
+code:
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const int maxn=1e5+10;
+    const int inf=0x3f3f3f3f;
+    ll gcd(ll a,ll b)
+    {
+    return b?gcd(b,a%b):a;
+    }
+    int main()
+    {
+    int n;
+    while(cin>>n)
+    {
+      int a[maxn];
+      int dp[maxn];
+      mem(dp,1);
+      fro(i,0,n)
+        {
+            cin>>a[i];
+            dp[i]=1;
+        }
+      fro(i,0,n)
+      {
+          fro(j,0,i)
+          {
+              if(a[i]>a[j])
+                dp[i]=max(dp[i],dp[j]+1);//dp运用
+          }
+      }
+    int ans=0;
+    fro(i,0,n)
+    {
+        ans=max(ans,dp[i]);
+    }
+    cout<<ans<<endl;
+    }
+    }
 4. Ignatius and the Princess III（整数划分）<br/>
 题目链接：<http://acm.hdu.edu.cn/showproblem.php?pid=1028><br/>
 
