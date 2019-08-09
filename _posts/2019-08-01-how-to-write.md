@@ -103,6 +103,51 @@ code :
 题目链接：<https://vjudge.net/contest/315591#problem/B><br/>
 huffuman原理，哈夫曼树是构造最优二叉树的方法，在离散数学中有所提及，这道题就用了这个思想，每次选最小的两个，怎么实现，就用优先队列<br/>
 
+code :
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=5e4+10;
+    const int INF=0x3f3f3f3f;
+    struct cmp
+    {
+    bool operator()(const ll a,const ll b)const
+    {
+        return a>b;
+    }
+    };//排序与sort规则相反，注意是重载括号运算符
+    int main()
+    {
+    priority_queue<ll,vector<ll>,cmp> s;//优先队列
+    int m;
+    cin>>m;
+    fro(i,0,m)
+    {
+       int a;
+       cin>>a;
+       s.push(a);
+       //ss.push_back(a);
+    }
+    ll sum=0;
+    while(s.size()>1)
+    {
+       int a1=s.top();
+       s.pop();
+       int a2=s.top();
+       s.pop();
+       int a3=a1+a2;
+       s.push(a3);
+       sum+=a3;
+    }
+    cout<<sum<<endl;
+    }
+
 ### F - 湫湫系列故事——消灭兔子 
 题目链接：<https://vjudge.net/contest/315591#problem/F><br/>
 优先队列+贪心，排好兔子血量，箭的威力，从大到小，一个个遍历兔子，一旦有箭的威力大于兔子的血量，加入优先队列，每遍历一次，出一次队列（巧妙之处）<br/>
