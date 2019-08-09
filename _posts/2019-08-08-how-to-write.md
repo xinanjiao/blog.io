@@ -184,3 +184,82 @@ code
             cout<<n-ans<<endl;
     }
     }
+
+## 多重背包
+问法：<br/>
+有N种物品和一个容量为V的背包。第i种物品最多有n[i]件可用，每件费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使这些物品的费用总和不超过背包容量，且价值总和最大。<br/>
+这种问题多出现与多重部分和问题中，问题大意是，n个数有不同的个数限制，问有多少种情况或者能不能组成K这个数<br/>
+
+dp一维模板：
+
+    for(int i=0;i<n;i++)
+    {
+    	for(int j=0;j<=k;j++)
+    	{
+    		if(dp[j]>=0)
+    		dp[j]=m[i];
+    		else if(j<a[i]||dp[j-a[i]]<=0)
+            dp[j]=-1;
+            else
+            dp[j]=dp[j-a[i]]-1; 
+    	}
+    }
+
+题目实战:<br/>
+
+### Coins 
+题目链接:<https://vjudge.net/contest/315044#problem/E><br/>
+问题描述和多重组合数问题差不多，所以我不在重复，这里就模板改一一部分代码即可<br/>
+
+code
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=5e5+1;
+    const int INF=0x3f3f3f3f;
+    int dp[maxn];
+    int a[maxn],b[maxn];
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int m,n;
+    while(cin>>m>>n)
+    {
+        if(!m&&!n)
+            break;
+        fro(i,0,m)
+        {
+            cin>>a[i];
+        }
+        fro(j,0,m)
+        {
+            cin>>b[j];
+        }
+        mem(dp,-1);
+        dp[0]=0;
+        fro(i,0,m)
+        {
+            fro(j,0,n+1)
+            {
+                if(dp[j]>=0)
+                    dp[j]=b[i];
+                else if(j<a[i]||dp[j-a[i]]<0)
+                    dp[j]=-1;
+                else
+                    dp[j]=dp[j-a[i]]-1;
+            }
+        }
+        int sum=0;
+        fro(i,1,n+1)//统计个数
+        if(dp[i]>=0)
+            sum++;
+        cout<<sum<<endl;
+    }
+    return 0;
+    }
