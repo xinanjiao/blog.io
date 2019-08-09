@@ -152,6 +152,84 @@ code :
 题目链接：<https://vjudge.net/contest/315591#problem/F><br/>
 优先队列+贪心，排好兔子血量，箭的威力，从大到小，一个个遍历兔子，一旦有箭的威力大于兔子的血量，加入优先队列，每遍历一次，出一次队列（巧妙之处）<br/>
 
+code 
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=5e5+10;
+    const int INF=0x3f3f3f3f;
+    int rabbit[maxn];
+    struct row
+    {
+    int value;
+    int power;
+    bool operator<(const row &a)const
+    {
+        if(power>a.power)
+            return true;
+        else
+            return false;
+    }
+    }a[maxn];
+    struct cmp
+    {
+    bool operator()(const row a,const row b)const
+    {
+        return a.value>b.value;
+    }
+    };
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int m,n;
+    while(cin>>m>>n)
+    {
+       fro(i,0,m)
+       {
+           cin>>rabbit[i];
+       }
+       fro(i,0,n)
+       {
+           cin>>a[i].power;
+       }
+       fro(i,0,n)
+       cin>>a[i].value;
+       sort(rabbit,rabbit+m,greater<int>());
+       sort(a,a+n);
+       priority_queue<row,vector<row>,cmp > s;
+       int temp=0;
+       int cur=0;
+       ll ans=0;
+       bool ok=false;
+       fro(i,0,m)
+       {
+           while(temp<n&&a[temp].power>=rabbit[i])
+           {
+               s.push(a[temp]);
+               temp++;
+           }
+           if(s.empty())
+           {
+               ok=true;
+               break;
+           }
+           row money=s.top();
+           s.pop();
+           ans+=money.value;
+       }
+       if(ok)
+        cout<<"No"<<endl;
+       else
+       cout<<ans<<endl;
+    }
+    }
+
 ### Commando War
 题目链接:<https://vjudge.net/contest/315591#problem/D><br/>
 求最小花费的时间，不用去模拟每次时间的减少，直接贪心最大，一个个比较<br/>
