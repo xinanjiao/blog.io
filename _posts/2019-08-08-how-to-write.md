@@ -123,3 +123,64 @@ code:
     }
 
 ### 完全背包升级版  FATE 
+题目大意:<br/>
+最近xhd正在玩一款叫做FATE的游戏，为了得到极品装备，xhd在不停的杀怪做任务。久而久之xhd开始对杀怪产生的厌恶感，但又不得不通过杀怪来升完这最后一级。现在的问题是，xhd升掉最后一级还需n的经验值，xhd还留有m的忍耐度，每杀一个怪xhd会得到相应的经验，并减掉相应的忍耐度。当忍耐度降到0或者0以下时，xhd就不会玩这游戏。xhd还说了他最多只杀s只怪。请问他能升掉这最后一级吗？<br/>
+input<br/>
+输入数据有多组，对于每组数据第一行输入n，m，k，s(0 < n,m,k,s < 100)四个正整数。分别表示还需的经验值，保留的忍耐度，怪的种数和最多的杀怪数。接下来输入k行数据。每行数据输入两个正整数a，b(0 < a,b < 20)；分别表示杀掉一只这种怪xhd会得到的经验值和会减掉的忍耐度。(每种怪都有无数个)<br/>
+output:<br/>
+输出升完这级还能保留的最大忍耐度，如果无法升完这级输出-1<br/>
+
+思路：第一眼是完全背包，但是有忍耐度，和杀怪次数的限制，第一次做，我以经验值为背包，看满足经验值这个背包的最小忍耐度，我觉得是可行的，但是那个杀敌次数不好统计，看了下网上题解，引出概念二维背包，以忍耐度为背包，得出最大经验值，套用上述一维模板，因为多了杀敌次数限制，所以又多了一维，所以此题用多维背包解，也可套用二维模板，那么再加一维就是三维背包了，以此类推....<br/>
+
+多维背包模板加详解:<https://blog.csdn.net/sinat_26019265/article/details/51474371><br/>
+
+code 
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=1e2+10;
+    const int INF=0x3f3f3f3f;
+    int dp[maxn][maxn];
+    int v[maxn];
+    int w[maxn];
+    int main()
+    {
+    int m,n,k,s;
+    while(cin>>m>>n>>k>>s)
+    {//忍耐值为背包
+        int sum=0;
+        mem(dp,0);
+        mem(v,0);
+        mem(w,0);
+        dp[0][0]=0;
+        fro(i,0,k)
+        {
+            cin>>w[i]>>v[i];
+        }
+        int ans=10000;
+        fro(i,0,k)
+        {
+            for(int j=v[i];j<=n+1;j++)
+            {
+                fro(u,0,s)//次数限制 多一维
+                {
+                dp[j][u]=max(dp[j][u],dp[j-v[i]][u-1]+w[i]);
+                if(dp[j][u]>=m)
+                {
+                    ans=min(ans,j);//寻找最小的经验值
+                }
+                }
+            }
+        }
+        if(ans>n)
+            cout<<-1<<endl;
+        else
+            cout<<n-ans<<endl;
+    }
+    }
