@@ -70,6 +70,67 @@ code
      }
     }
 
+尺取法又叫做双指针法，所以要找到指针的左边和右边以及确定结束条件。
+
+
+### Kefa and Company （尺取法+前缀和）
+题目链接：<https://vjudge.net/contest/317879#problem/A><br/>
+题目大意：Kefa这个人要去吃饭，他要邀请一些朋友一起去，他的每个朋友有两个属性金钱和关系度，要求邀请的人里边任意两个人之间的金钱差的绝对值不大于d；求被邀请的所有朋友的关系度的和的最大值。<br/>
+思路：将朋友按金钱从小到大排序，然后对关系度用尺取法求得最大值 ，这里要用前缀和来求区间内的关系度的和，不然会TLE。首先要满足区间单调性，此题还是符合的<br/>
+
+我第一次没有写前缀和TLE了，前缀和可以减少复杂度<br/>
+
+code
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=1e5+10;
+    const int INF=0x3f3f3f3f;
+    ll sum[maxn];
+    struct node
+    {
+    int m;
+    int n;
+    }s[maxn];
+    bool cmp(node a,node b)
+    {
+    return a.m<b.m;
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int a,b;
+    cin>>a>>b;
+    fro(i,1,a+1)
+    {
+        cin>>s[i].m>>s[i].n;
+    }
+     sort(s+1,s+a+1,cmp);
+    fro(i,1,a+1)
+    {
+        sum[i]=sum[i-1]+s[i].n;//前缀和
+    }
+    ll ans=-1;
+    int l=1,r=1;
+    while(l<=a&&r<=a)//确定边界条件
+    {
+        if(s[l].m-s[r].m<b)
+        {
+            ans=max(ans,sum[l]-sum[r-1]);
+            l++;//伸展开
+        }
+        else
+            r++;//缩回来
+    }
+    cout<<ans<<endl;
+    }
+
 
 
 
