@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 图解归并排序
-date: 2019-4-22
+date: 2019-8-9
 categories: blog
 tags: [算法,训练,归并排序]
 description: 语言
