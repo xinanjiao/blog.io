@@ -101,6 +101,7 @@ code :
 
 ### B - Fence Repair 
 题目链接：<https://vjudge.net/contest/315591#problem/B><br/>
+网上题解：<https://blog.csdn.net/sinat_19628145/article/details/51105650><br/>
 huffuman原理，哈夫曼树是构造最优二叉树的方法，在离散数学中有所提及，这道题就用了这个思想，每次选最小的两个，怎么实现，就用优先队列<br/>
 
 code :
@@ -150,6 +151,7 @@ code :
 
 ### F - 湫湫系列故事——消灭兔子 
 题目链接：<https://vjudge.net/contest/315591#problem/F><br/>
+网上题解<https://blog.csdn.net/amazing_123/article/details/81196784><br/>
 优先队列+贪心，排好兔子血量，箭的威力，从大到小，一个个遍历兔子，一旦有箭的威力大于兔子的血量，加入优先队列，每遍历一次，出一次队列（巧妙之处）<br/>
 
 code 
@@ -233,9 +235,51 @@ code
 ### Commando War
 题目链接:<https://vjudge.net/contest/315591#problem/D><br/>
 求最小花费的时间，不用去模拟每次时间的减少，直接贪心最大，一个个比较<br/>
+原来想的和复杂，考虑到时间重叠，模拟很麻烦，实际上直接每次去枚举一个区间，每次都选最小的区间就行<br/>
+
+code 
+
+    using namespace std;
+    #define ll long long int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=5e5+10;
+    const int INF=0x3f3f3f3f;
+    int main()
+    {
+    int n;
+    int case1=1;
+    while(cin>>n)
+    {
+        if(n==0)
+            break;
+        P a[1001];
+        //int sumt=0;
+        fro(i,0,n)
+        {
+            cin>>a[i].second>>a[i].first;
+             //sumt+=a[i].second;
+        }
+        sort(a,a+n,greater<P>());
+        int ans=0;
+        int temp=0;
+        fro(i,0,n)
+        {
+            temp+=a[i].second;
+            ans=max(ans,temp+a[i].first);//逐个比较
+        }
+        cout<<"Case "<<case1++<<": "<<ans<<endl;
+     }
+    }
 
 
+### 贪心+二分的体会
 
+链接：<https://blog.csdn.net/yuzhong9208/article/details/78137433><br/>
 
 
 
