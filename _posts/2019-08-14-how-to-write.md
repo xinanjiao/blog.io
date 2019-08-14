@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ACM训练第16天
-date: 2019-4-22
+date: 2019-8-14
 categories: blog
 tags: [算法,训练,数学]
 description: 语言。
