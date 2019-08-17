@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ACM训练第19天
+title: ACM训练第19天(马拉车算法）
 date: 2019-8-17
 categories: blog
 tags: [算法,马拉车算法,训练,kmp]
