@@ -3,7 +3,7 @@ layout: post
 title: ACM训练第18天（kmp)
 date: 2019-8-16
 categories: blog
-tags: [算法,训练,KMP]
+tags: [算法,训练,kmp]
 description: 语言
 ---
 ### 写在前面
