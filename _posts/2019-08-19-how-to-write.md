@@ -12,7 +12,6 @@ description: 语言
 
 ### 今日份get--带权二分图最优匹配
 大佬带你了解二分图：<https://blog.csdn.net/qq_25379821/article/details/83750678><br/>
-随便提醒自己一句，要把上面个链接的内容好好看看，分享到这个博客<br/>
 二分图匈牙利算法:<https://blog.csdn.net/sixdaycoder/article/details/47720471><br/>
 
 ## 题目
@@ -23,6 +22,45 @@ description: 语言
 题目大意：有N头牛，评以N个等级，各不相同，先给出部分牛的等级的高低关系，问最多能确定多少头牛的等级<br/>
 解题思路：一头牛的等级，当且仅当它与其它N-1头牛的关系确定时确定，于是我们可以将牛的等级关系看做一张图，然后进行适当的松弛操作，得到任意两点的关系，再对没一头牛进行检查即可。<br/>
 此题为传递闭包的实现,如果一个点对n-1个点有关系，那么他就是传递的<br/>
+
+    const int maxn=1e5+10;
+    const int INF=0x3f3f3f3f;
+    int test[101][101];
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int m,n;
+    cin>>m>>n;
+    fro(i,0,n)
+    {
+        int a,b;
+        cin>>a>>b;
+        test[a][b]=1;
+    }
+    fro(k,1,m+1)
+      fro(i,1,m+1)
+       fro(j,1,m+1)
+       {
+           if(test[i][k]&&test[k][j])
+            test[i][j]=1;
+       }
+       int sum=0;
+       fro(i,1,m+1)
+         {
+             int cnt=0;
+             fro(j,1,m+1)
+             {
+                 if(i==j)
+                    continue;
+                 if(test[i][j]||test[j][i])
+                    cnt++;
+             }
+             if(cnt==m-1)
+                sum++;
+         }
+         cout<<sum<<endl;
+    return 0;
+    }
 
 ### hud 2063 过山车 二分图最大匹配 模板题
 题目链接：<https://vjudge.net/problem/HDU-2063><br/>
