@@ -107,7 +107,68 @@ diskstra算法模板：<https://blog.csdn.net/u011721440/article/details/1716489
     return 0;
     }
 
+法三：dijkstre算法
 
+    struct edge
+    {
+    int to,cost;
+    edge(int a,int b):to(a),cost(b){}
+    };
+    vector<edge> s[1101];
+    int book[1110];
+    int dis[1101];
+    int m,n;
+    void diskstra(int k)
+    {
+    book[k]=1;
+    fro(i,0,m)
+    {
+        int u;
+        int mina=INF;
+        fro(j,1,m+1)
+        {
+            if(!book[j]&&dis[j]<mina)
+            {
+                mina=dis[j];
+                u=j;
+            }
+        }
+        book[u]=1;
+        fro(i,0,s[u].size())
+        {
+            if(book[s[u][i].to]==0)
+        dis[s[u][i].to]=min(dis[s[u][i].to],dis[u]+s[u][i].cost);
+        }
+    }
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    while(cin>>m>>n)
+    {
+        if(!m&&!n)
+        break;
+        fro(i,0,m)
+        s[i].clear();
+        mem(dis,INF);
+        mem(book,0);
+    fro(i,0,n)
+    {
+        int a,b,c;
+        cin>>a>>b>>c;
+        s[a].push_back(edge(b,c));
+        s[b].push_back(edge(a,c));
+    }
+    fro(i,0,s[1].size())
+    {
+        dis[s[1][i].to]=s[1][i].cost;
+    }
+    dis[1]=0;
+    diskstra(1);
+    cout<<dis[m]<<endl;
+    }
+    return 0;
+    }
 
 ### A - Alice's Print Service  c2 预处理+二分
 题目链接：<https://vjudge.net/contest/321083#problem/A><br/>
