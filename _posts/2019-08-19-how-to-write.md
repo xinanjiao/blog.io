@@ -317,6 +317,52 @@ description: 语言
 题目链接：<https://vjudge.net/contest/320737#problem/M><br/>
 求中间的那个数，那个数满足和其他n-1个数都有关系就行了，传递闭包解决。<br/>
 
+    int test[101][101];
+    int len[101];
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        mem(test,0);
+        mem(len,0);
+        int m,n;
+        cin>>m>>n;
+        fro(i,0,n)
+        {
+            int a,b;
+            cin>>a>>b;
+            test[a][b]=1;
+        }
+        fro(k,1,m+1)
+         fro(i,1,m+1)
+          fro(j,1,m+1)
+           {
+             if(test[i][k]&&test[k][j])
+                test[i][j]=1;
+           }
+        fro(i,1,m+1)
+          {
+              int cnt=0;
+              fro(j,1,m+1)
+            {
+               if(i==j)
+                continue;
+               if(test[i][j]||test[j][i])
+               cnt++;
+            }
+           if(cnt==m-1)
+            len[i]=1;
+          }
+          fro(i,1,m+1)
+          cout<<len[i];
+        cout<<endl;
+    }
+    return 0;
+    }
+
 ### Rank HDU - 1704 传递闭包
 题目链接：<https://vjudge.net/problem/HDU-1704><br/>
 和其他传递闭包不同的是，只要这个数和其他没有关系，那么就可以计数，求的就是不能确定的数目。<br/>
