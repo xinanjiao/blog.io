@@ -87,6 +87,60 @@ description: 文章金句。
 
 直接套用带权并查集模板即可。<br/>
 
+    int root[maxn];
+    int value[maxn];
+    int findroot(int a)
+    {
+    if(a!=root[a])
+    {
+        int t=root[a];
+        root[a]=findroot(root[a]);
+        value[a]+=value[t];
+    }
+    return root[a];
+    }
+    void unionroot(int a,int b,int v)
+    {
+    int aa=findroot(a);
+    int bb=findroot(b);
+    if(aa!=bb)
+    {
+        root[aa]=bb;
+        value[aa]=v+value[b]-value[a];
+    }
+    }
+     int query(int a,int b)
+    {
+    int aa=findroot(a);
+    int bb=findroot(b);
+    if(aa!=bb)
+        return -1;
+    else
+        return value[a]-value[b];
+    }
+    int main()
+    {ios::sync_with_stdio(false);
+    int m,n,t;
+    cin>>m>>n>>t;
+    fro(i,1,m+1)
+    {
+        root[i]=i;
+    }
+    mem(value,0);
+    fro(i,0,n)
+    {
+        int a,b,v;
+        cin>>a>>b>>v;
+        unionroot(a,b,v);
+    }
+    fro(i,0,t)
+    {
+        int a,b;
+        cin>>a>>b;
+        cout<<query(a,b)<<endl;
+    }
+    return 0;
+    }
 
 ### A Bug's Life POJ - 2492  带权种类并查集
 题目链接：<https://vjudge.net/problem/POJ-2492><br/>
