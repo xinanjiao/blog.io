@@ -234,6 +234,85 @@ description: 语言
 题目链接：<https://vjudge.net/contest/313341#problem/A><br/>
 并查集+最小生成树，关于最小生成树，以后补充，记得找链接看看，算是入门，并查集在这里的用处是看是否有回路。<br/>
 
+    int root[101];
+    struct node
+    {
+    int u,v,w;
+    }road[5100];
+    int findroot(int a)
+    {
+    if(a!=root[a])
+    {
+        root[a]=findroot(root[a]);
+        a=root[a];
+    }
+    return root[a];
+    }
+    void unionroot(int a,int b)
+    {
+    int aa=findroot(a);
+    int bb=findroot(b);
+    if(aa!=bb)
+    {
+        root[aa]=bb;
+    }
+    }
+    bool query(int a,int b)
+    {
+    int aa=findroot(a);
+    int bb=findroot(b);
+    if(aa!=bb)
+        return true;
+    else
+        return false;
+    }
+    bool cmp(node a,node b)
+    {
+    return a.w<b.w;
+    }
+    int main()
+     {
+    ios::sync_with_stdio(false);
+    int n;
+    while(cin>>n)
+    {
+        if(n==0)
+            break;
+        fro(i,1,n+1)
+        root[i]=i;
+        mem(road,0);
+        int a=n*(n-1)/2;
+        int m=0;
+        fro(i,0,a)
+        {
+            int b,c,d,e;
+            cin>>b>>c>>d>>e;
+            if(e==1)
+                unionroot(b,c);
+            else
+                {
+                road[m].u=b;
+                road[m].v=c;
+                road[m].w=d;
+                m++;
+                }
+        }
+        sort(road,road+m,cmp);
+        int sum=0;
+        fro(i,0,m)
+        {
+            if(query(road[i].u,road[i].v))
+                {
+                    //cout<<"i am here"<<endl;
+                    sum+=road[i].w;
+                    unionroot(road[i].u,road[i].v);
+                }
+        }
+        cout<<sum<<endl;
+    }
+    return 0;
+    }
+
 ### M - Median  传递闭包
 题目链接：<https://vjudge.net/contest/320737#problem/M><br/>
 求中间的那个数，那个数满足和其他n-1个数都有关系就行了，传递闭包解决。<br/>
