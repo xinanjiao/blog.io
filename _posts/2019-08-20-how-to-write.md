@@ -174,6 +174,44 @@ diskstra算法模板：<https://blog.csdn.net/u011721440/article/details/1716489
 题目链接：<https://vjudge.net/contest/321083#problem/A><br/>
 一开始我没有想到后面可以比前面小，这道题主要是预处理，不是二分搜索将会超时！<br/>
 
+    ll s[maxn],p[maxn];
+    ll yu[maxn];
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+        int m,n;
+        scanf("%d%d",&m,&n);
+        fro(i,0,m)
+        {
+            scanf("%lld%lld",&s[i],&p[i]);
+        }
+        mem(yu,0);
+        yu[m-1]=s[m-1]*p[m-1];
+        for(int i=m-2;i>=0;i--)
+        {
+            yu[i]=min(yu[i+1],s[i]*p[i]);
+        }
+        fro(i,0,n)
+        {
+            int q;
+           scanf("%d",&q);
+            if(q>=s[m-1])
+                printf("%lld\n",(ll)q*p[m-1]);
+            else
+            {
+                int r=upper_bound(s,s+m,q)-s;
+                //cout<<r<<endl;
+               ll x=min((ll)q*p[r-1],yu[r]);
+               printf("%lld\n",x);
+            }
+        }
+    }
+    return 0;
+    }
 
 ### B - Wormholes 最短路之bellman-ford算法 负权+负权回路
 题目链接：<https://vjudge.net/contest/320737#problem/B><br/>
