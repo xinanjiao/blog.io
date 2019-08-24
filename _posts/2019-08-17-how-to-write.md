@@ -90,6 +90,62 @@ kmp next 数组 ，与马拉车
 题目链接:<https://vjudge.net/contest/320131#problem/D><br/>
 马拉车算法旨在解决一个字符串中最大回文串问题，与其他算法不同的是，他的复杂度仅为o(n)，线性复杂度，经典中的经典<br/>
 
+    using namespace std;
+    #define ll long long  int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    ll gcd(ll a,ll b) {return b?gcd(b,a%b):a;}
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=2e5+10;
+    const int INF=0x3f3f3f3f;
+    char a[maxn];
+    int p[maxn];
+    char newa[maxn<<1];
+    int change(char *a)
+    {
+    int len=strlen(a);
+    newa[0]='$';
+    newa[1]='#';
+    int j=2;
+    fro(i,0,len)
+    {
+        newa[j++]=a[i];
+        newa[j++]='#';
+    }
+    newa[j]='\0';
+    return j;
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    while(cin>>a)
+    {
+       int len=change(a);
+       int mx=0,id;
+       int maxa=-1;
+       fro(i,1,len)
+       {
+           if(mx>i)
+            p[i]=min(p[2*id-i],(int)(mx-i));
+           else
+            p[i]=1;
+           while(newa[i-p[i]]==newa[i+p[i]])
+            p[i]++;
+           if(mx<i+p[i])
+           {
+               id=i;
+               mx=i+p[i];
+           }
+           maxa=max(maxa,p[i]-1);
+       }
+       cout<<maxa<<endl;
+    }
+    return 0;
+    }
+
 ### B - Period 循环节 next 数组
 题目链接：<https://vjudge.net/contest/313340#problem/B><br/>
 next数组之再升级，详情请了解下面这篇关于循环节的博客<br/>
