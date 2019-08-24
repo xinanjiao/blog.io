@@ -293,9 +293,107 @@ description: 文章金句。
 题目链接：<https://www.luogu.org/problem/P1196><br/>
 带偏移量的并查集，比普通的并查集多了两个数组 ，value[i]记录i点以前的数量（不包含i点），num[i]记录i点以后的数量（包含i点），然后每次查询祖先的时候顺便更新fro值，很神奇的思路啊~ <br/>
 
-### 青蛙约会更正
-前几天的青蛙约会中，可能由于vj数据太水，以至于我在洛谷上都不能全A，事后了解，exgcd不能系数不能为负。<br/>
+    int root[maxn];
+    int value[maxn];
+    int num[maxn];//表示以i为队首有多少个战舰
+    int findroot(int a)
+    {
+    if(root[a]!=a)
+    {
+        int t=root[a];
+        root[a]=findroot(root[a]);
+        value[a]+=value[t];
+    }
+    return root[a];
+    }
+    void unionroot(int a,int b)
+    {
+    int aa=findroot(a);
+    int bb=findroot(b);
+    if(aa!=bb)
+    {
+        root[aa]=bb;
+        value[aa]+=num[bb];
+        num[bb]+=num[aa];
+    }
+    }
+    int query(int a,int b)
+    {
+    int aa=findroot(a);
+    int bb=findroot(b);
+    //cout<<aa<<" "<<bb<<endl;
+    if(aa!=bb)
+        return -1;
+    else
+    {
+        return abs(value[a]-value[b])-1;
+    }
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+     fro(i,1,30001)
+        {
+            root[i]=i;
+            num[i]=1;
+        }
+    while(t--)
+    {
+        char a;int b,c;
+        cin>>a>>b>>c;
+        if(a=='M')
+        unionroot(b,c);
+        else
+            cout<<query(b,c)<<endl;
+    }
+    return 0;
+    }
 
+### 青蛙约会更正
+前几天的青蛙约会中，可能由于vj数据太水，以至于我在洛谷上都不能全A，事后了解，exgcd系数不能为负。<br/>
+
+    const int maxn=1e5+10;
+    const int INF=0x3f3f3f3f;
+    ll x1,y2;
+    ll exgcd(ll a,ll b,ll &x1,ll &y2)
+    {
+    if(b==0)
+    {
+        x1=1;
+        y2=0;
+        return a;
+    }
+    ll r=exgcd(b,a%b,x1,y2);
+    ll temp=x1;
+    x1=y2;
+    y2=temp-(a/b)*y2;
+    return r;
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    ll x,y,m,n,l;
+    cin>>x>>y>>m>>n>>l;
+    ll a=n-m;
+    ll c=x-y;
+    if(a<0)//如果为负数，更改
+    {
+        a=-a;
+        c=-c;
+    }
+    ll r=exgcd(a,l,x1,y2);
+    if(c%r!=0)
+        cout<<"Impossible"<<endl;
+    else
+    {
+        x1=x1*(c/r);
+        l/=r;
+        cout<<(x1%l+l)%l<<endl;
+    } 
+    return 0;
+    }
 
 ### 图论  最短路径 Floyd-Warshall算法 A - 最短路 
 题目链接：<https://vjudge.net/contest/320737#problem/A><br/>
