@@ -367,7 +367,53 @@ description: 语言
 题目链接：<https://vjudge.net/problem/HDU-1704><br/>
 和其他传递闭包不同的是，只要这个数和其他没有关系，那么就可以计数，求的就是不能确定的数目。<br/>
 
-
+    int test[510][510];
+    int main()
+    {
+    //ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        mem(test,0);
+        int m,n;
+        cin>>m>>n;
+        fro(i,0,n)
+        {
+            int a,b;
+            cin>>a>>b;
+            test[a][b]=1;
+        }
+        fro(k,1,m+1)
+         fro(i,1,m+1)
+        {
+        if(test[i][k])
+        {
+        fro(j,1,m+1)
+         {
+            if(test[k][j])
+            test[i][j]=1;
+         }
+        }
+          }
+        int sum=0;
+        fro(i,1,m+1)
+         {
+             int cnt=0;
+             fro(j,1,m+1)
+             {
+                 if(i==j)
+                    continue;
+                 if(!test[i][j]&&!test[j][i])
+                    sum++;
+             }
+             //if(cnt!=m-1)
+               // sum++;
+         }
+         cout<<sum/2<<endl;
+    }
+    return 0;
+    }
 
 
 
