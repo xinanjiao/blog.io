@@ -327,8 +327,80 @@ description: 语言
 
 ### 洛谷P4777 【模板】扩展中国剩余定理（EXCRT）
 题目链接：<https://www.luogu.org/problem/P4777><br/>
+扩展中国剩余定理板子题，注意long long 数据溢出。<br/>
 
-
+    using namespace std;
+    #define ll long long  int
+    #define fro(i,a,n) for(int i=a;i<n;i++)
+    #define pre(i,a,n) for(int i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    ll gcd(ll a,ll b) {return b?gcd(b,a%b):a;}
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-8;
+    const int maxn = 1e5+10;
+    const int INF=0x3f3f3f3f;
+    ll x,y,k;
+    ll a[maxn],r[maxn],ans;
+    ll exgcd(ll a,ll b,ll &x,ll &y)
+    {
+      if(b==0)
+     {
+        x=1;
+        y=0;
+        return a;
+     }
+    ll r=exgcd(b,a%b,x,y);
+    ll temp=x;
+    x=y;
+    y=temp-a/b*y;
+    return r;
+    }
+    ll ksm(ll a,ll b,ll mod)
+    {
+    ll ans=0;
+    while(b>0)
+    {
+     if(b&1)
+    {
+        ans=(ans+a)%mod;
+    }
+    a=(a+a)%mod;
+    b>>=1;
+    }
+    // cout<<ans<<endl;
+    return ans;
+    }
+    ll china()
+    {
+    ll m=a[1],bg;
+    ans=r[1];
+    fro(i,2,k+1)
+    {
+        ll aa=a[i],bb=m,c=((r[i]-ans)%aa+aa)%aa;
+        ll d=exgcd(bb,aa,x,y);
+        //if(c%d!=0)
+            //return -1;
+        bg=aa/d;
+        x=ksm(x,c/d,bg);
+        ans+=x*m;//更新前面方程的解
+        m*=bg;//m为K个m的lcm
+        ans=(ans%m+m)%m;
+        //cout<<ans<<endl;
+    }
+    return (ans%m+m)%m;
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    cin>>k;
+    fro(i,1,k+1)
+    {
+        cin>>a[i]>>r[i];
+    }
+    cout<<china()<<endl;
+     return 0;
+    }
 
 感谢小牛同学的开导，生活依然很美好，因为你。
 
