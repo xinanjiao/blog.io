@@ -171,7 +171,84 @@ description: 语言
 
 ### poj 2891 奇怪的整数 拓展中国剩余定理 
 题目链接：<https://vjudge.net/contest/319143#problem/B><br/>
-好吧这是一道拓中题，我以后好好写题解哈。<br/>
+他来了，他来了，拓中他来了，理解一下上面的链接你就知道拓展中国剩余定理的解法，他是一个迭代的过程，因为不能保证是互质的，所以最后要求解他的最大公约数，每次把解都要更新，求解k个解数的时候，解要是前面k-1的解，最小公约数也是要继续更新<br/>
+<p style="color: red;">这种题因为一般是模板，所以会在数据方面卡人。比如数据在long long int 范围，这就要小心了，因为在某些操作，比如乘法中会溢出，所以要不断取模，在乘法中，可以使用快速幂乘（龟速乘），即保证了速度，也可以边算边取模。</p>
+
+    using namespace std;
+    #define ll long long  int
+    #define fro(i,a,n) for(int i=a;i<n;i++)
+    #define pre(i,a,n) for(int i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    ll gcd(ll a,ll b) {return b?gcd(b,a%b):a;}
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-8;
+    const int maxn = 1e5+10;
+    const int INF=0x3f3f3f3f;
+    ll x,y,k;
+    ll a[maxn],r[maxn],ans;
+    ll exgcd(ll a,ll b,ll &x,ll &y)
+    {
+    if(b==0)
+    {
+        x=1;
+        y=0;
+        return a;
+    }
+    ll r=exgcd(b,a%b,x,y);
+    ll temp=x;
+    x=y;
+    y=temp-a/b*y;
+    return r;
+    }
+     ll ksm(ll a,ll b,ll mod)//快速乘
+    {
+    ll ans=0;
+    while(b>0)
+    {
+     if(b&1)
+    {
+        ans=(ans+a)%mod;
+    }
+    a=(a+a)%mod;
+    b>>=1;
+    }
+    // cout<<ans<<endl;
+    return ans;
+    }
+     ll china()
+    {
+    ll m=a[1],bg;
+    ans=r[1];
+    fro(i,2,k+1)
+    {
+        ll aa=a[i],bb=m,c=((r[i]-ans)%aa+aa)%aa;
+        ll d=exgcd(bb,aa,x,y);
+        if(c%d!=0)
+            return -1;
+        bg=aa/d;
+        x=ksm(x,c/d,bg);
+        ans+=x*m;//更新前面方程的解
+        m*=bg;//m为K个m的lcm
+        ans=(ans%m+m)%m;
+        //cout<<ans<<endl;
+    }
+    return (ans%m+m)%m;
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    while(cin>>k)
+    {
+        mem(a,0);mem(r,0);
+        fro(i,1,k+1)
+    {
+        cin>>a[i]>>r[i];
+    }
+    cout<<china()<<endl;
+    }
+     return 0;
+    }
 
 ### P3868 [TJOI2009]猜数字
 题目链接：<https://www.luogu.org/problem/P3868><br/>
