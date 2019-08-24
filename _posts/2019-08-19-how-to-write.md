@@ -66,6 +66,58 @@ description: 语言
 题目链接：<https://vjudge.net/problem/HDU-2063><br/>
 二分图的最大匹配模板题，涉及匈牙利算法。<br/>
 
+    const int maxn=1e5+10;
+    const int INF=0x3f3f3f3f;
+    int match[501][501];
+    int pd[501];
+    int book[501];
+    int m,n;
+    int dfs(int k)
+    {
+    fro(i,1,n+1)
+    {
+        if(!book[i]&&match[k][i])
+        {
+            book[i]=1;
+            if(pd[i]==0||dfs(pd[i]))
+            {
+                pd[i]=k;
+               // pd[k]=i;
+                return 1;
+            }
+        }
+    }
+    return 0;
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    while(cin>>t)
+    {
+        if(t==0)
+            break;
+        cin>>m>>n;
+        mem(match,0);
+        mem(pd,0);
+        fro(i,0,t)
+        {
+            int a,b;
+            cin>>a>>b;
+            match[a][b]=1;//match[b][a]=1;
+        }
+        int sum=0;
+        fro(i,1,m+1)
+        {
+            mem(book,0);
+            if(dfs(i))
+                sum++;
+        }
+        cout<<sum<<endl;
+    }
+    return 0;
+    }
+
 ### hdu 2255 奔小康赚大钱 带权二分图最优匹配
 题目链接：<https://vjudge.net/problem/HDU-2255><br/>
 带权二分图最大匹配模板题。<br/>
