@@ -218,7 +218,61 @@ diskstra算法模板：<https://blog.csdn.net/u011721440/article/details/1716489
 bellmanford算法模板：<https://blog.csdn.net/a1097304791/article/details/89433549><br/>
 判断负权环可以floyd算法也可以bellmandord算法，其中bellmanford有个升级版算法，也叫做队列优化bellmanford算法（SPFA),它使时间得以优化。后面好好看看，今天没看明白。<br/>
 
-
+    int dis[maxn],w[maxn],u[maxn],v[maxn];
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        mem(dis,0);mem(u,0);mem(v,0);mem(w,0);
+        int n,m,k;
+        cin>>n>>m>>k;
+        fro(i,1,n+1)
+        dis[i]=INF;
+        dis[1]=0;
+        fro(i,0,m)
+        {
+            cin>>u[i]>>v[i]>>w[i];
+        }
+        fro(i,m,k+m)
+        {
+            int a;
+            cin>>u[i]>>v[i]>>a;
+            w[i]=-a;
+        }
+        fro(i,1,n)
+        {
+            fro(j,0,m)
+            {
+                if(dis[u[j]]>dis[v[j]]+w[j])
+                    dis[u[j]]=dis[v[j]]+w[j];
+                if(dis[v[j]]>dis[u[j]]+w[j])
+                    dis[v[j]]=dis[u[j]]+w[j];
+            }
+            fro(j,m,m+k)
+            {
+                if(dis[u[j]]>dis[v[j]]+w[j])
+                    dis[u[j]]=dis[v[j]]+w[j];
+            }
+        }
+        bool ok=0;
+        fro(j,0,m+k)
+        {
+            if(dis[u[j]]>dis[v[j]]+w[j])
+            {
+                ok=1;
+                break;
+            }
+        }
+        if(!ok)
+            cout<<"NO"<<endl;
+        else
+            cout<<"YES"<<endl;
+    }
+    return 0;
+    }
 
 
 
