@@ -21,6 +21,60 @@ description: 文章金句。
 题目链接：<https://vjudge.net/problem/HDU-3038><br/>
 有M个数，不知道它们具体的值，但是知道某两个数之间（包括这两个数）的所有数之和，现在给出N个这样的区间和信息，需要判断有多少个这样的区间和与前边已知的区间和存在矛盾。例如给出区间和[1,4]为20，[3,4]为15，再给出[1,2]为30，显然这个[1,2]的值就有问题，它应该为20-15=5。注意为开区间。<br/>
 
+    int root[maxn];
+    int value[maxn];
+    int ans=0;
+    int findroot(int a)
+    {
+    if(a!=root[a])
+    {
+        int t=root[a];
+        root[a]=findroot(root[a]);
+        //路径压缩
+        value[a]+=value[t];
+    }
+    return root[a];
+    }
+    void unionroot(int a,int b,int va)
+    {
+    int aa=findroot(a);
+    int bb=findroot(b);
+    if(aa!=bb)
+    {
+        root[aa]=bb;
+        value[aa]=value[b]+va-value[a];
+    }
+    else
+    {
+        int k=abs(value[a]-value[b]);
+        if(k!=va)
+            ans++;
+            //cout<<a<<" "<<b<<" "<<k<<endl;
+    }
+    }
+    int main()
+    {
+    int m,n;
+    //ios::sync_with_stdio(false);
+    while(scanf("%d%d",&m,&n)!=EOF)
+    {
+        fro(i,0,m+1)
+        {
+            root[i]=i;
+        }
+        mem(value,0);
+        int a,b,va;
+        ans=0;
+        fro(i,0,n)
+        {
+            scanf("%d%d%d",&a,&b,&va);
+            a--;
+            unionroot(a,b,va);
+        }
+        printf("%d\n",ans);
+    }
+    return 0;
+    }
 
 ### HihoCoder - 1515 分数调查 带权并查集
 题目链接：<https://vjudge.net/problem/HihoCoder-1515><br/>
