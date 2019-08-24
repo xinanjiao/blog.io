@@ -21,6 +21,51 @@ description: 语言
 题目链接：<https://vjudge.net/contest/321263#problem/D><br/>
 这道题大意是给出两条线段的端点坐标，叫你判断两个直线的位置关系，有三种，相交（求出坐标），一条直线，平行<br/>叉积在前面用作点与线段之间的位置关系的判断，在这里，我起初是这样想的：利用叉积的几何意义，固定一条直线，判断另外两条端点，如果两个端点都在直线上，那么他们的叉积各为零，如果叉积相乘小于零，则是在两边，大于零在一边。这个思路有个缺点，因为这里是直线，它可以延长，而我这个对线段才有用，所以我一直错。后来把它想为直线就好了，斜率平行则不会相交，叉积各位零则重合，其他就输出交点坐标，推这个交点坐标我写了一页纸（数学不行了）。一切好像万事俱备了。然鹅并没有，我的天！！！！G++中输出浮点数是“f”，和C++不同，C++是“lf"。长知识了。
 
+    using namespace std;
+    #define ll long long  int
+    #define fro(i,a,n) for(int i=a;i<n;i++)
+    #define pre(i,a,n) for(int i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    ll gcd(ll a,ll b) {return b?gcd(b,a%b):a;}
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-8;
+    const int maxn = 3e5+10;
+    const int INF=0x3f3f3f3f;
+    struct point
+    {
+     double x,y;
+    }a,b,c,d;
+    double chaji(point p1,point p2,point p0)
+    {
+    return (p2.x-p1.x)*(p0.y-p1.y)-(p0.x-p1.x)*(p2.y-p1.y);
+    }
+    int main()
+    {
+    //ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+    puts("INTERSECTING LINES OUTPUT");
+    fro(i,0,t)
+    {
+        cin>>a.x>>a.y>>b.x>>b.y>>c.x>>c.y>>d.x>>d.y;
+        if(chaji(a,b,c)==0&&chaji(a,b,d)==0)
+        {
+            puts("LINE");
+        }
+        else if((b.x-a.x)*(d.y-c.y)==(d.x-c.x)*(b.y-a.y))
+            puts("NONE");
+        else //if(chaji(a,b,c)*chaji(a,b,d)<0||(chaji(a,b,c)==0&&chaji(a,b,d)!=0)||(chaji(a,b,d)==0&&chaji(a,b,c)!=0))
+        {
+            double x,y;
+            x=(double)(((c.x*d.y*1.0-d.x*c.y*1.0)*(b.x-a.x)-(a.x*b.y-b.x*a.y)*(d.x-c.x))/((a.y-b.y)*(d.x-c.x)-(c.y-d.y)*(b.x-a.x)))+EPS;
+            y=(double)(((a.y-b.y)*(c.x*d.y*1.0-d.x*c.y*1.0)-(c.y-d.y)*(a.x*b.y-b.x*a.y))/((c.y-d.y)*(b.x-a.x)-(a.y-b.y)*(d.x-c.x)))+EPS;
+            printf("POINT %.2f %.2f\n",x,y);
+        }
+    }
+    puts("END OF OUTPUT");
+     return 0;
+    }
 
 ### 另外一道题 C - Segments 
 题目链接：<https://vjudge.net/contest/321263#problem/C><br/>
