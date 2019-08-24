@@ -185,7 +185,42 @@ description: 语言
 题目链接：<https://vjudge.net/contest/313340#problem/D><br/>
 看懂题意简单，前提是看懂（哭了），枚举26个字母，重头到尾扫一遍就行了<br/>
 
-
+    const int maxn=2e5+10;
+    const int INF=0x3f3f3f3f;
+    char a[maxn];
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int m,n;
+    cin>>m>>n;
+    fro(i,0,m)
+    {
+        cin>>a[i];
+    }
+    int maxs=-INF;
+    fro(i,0,26)
+    {
+        char s=i+'a';
+        int sum=0,vis=0;
+        fro(i,0,m)
+        {
+            if(s==a[i])
+            {
+                sum++;
+            }
+            else
+                sum=0;
+            if(sum==n)
+            {
+                vis++;
+                sum=0;
+            }
+        }
+        maxs=max(maxs,vis);
+    }
+    cout<<maxs<<endl;
+    return 0;
+    }
 
 ![哪吒](/img/lz5.jpg)
 
