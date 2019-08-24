@@ -215,6 +215,79 @@ description: 文章金句。
 题目链接：<https://vjudge.net/problem/POJ-1703><br/>
 并查集把给出的人分成几个集合,每个集合之间的人的关系不确定，对同一个集合,保存和本人不为同一队的人,本着敌人的敌人便是朋友的原则,用并查集同一集合为同一队,不同集合为不同队。<br/>
 
+    int root[maxn];
+    int value[maxn];
+    bool ok1,ok2;
+    int findroot(int a)
+    {
+    if(a!=root[a])
+    {
+        int t=root[a];
+        root[a]=findroot(root[a]);
+        value[a]=(value[a]+value[t])%2;
+    }
+    return root[a];
+    }
+    void unionroot(int a,int b)
+    {
+    int aa=findroot(a);
+    int bb=findroot(b);
+    if(aa!=bb)
+    {
+        root[aa]=bb;
+        value[aa]=(value[a]+value[b]+1)%2;
+    }
+    }
+    int query(int a,int b)
+    {
+    int aa=findroot(a);
+    int bb=findroot(b);
+    if(aa!=bb)
+    {
+        return 0;
+    }
+    else
+    {
+        if(value[a]==value[b])
+            return 1;
+        else
+            return 2;
+    }
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    scanf("%d",&t);
+    fro(i,0,t)
+    {
+        int m,n;
+        scanf("%d%d",&m,&n);
+        fro(i,1,m+1)
+         root[i]=i;
+         mem(value,0);
+        fro(i,0,n)
+        {
+            char a;
+            int b,c;
+            getchar();
+            scanf("%c%d%d",&a,&b,&c);
+            if(a=='A')
+            {
+                int s=query(b,c);
+                if(s==0)
+                    printf("Not sure yet.\n");
+                else if(s==1)
+                    printf("In the same gang.\n");
+                else
+                    printf("In different gangs.\n");
+            }
+            else
+                unionroot(b,c);
+        }
+    }
+    return 0;
+    }
 
 ### 带权并查集之在升级---洛谷 P1196银河英雄传说
 题目链接：<https://www.luogu.org/problem/P1196><br/>
