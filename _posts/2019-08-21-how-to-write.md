@@ -20,6 +20,58 @@ description: 语言
 知道题目算法的我眼泪掉下来，并查集写了一发，以wa test 3结尾，这个就在告诉你算法不对头，实际上我们都商量出来算法问题，但苦于不知道上面算法而告终，事后自敲一发传递闭包
 AC。
 
+    typedef pair<int,int> P;
+    ll gcd(ll a,ll b) {return b?gcd(b,a%b):a;}
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn = 3e5+10;
+    const int INF=0x3f3f3f3f;
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int m,n;
+    cin>>m>>n;
+    string a,b,c,d,e;
+    map<string ,int> ss;
+    int count1=1;
+    int dis[201][201];
+    for(int i=0;i<m;i++)
+    {
+       cin>>a>>b>>c>>d>>e;
+       if(ss[a]==0)
+        ss[a]=count1++;
+       if(ss[e]==0)
+        ss[e]=count1++;
+        dis[ss[a]][ss[e]]=1;
+    }
+    for(int k=0;k<count1;k++)
+    {
+       for(int i=0;i<count1;i++)
+       {
+           for(int j=0;j<count1;j++)
+           {
+               if(dis[i][k]&&dis[k][j])
+                dis[i][j]=1;
+           }
+       }
+    }
+    for(int i=0;i<n;i++)
+    {
+       cin>>a>>b>>c>>d>>e;
+       if(ss[a]==0||ss[e]==0)
+        puts("Pants on Fire");
+       else
+       {
+           if(dis[ss[a]][ss[e]])
+            puts("Fact");
+            else if(dis[ss[e]][ss[a]])
+            puts("Alternative Fact");
+            else
+            puts("Pants on Fire");
+       }
+    }
+    return 0;
+    }
 
 ### Problem I Überwatch dp动态规划递推
 题目链接：<https://codeforces.com/gym/101873/attachments><br/>
