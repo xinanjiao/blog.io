@@ -105,6 +105,77 @@ AC。
 点与直线的位置关系，传送门：<https://blog.csdn.net/qiushangren/article/details/90475707><br/>
 向量积居然能怎么用，我是长知识了。<br/>
 
+    using namespace std;
+    #define ll long long  int
+    #define fro(i,a,n) for(int i=a;i<n;i++)
+    #define pre(i,a,n) for(int i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    ll gcd(ll a,ll b) {return b?gcd(b,a%b):a;}
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn = 3e5+10;
+    const int INF=0x3f3f3f3f;
+    struct point
+    {
+    int x,y;
+    point(int a,int b):x(a),y(b){}
+    };
+    vector<point> line[maxn];
+    int num[5010];
+    bool change(point a,vector<point> b)
+    {
+    int x2=b[0].x,y2=b[0].y;//p2
+    int x1=b[1].x,y3=b[1].y;//p1
+    int x0=a.x,y0=a.y;//p0
+    return (x2-x1)*(y0-y3)-(y2-y3)*(x0-x1)>0;
+    }
+    int main()
+    {
+    int n,m,x1,y1,x2,y2;
+    while(cin>>n)
+    {
+        mem(num,0);
+        fro(i,0,n+1)
+         line[i].clear();
+        if(!n)
+            break;
+        cin>>m>>x1>>y1>>x2>>y2;
+        fro(i,1,n+1)
+        {
+            int a,b;
+            cin>>a>>b;
+            line[i].push_back(point(a,y1));//p2
+            line[i].push_back(point(b,y2));//p1
+        }
+        line[n+1].push_back(point(x2,y1));
+        line[n+1].push_back(point(x2,y2));
+        fro(i,0,m)
+        {
+            int x,y;
+            cin>>x>>y;//p0
+            point s(x,y);
+           int l=1,r=n+1;
+           int mid;
+           while(l!=r)
+           {
+                mid=(r+l)/2;
+               if(change(s,line[mid]))
+                   r=mid;
+               else
+                l=mid+1;
+           }
+            num[r-1]++;
+        }
+        fro(i,0,n+1)
+        {
+            cout<<i<<": ";
+            cout<<num[i]<<endl;
+        }
+        cout<<endl;
+    }
+    return 0;
+    }
 
 ### B - Toy Storage 同上面一道题
 题目链接：<https://vjudge.net/contest/321263#problem/B><br/>
