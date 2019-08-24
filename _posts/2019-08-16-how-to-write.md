@@ -91,9 +91,101 @@ description: 语言
 题目链接：<https://vjudge.net/contest/313327#problem/A><br/>
 一眼字典树，建树和查询都是模板，没什么好说的，主要是查询的字符串需要数字解码而来，我先一直没有看懂解码过程，解码就将数字对应为0或1，在将它看成二进制，再转为十进制。<br/>
 
+    int tree[maxn][26];
+    int coun[maxn];
+    //bool ok[maxn];
+     int pc=1;
+     char a[1001];
+    double s[8];
+    double sums;
+    void buildtree(char *a)
+    {
+    int root=0;
+    int len=strlen(a);
+    fro(i,0,len)
+    {
+        int s=a[i]-'a';
+        if(!tree[root][s])
+         tree[root][s]=pc++;
+         root=tree[root][s];
+         coun[root]++;
+    }
+    // ok[root]=true;
+    }
+    int query(vector<char> a)
+    {
+    int len=a.size();
+    int root=0;
+    fro(i,0,len)
+    {
+        int s=a[i]-'a';
+        if(!tree[root][s])
+            return 0;
+        root=tree[root][s];
+    }
+    return coun[root];
+    }
+    char change()
+    {
+    int sum=0;
+    fro(i,0,8)
+    {
+        int aa;
+        if(s[i]>sums)
+            aa=1;
+        else
+            aa=0;
+        sum+=(aa*pow(2,8-i-1));
+    }
+    char a=sum;
+    return a;
+    }
+    int main()
+    {
+    //ios::sync_with_stdio(false);
+     int m,n;
+     while(scanf("%d%d",&m,&n)!=EOF)
+     {
+         mem(tree,0);
+         mem(coun,0);
+         //mem(ok,false);
+         pc=1;
+         fro(i,0,m)
+         {
+             scanf("%s",a);
+             buildtree(a);
+         }
+          int vis=0;
+         fro(i,0,n)
+         {
+             int ss;
+            vector<char> v;
+             scanf("%d",&ss);
+             fro(i,0,ss)
+             {
+                 sums=0;
+                 fro(k,0,8)
+                 {
+                     scanf("%lf",&s[k]);
+                     sums+=s[k];
+                 }
+                 sums/=8.0;
+                v.push_back(change());
+                //cout<<change()<<endl;
+             }
+             vis+=query(v);
+             //cout<<query(v)<<endl;
+         }
+        printf("%d\n",vis);
+     }
+    return 0;
+    }
+
 ### D - Zuhair and Strings  暴力枚举
 题目链接：<https://vjudge.net/contest/313340#problem/D><br/>
 看懂题意简单，前提是看懂（哭了），枚举26个字母，重头到尾扫一遍就行了<br/>
+
+
 
 ![哪吒](/img/lz5.jpg)
 
