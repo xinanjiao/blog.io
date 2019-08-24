@@ -254,10 +254,80 @@ description: 语言
 题目链接：<https://www.luogu.org/problem/P3868><br/>
 中国剩余定理模板题，注意最后一个样例会爆long long int ,所以在乘法计算的时候要取模，这里的乘法计算用了快速幂思想，在乘的过程中不断取模，网上谓之（龟速幂）。
 
+    using namespace std;
+    #define ll long long  int
+    #define fro(i,a,n) for(int i=a;i<n;i++)
+    #define pre(i,a,n) for(int i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    ll gcd(ll a,ll b) {return b?gcd(b,a%b):a;}
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-8;
+    const int maxn = 3e5+10;
+    const int INF=0x3f3f3f3f;
+    ll x,y;
+    ll a[20],b[20];
+      ll exgcd(ll a,ll b,ll &x,ll &y)
+    {
+    if(b==0)
+    {
+        x=1;
+        y=0;
+        return a;
+    }
+    ll r=exgcd(b,a%b,x,y);
+    ll temp=x;
+    x=y;
+    y=temp-a/b*y;
+    return r;
+    }
+     ll ksm(ll a,ll b,ll mod)
+    {
+    ll ans=0;
+    while(b>0)
+    {
+     if(b&1)
+    {
+        ans=(ans+a)%mod;
+    }
+    a=(a+a)%mod;
+    b>>=1;
+    }
+    // cout<<ans<<endl;
+    return ans;
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int k;
+    cin>>k;
+    fro(i,0,k)
+    {
+        cin>>a[i];
+    }
+    ll sum=1,cnt=0;
+    fro(i,0,k)
+    {
+        cin>>b[i];
+        sum*=b[i];
+    }
+    fro(i,0,k)
+    {
+        ll lcm=sum/b[i];
+        exgcd(lcm,b[i],x,y);
+        x=(x%b[i]+b[i])%b[i];
+        a[i]=(a[i]%b[i]+b[i])%b[i];
+        cnt=(cnt+ksm(ksm(lcm,x,sum),a[i],sum))%sum;
+    }
+    // cout<<cnt<<endl;
+    //cnt=cnt%sum;
+    cout<<cnt<<endl;
+     return 0;
+    }
 
 ### 洛谷P4777 【模板】扩展中国剩余定理（EXCRT）
 题目链接：<https://www.luogu.org/problem/P4777><br/>
-好吧由题意，它又是拓中，我要理解它！！！！
+
 
 
 感谢小牛同学的开导，生活依然很美好，因为你。
