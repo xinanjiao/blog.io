@@ -66,6 +66,49 @@ diskstra算法模板：<https://blog.csdn.net/u011721440/article/details/1716489
     return 0;
     }
 
+法二：bellmanford算法(邻接表存图）,注意是无向图，所以要两个方向判断
+
+    struct edge
+    {
+    int u,v,w;
+    }edge[maxn];
+    int dis[110];
+    int m,n;
+    int u[maxn],v[maxn],w[maxn];
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    while(cin>>m>>n)
+    {
+        if(!m&&!n)
+            break;
+           // mem(edge,0);
+        fro(i,1,m+1)
+          dis[i]=INF;
+          dis[1]=0;
+          fro(k,1,n+1)
+          {
+              int a,b,c;
+              cin>>a>>b>>c;
+              edge[k].u=a;edge[k].v=b;edge[k].w=c;
+          }
+          fro(j,0,m)
+          {
+              fro(i,1,n+1)
+              {
+                  if(dis[edge[i].u]>dis[edge[i].v]+edge[i].w)
+                    dis[edge[i].u]=dis[edge[i].v]+edge[i].w;
+                    if(dis[edge[i].v]>dis[edge[i].u]+edge[i].w)
+                    dis[edge[i].v]=dis[edge[i].u]+edge[i].w;
+              }
+          }
+          cout<<dis[m]<<endl;
+    }
+    return 0;
+    }
+
+
+
 ### A - Alice's Print Service  c2 预处理+二分
 题目链接：<https://vjudge.net/contest/321083#problem/A><br/>
 一开始我没有想到后面可以比前面小，这道题主要是预处理，不是二分搜索将会超时！<br/>
