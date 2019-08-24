@@ -123,6 +123,113 @@ description: 语言
 带权二分图最大匹配模板题。<br/>
 值得一提的是，开始我一直时间超限，最后居然是全局变量minsize在主函数重新定义了（醉了醉了。。。)<br/>
 
+    const double EPS=1e-6;
+    const int INF=0x3f3f3f3f;
+    int wx[301],wy[301];//每个点匹配的点
+    //int match[301];
+    int vx[301],vy[301];//每个点权值
+    bool ux[301],uy[301];//改点是否用过
+    int map1[301][301];//配对方法
+    int n,m,minsize;
+    int dfs(int k)
+    {
+    ux[k]=1;
+    fro(i,1,n+1)
+    {
+        if(!uy[i]&&map1[k][i]!=-1)
+        {
+            int t=vx[k]+vy[i]-map1[k][i];
+            if(t==0)
+            {
+                uy[i]=1;
+                //int a=match[i];
+             if(!wy[i]||dfs(wy[i]))
+               {
+                wy[i]=k;
+                wx[k]=i;
+                //match[k]=i;
+                return 1;
+               }
+            }
+            else //if(t>0)
+            minsize=min(minsize,t);
+            //cout<<minsize<<endl;
+        }
+    }
+    return 0;
+    }
+    int km()
+    {
+    fro(i,1,n+1)//枚举所以村民
+    {
+    //接下来就是重点了
+         while(1)
+         {
+              minsize=INF;
+             mem(ux,0);mem(uy,0);//同最大匹配一样
+             if(dfs(i))
+                break;//成功
+             fro(j,1,n+1)//找x
+             {
+                 if(ux[j])
+               vx[j]-=minsize;
+               if(uy[j])//找y
+               vy[j]+=minsize;
+             }
+         }
+    }
+    int ans=0;
+    fro(i,1,n+1)
+    {
+        if(wx[i])
+            {
+                //cout<<"i am here"<<endl;
+                ans+=map1[i][wx[i]];
+            }
+    }
+    return ans;
+    }
+    void solve()
+    {
+    int maxa;
+    fro(i,1,n+1)
+    {
+        fro(j,1,n+1)
+        {
+             maxa=map1[i][j];
+             vx[i]=max(maxa,vx[i]);
+             //cout<<maxa<<endl;
+        }
+    }
+    }
+    int main()
+    {
+    //ios::sync_with_stdio(false);
+    while(scanf("%d",&n)!=EOF)
+    {
+            mem(map1,-1);
+            mem(wx,0);
+            mem(wy,0);
+            //mem(match,0);
+            mem(vx,0);
+            mem(vy,0);
+            fro(i,1,n+1)
+            {
+                fro(j,1,n+1)
+                {
+                    int a;
+                    scanf("%d",&a);
+                    map1[i][j]=a;
+                    vx[i]=max(a,vx[i]);
+                }
+            }
+            //solve();
+            int res=km();
+            printf("%d\n",res);
+    }
+    return 0;
+    }
+
 ### A - 继续畅通工程 HDU - 1879
 题目链接：<https://vjudge.net/contest/313341#problem/A><br/>
 并查集+最小生成树，关于最小生成树，以后补充，记得找链接看看，算是入门，并查集在这里的用处是看是否有回路。<br/>
