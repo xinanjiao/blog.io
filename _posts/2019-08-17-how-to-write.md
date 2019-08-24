@@ -24,6 +24,67 @@ kmp next 数组 ，与马拉车
 题目链接：<https://vjudge.net/contest/320131#problem/C><br/>
 解题核心是把两个数组合并为一个，再用kmpnext数组的特殊性质求解<br/>
 
+    using namespace std;
+    #define ll long long  int
+    #define fro(i,a,n) for(ll i=a;i<n;i++)
+    #define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    ll gcd(ll a,ll b) {return b?gcd(b,a%b):a;}
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=1e5+10;
+    const int INF=0x3f3f3f3f;
+    int next1[maxn];
+    int maxa;
+    string suf;
+    void get_next(string a)
+    {
+    //cout<<"i am here"<<endl;
+    int len=a.size();
+    next1[0]=-1;
+    int k=-1;
+    int j=0;
+    while(j<len)
+    {
+        if(k==-1||a[j]==a[k])
+        {
+            j++;
+            k++;
+            if(a[j]!=a[k])
+                next1[j]=k;
+            else
+                next1[j]=next1[k];
+        }
+        else
+            k=next1[k];
+    }
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    string s1,s2;
+    while(cin>>s1>>s2)
+    {
+        string s3=s1+s2;
+        get_next(s3);
+        int minlen=min(s1.size(),s2.size());
+        int len=s3.size();
+        if(next1[len]==0)
+            cout<<0<<endl;
+        else
+            {
+                if(minlen<=next1[len])
+                    next1[len]=minlen;
+               fro(i,0,next1[len])
+               {
+                   cout<<s3[i];
+               }
+               cout<<" "<<next1[len]<<endl;
+            }
+    }
+    return 0;
+    }
 
 ### D - 最长回文 马拉车算法模板
 题目链接:<https://vjudge.net/contest/320131#problem/D><br/>
