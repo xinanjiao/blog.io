@@ -73,7 +73,98 @@ description: 语言
 题目链接：<https://vjudge.net/contest/321263#problem/C><br/>
 问你所以线段是否能投影到一条直线上。<br/>
 思路：枚举所有端点，有它组成的直线利用叉积判断与其他端点的关系，必须满足一个在左一个在右，里面有精度控制，如果两个点的距离太近会被认为三点共线。
+解题思路：如果有存在这样的直线，过投影相交区域作直线的垂线，该垂线必定与每条线段相交，问题转化为问是否存在一条线和所有线段相交。
 
+显然所求线段若存在，那么一定可以通过移动使其卡到2个端点上。
+
+所以，枚举所有端点，判断该直线是否合法。
+
+坑点：
+
+1.同一条线段的2个端也需要枚举,因为可能所有线段共线
+
+2.判断所枚举的直线是否退化为点。
+
+    using namespace std;
+    #define ll long long  int
+    #define fro(i,a,n) for(int i=a;i<n;i++)
+    #define pre(i,a,n) for(int i=n-1;i>=a;i--)
+    #define mem(a,b) memset(a,b,sizeof(a))
+    typedef pair<int,int> P;
+    ll gcd(ll a,ll b) {return b?gcd(b,a%b):a;}
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-8;
+    const int maxn = 3e5+10;
+    const int INF=0x3f3f3f3f;
+    int n;
+    struct point
+    {
+     double x,y;
+    };
+    struct line
+    {
+    point a,b;
+    }line[110];
+    double dispoint(point a,point b)
+    {
+    return sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
+    }
+    double chaji(point p1,point p2,point p0)
+    {
+    return (p2.x-p1.x)*(p0.y-p1.y)-(p0.x-p1.x)*(p2.y-p1.y);
+    }
+    bool judge(point a,point b)
+    {
+    if(dispoint(a,b)<EPS)
+        return false;
+    fro(i,0,n)
+    {
+        if(chaji(a,b,line[i].a)*chaji(a,b,line[i].b)>EPS)
+            return false;
+    }
+    return true;
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        mem(line,0);
+        cin>>n;
+        fro(i,0,n)
+        {
+            cin>>line[i].a.x>>line[i].a.y>>line[i].b.x>>line[i].b.y;
+        }
+        if(n==1)
+            puts("Yes!");
+        else
+        {
+        //枚举线段端点
+         bool ok=true;
+        fro(i,0,n)
+        {
+             ok=true;
+            fro(j,0,n)
+            {
+                if(judge(line[i].a,line[j].a)||judge(line[i].a,line[j].b)||judge(line[i].b,line[j].a)||judge(line[i].b,line[j].b))
+                 {
+                    ok=false;
+                    break;
+                }
+            }
+            if(!ok)
+                break;
+        }
+        if(!ok)
+            puts("Yes!");
+        else
+            puts("No!");
+        }
+    }
+     return 0;
+    }
 
 ## 题目
 以下就是中国剩余定理的啦，拓中我还不熟悉，以后补充
