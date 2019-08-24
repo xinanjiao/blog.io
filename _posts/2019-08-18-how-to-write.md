@@ -403,11 +403,82 @@ description: 文章金句。
 题目链接：<https://vjudge.net/contest/320737#problem/K><br/>
 拓扑排序模板，需要注意的是要使用优先队列，因为题目说了最小字典序输出。<br/>
 
+    const int maxn=1e5+10;
+    const int INF=0x3f3f3f3f;
+    int in[501];
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int m,n;
+    while(cin>>m>>n)
+    {
+    vector<int> son[505];
+    priority_queue<int,vector<int>,greater<int> > s;
+    queue<int> res;
+        mem(in,0);
+        int a,b;
+        fro(i,0,n)
+        {
+            cin>>a>>b;
+            son[a].push_back(b);
+            in[b]++;
+        }
+    fro(i,1,m+1)
+    {
+        if(in[i]==0)
+            s.push(i);
+    }
+    while(!s.empty())
+    {
+        int a=s.top();
+        res.push(a);
+        s.pop();
+        fro(i,0,son[a].size())
+        {
+            in[son[a][i]]--;
+            if(in[son[a][i]]==0)
+                s.push(son[a][i]);
+        }
+    }
+    int cnt=0;
+    while(!res.empty())
+    {
+        if(!cnt)
+            cout<<res.front();
+        else
+            cout<<" "<<res.front();
+        res.pop();
+        cnt++;
+    }
+    cout<<endl;
+    }
+    return 0;
+    }
+
 ### 数学hunter hdu 4438
 题目链接:<http://acm.hdu.edu.cn/showproblem.php?pid=4438><br/>
 数学公式题，需要更据题意退出公式，注意两个猎人杀完一个要去杀第二个。<br/>
 
-
+    const int INF=0x3f3f3f3f;
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+        while(t--)
+        {
+            double x,y,p,q;
+            cin>>x>>y>>p>>q;
+            double tiger=p*q*(x+y)+(1-q)*x;
+            double wolf=p*(1-q)*(x+y)+q*y;
+            double mina=max(wolf,tiger);
+            if(wolf>tiger)
+                printf("wolf %.4lf\n",mina);
+            else
+                printf("tiger %.4lf\n",mina);
+        }
+    return 0;
+    }
 
 
 
