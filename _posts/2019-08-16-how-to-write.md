@@ -14,7 +14,7 @@ description: 语言
 
 ### 今日份get---KMP
 大佬博客（超详细）：<https://blog.csdn.net/v_july_v/article/details/7041827><br/>
-
+<p style="color: red;">kmp算法，是bf算法（暴力匹配法）的升级版，它不再是单纯的暴力一个个匹配，成功加一，失败在回溯，而是用一个数组（next数组）存储状态，next数组也叫前后缀数组，它存储的是这个字符串重复的前后缀，这使得不是每次匹配失败都回溯到上一个，而是通过next数组来判断回溯到正确的位置，这样节约了不少时间。next数组的求法也可以优化。</p>
 
 
 ## 题目（代码后补）
@@ -24,6 +24,68 @@ description: 语言
 ### kmp优化 字符串匹配 B - Oulipo
 题目链接：<https://vjudge.net/contest/320131#problem/B><br/>
 一个模式串和一个主串，求主串中有几个模式串。一个思路，暴力枚举，一个个模拟，绝对超时。用到算法，kmp，高效解决字符串匹配问题<br/>
+
+    int sum;
+    int next1[10010];
+    void get_next(string a)
+    {
+    int len=a.size();
+    next1[0]=-1;
+    int k=-1;
+    int j=0;
+    while(j<len)
+    {
+        if(k==-1||a[k]==a[j])
+        {
+            j++;
+            k++;
+            if(a[k]!=a[j])
+            next1[j]=k;
+            else
+                next1[j]=next1[k];
+        }
+        else
+        k=next1[k];
+    }
+    }
+    void kmp(string a,string b)
+    {
+    int l=0,r=0;
+    int len1=a.size(),len2=b.size();
+    while(l<len1)
+    {
+        if(r==-1||a[l]==b[r])
+           {
+               l++;
+                r++;
+           }
+        else
+            r=next1[r];
+        if(r==len2)
+        {
+            r=next1[r];
+            sum++;
+        }
+    }
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        sum=0;
+        mem(next1,0);
+        string s1,s2;
+        cin>>s1;
+        get_next(s1);
+        cin>>s2;
+        kmp(s2,s1);
+        cout<<sum<<endl;
+    }
+    return 0;
+    }
 
 ### A - Encoded Barcodes 字典树
 题目链接：<https://vjudge.net/contest/313327#problem/A><br/>
