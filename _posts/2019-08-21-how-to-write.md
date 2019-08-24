@@ -77,7 +77,27 @@ AC。
 题目链接：<https://codeforces.com/gym/101873/attachments><br/>
 做的时候队友一直建议深搜写，实际上这是不可能的，超时是最大的障碍，300000的数据，深搜是不可能了，这时又没有好的算法策略而停滞不前，事后（又是事后。。。），知道dp后，用我们原来深搜的思想推出了dp的状态转移方程，一发失败，因为第一次是m+1那个点开始，第二发AC。
 
-
+     #include <bits/stdc++.h>
+     using namespace std;
+    const int maxn = 3e5+10;
+    const int INF=0x3f3f3f3f;
+    int d[maxn];
+    int vis[maxn];
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int m,n;
+    cin>>m>>n;
+    for(int i=1;i<=m;i++)
+        cin>>vis[i];
+    memset(d,0,sizeof(d));
+    for(int i=n+1;i<=m;i++)
+    {
+        d[i]=max(d[i-1],d[i-n]+vis[i]);
+    }
+        cout<<d[m]<<endl;
+    return 0;
+    }
 
 ### A - TOYS 计算几何---二分+叉积
 题目链接：<https://vjudge.net/contest/321263#problem/A><br/>
