@@ -146,6 +146,71 @@ description: 文章金句。
 题目链接：<https://vjudge.net/problem/POJ-2492><br/>
 这道题是作为种类并查集的基础入门题的存在，主要就是说给咱们n组关系，来判断其中有没有 gay虫。对，所谓gay虫，就是性别一样的虫，哈哈哈，这里的权值是性别，0表示同性，1表示异性（这样好除余）<br/>
  
+
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=1e6+10;
+    const int INF=0x3f3f3f3f;
+    int root[maxn];
+    int value[maxn];
+    bool ok;
+    int findroot(int a)
+    {
+    if(a!=root[a])
+    {
+        int t=root[a];
+        root[a]=findroot(root[a]);
+        value[a]=(value[a]+value[t])%2;
+    }
+    return root[a];
+    }
+    void unionroot(int a,int b)
+    {
+    int aa=findroot(a);
+    int bb=findroot(b);
+    if(aa!=bb)
+    {
+        root[aa]=bb;
+        value[aa]=(value[b]+value[a]+1)%2;
+    }
+    else
+    {
+        if((value[a]+value[b])%2==0)
+            ok=true;
+    }
+    }
+    int main()
+    {//1为异性 0为同性
+    ios::sync_with_stdio(false);
+    int t;
+    scanf("%d",&t);
+    int case1=1;
+    while(t--)
+    {
+        mem(root,0);
+        mem(value,0);
+        int m,n;
+        scanf("%d%d",&m,&n);
+        ok=false;
+        fro(i,1,m+1)
+        root[i]=i;
+        mem(value,0);
+        fro(i,0,n)
+        {
+            int a,b;
+            scanf("%d%d",&a,&b);
+            unionroot(a,b);
+        }
+        printf("Scenario #%d:\n",case1++);
+        if(ok)
+            printf("Suspicious bugs found!\n");
+        else
+            printf("No suspicious bugs found!\n");
+        printf("\n");
+    }
+    return 0;
+    }
+
 ### Find them, Catch them POJ - 1703 与上一题gay虫差不多
 题目链接：<https://vjudge.net/problem/POJ-1703><br/>
 并查集把给出的人分成几个集合,每个集合之间的人的关系不确定，对同一个集合,保存和本人不为同一队的人,本着敌人的敌人便是朋友的原则,用并查集同一集合为同一队,不同集合为不同队。<br/>
