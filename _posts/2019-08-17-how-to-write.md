@@ -151,7 +151,55 @@ kmp next 数组 ，与马拉车
 next数组之再升级，详情请了解下面这篇关于循环节的博客<br/>
 循环节：<https://www.cnblogs.com/chenxiwenruo/p/3546457.html><br/>
 
-
+    int next1[maxn];
+    char a[maxn];
+    void get_next(char *a)
+    {
+     next1[0]=-1;
+    int k=-1;
+    int j=0;
+    int len=strlen(a);
+    while(j<len)
+    {
+        if(k==-1||a[j]==a[k])
+        {
+            j++;
+            k++;
+            //if(a[j]!=a[k])
+                next1[j]=k;
+            //else
+              // next1[j]=next1[k];
+        }
+        else
+            k=next1[k];
+    }
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int n;
+    int case1=1;
+    while(cin>>n&&n)
+    {
+       mem(next1,0);
+       cout<<"Test case #"<<case1++<<endl;
+       fro(i,0,n)
+       {
+           cin>>a[i];
+       }
+       get_next(a);
+       fro(i,0,n+1)
+       {
+           //cout<<i<<" "<<next1[i]<<endl;
+           if(next1[i]>0&&i%(i-next1[i])==0)
+           {
+               cout<<i<<" "<<i/(i-next1[i])<<endl;
+           }
+       }
+       cout<<endl;
+    }
+    return 0;
+    }
 
 
 
