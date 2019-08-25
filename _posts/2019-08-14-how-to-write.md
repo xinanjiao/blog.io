@@ -15,8 +15,57 @@ description: 语言。
 
 ### Break the Chocolate 规律+公式
 题目链接:<https://vjudge.net/contest/313311#problem/A><br/>
-题目给出巧克力的长宽高，叫你用分别手扳和用刀切成1x1x1的正方体分别要用最少的步骤,注意刀切可以重叠（当初一直没有注意到）<br/>
+题目给出巧克力的长宽高，叫你用分别手扳和用刀切成1x1x1的正方体分别要用最少的步骤,注意刀切可以重叠（当初一直没有注意到），刀切了之后，实际上你会发现，刀切都是2的多少次幂。<br/>
 
+    const double EPS=1e-6;
+    const int maxn=5e4+10;
+    const int INF=0x3f3f3f3f;
+    ll power(ll a)
+    {
+    ll cnt=1;
+    fro(i,0,a)
+    {
+        cnt*=2;
+    }
+    return cnt;
+    }
+    ll change(int a)
+    {
+    ll pos=0;
+    while(1)
+    {
+        if(power(pos)>=a)
+            return pos;
+        pos++;
+    }
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+    int case1=1;
+    while(t--)
+    {
+        int a[3];
+        ll c,w,h;
+        ll c1,w1,h1;
+        ll sumn=0;
+        ll sumh=0;
+        cin>>a[0]>>a[1]>>a[2];
+        sort(a,a+3);
+        c=a[0];w=a[1];h=a[2];
+        sumh=(c*w*h-1);
+        if(c>1)
+            sumn+=change(c);
+        if(w>1)
+             sumn+=change(w);
+        if(h>1)
+            sumn+=change(h);
+        cout<<"Case #"<<case1++<<": "<<sumh<<" "<<sumn<<endl;
+    }
+    return 0;
+    }
 
 ### Peak 水题
 题目链接：<https://vjudge.net/contest/313326#problem/A><br/>
