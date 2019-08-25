@@ -262,6 +262,72 @@ description: 文章金句。
 01字典树，注意异或等位运算法则，通过看异或运算顺便复习了一下快速幂。<br/>
 大佬教你了解位运算：<https://www.luogu.org/blog/chengni5673/er-jin-zhi-yu-wei-yun-suan><br/>
 
+    const int maxn=3e6+10;
+    const int INF=0x3f3f3f3f;
+    int tree[maxn][2];
+    ll coun[maxn];//计数
+    int pc;//模拟结点
+    //bool ok[maxn];//节点下面是否还有节点
+    void bulidtree(ll a)
+    {
+    int root=0;
+    for(int i=30;i>=0;i--)
+    {
+      int pos=(a>>i)&1;
+      if(!tree[root][pos])
+        tree[root][pos]=++pc;
+      root=tree[root][pos];
+    }
+     coun[root]=a;//该二进制结点所存的数
+    }
+    ll query(ll a)
+    {
+    int root=0;
+    for(int i=30;i>=0;i--)
+    {
+        int pos=(a>>i)&1;
+        if(tree[root][pos^1])//异或最大值
+        {
+            root=tree[root][pos^1];
+        }
+        else
+            root=tree[root][pos];
+    }
+    return coun[root];
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    //cin>>t;
+    scanf("%d",&t);
+    int case1=1;
+    while(t--)
+    {
+        mem(tree,0);
+        mem(coun,0);
+        pc=0;
+        int a,b;
+        //cin>>a>>b;
+        scanf("%d%d",&a,&b);
+        fro(i,0,a)
+        {
+            ll s;
+            scanf("%lld",&s);
+            bulidtree(s);
+        }
+        //cout<<"Case #"<<case1++<<":"<<endl;
+        printf("Case #%d:\n",case1++);
+        fro(i,0,b)
+        {
+            ll s;
+            scanf("%lld",&s);
+            printf("%lld\n",query(s));
+        }
+    }
+    return 0;
+    }
+
 ### 字典树 POJ Phone List 3630
 题目链接：<https://vjudge.net/problem/POJ-3630><br/>
 re多次，最后发现是没有更新结点。。。。<br/>
