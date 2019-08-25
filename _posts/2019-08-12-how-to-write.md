@@ -257,6 +257,93 @@ description: 语言。
 题目链接：<http://acm.hdu.edu.cn/showproblem.php?pid=1698><br/>
 一样线段树区间修改+查询，一直TLE,原因上同，改了就好了<br/>
 
+    const int maxn=2e5+10;
+    const int INF=0x3f3f3f3f;
+    int tree[maxn*4];
+    int add[maxn*4];
+    int a[maxn];
+    int m;
+    void pushdown(int l,int r,int rt)
+    {
+    if(add[rt])
+    {
+        add[rt<<1]=add[rt];
+        add[rt<<1|1]=add[rt];
+        tree[rt<<1]=add[rt]*l;
+        tree[rt<<1|1]=add[rt]*r;
+        add[rt]=0;
+    }
+    }
+    void bulidtree(int l,int r,int rt)
+    {
+    if(l==r)
+    {
+        tree[rt]=a[r];
+        return ;
+    }
+    int mid=(r+l)/2;
+    bulidtree(l,mid,rt<<1);
+    bulidtree(mid+1,r,rt<<1|1);
+    tree[rt]=tree[rt<<1]+tree[rt<<1|1];
+    }
+    void change(int al,int ar,int a,int l,int r,int rt)
+    {
+    if(al<=l&&ar>=r)
+    {
+      tree[rt]=a*(r-l+1);
+      add[rt]=a;
+      return ;
+    }
+    int mid=(r+l)/2;
+     pushdown(mid-l+1,r-mid,rt);
+    if(al<=mid)
+        change(al,ar,a,l,mid,rt<<1);
+    if(ar>mid)
+        change(al,ar,a,mid+1,r,rt<<1|1);
+    tree[rt]=tree[rt<<1]+tree[rt<<1|1];
+    }
+    int query(int al,int ar,int l,int r,int rt)
+    {
+    if(al<=l&&ar>=r)
+    {
+        return tree[rt];
+    }
+    int sum=0;
+    int mid=(r+l)/2;
+    pushdown(mid-l+1,r-mid,rt);
+    if(al<=mid)
+        sum+=query(al,ar,l,mid,rt<<1);
+    if(ar>mid)
+        sum+=query(al,ar,mid+1,r,rt<<1|1);
+    return sum;
+    }
+    int main()
+    {
+    int n;
+    while(scanf("%d",&n)!=EOF)
+    {
+        int case1=1;
+        while(n--)
+    {
+        mem(add,0);
+        mem(tree,0);
+        mem(a,0);
+        int aa;
+        scanf("%d %d",&m,&aa);
+        fro(i,1,m+1)
+          a[i]=1;
+        bulidtree(1,m,1);
+        fro(i,0,aa)
+        {
+            int s,d,f;
+            scanf("%d%d%d",&s,&d,&f);
+            change(s,d,f,1,m,1);
+        }
+    printf("Case %d: The total value of the hook is %d.\n",case1++,tree[1]);
+    }
+    }
+    }
+
 ### hdu 4970 kill monster 线段树超时 差分数组解法
 题目链接：<http://acm.hdu.edu.cn/showproblem.php?pid=4970><br/>
 1000ms限制，线段树我看是没辙了（反正我是试了好久，可能我太弱了），新学差分数组解法，时间复杂度o(n),线段树复杂度o(n* long(n))<br/>
