@@ -216,6 +216,41 @@ description: 语言。
     }
     }
 
+2.差分数组解法
+
+    const int maxn=2e5+10;
+    const int INF=0x3f3f3f3f;
+    int a[maxn],b[maxn],c[maxn],sum[maxn];
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int n;
+    while(cin>>n&&n)
+    {
+        mem(a,0);mem(b,0);mem(c,0);mem(sum,0);
+        fro(i,0,n)
+        {
+            int s,m;
+            cin>>s>>m;
+            b[s]+=1;
+            b[m+1]-=1;
+        }
+        fro(i,1,n+1)
+        {
+            c[i]=c[i-1]+b[i];
+            sum[i]=sum[i-1]+c[i];
+        }
+        fro(i,1,n+1)
+        {
+            if(i==1)
+            cout<<sum[i]-sum[i-1];
+            else
+                cout<<" "<<sum[i]-sum[i-1];
+        }
+        cout<<endl;
+    }
+    return 0;
+    }
 
 ### HDU 1698 Just a Hook 线段树
 题目链接：<http://acm.hdu.edu.cn/showproblem.php?pid=1698><br/>
