@@ -274,6 +274,90 @@ description: 语言
 ### Can you answer these queries? 线段树 区间相加
 题目链接:<https://vjudge.net/contest/313335#problem/A><br/>
 线段树模板，注意复杂度的降低，开根号最多开7次就会变为一<br/>
+题目大意：每次更改区间里面所有值，变为原来的根号，然后查询区间和。<br/>
+
+    const int maxn=2e5+10;
+    const int INF=0x3f3f3f3f;
+    ll a[maxn];
+    ll tree[maxn*4];
+    void bulidtree(int l,int r,int rt)
+    {
+    if(l==r)
+    {
+        tree[rt]=a[l];
+        return;
+    }
+    int mid=(r+l)>>1;
+    bulidtree(l,mid,rt<<1);
+    bulidtree(mid+1,r,rt<<1|1);
+    tree[rt]=tree[rt<<1]+tree[rt<<1|1];
+    }
+    void change(int al,int ar,int l,int r,int rt)
+    {
+    if(al>r||ar<l)
+        return ;
+    if(l>=al&&r<=ar&&tree[rt]==(r-l+1))
+        return ;
+    if(l==r)
+    {
+        tree[rt]=sqrt(tree[rt]*1.0);
+        return;
+    }
+    int mid=(r+l)>>1;
+    if(al<=mid)
+        change(al,ar,l,mid,rt<<1);
+    if(ar>mid)
+        change(al,ar,mid+1,r,rt<<1|1);
+    tree[rt]=tree[rt<<1]+tree[rt<<1|1];
+    }
+    ll query(int al,int ar,int l,int r,int rt)
+    {
+    if(al>r||ar<l)
+        return 0;
+    if(al<=l&&ar>=r)
+    {
+        return tree[rt];
+    }
+    int mid=(r+l)>>1;
+    ll sum=0;
+    if(al<=mid)
+        sum+=query(al,ar,l,mid,rt<<1);
+    if(ar>mid)
+        sum+=query(al,ar,mid+1,r,rt<<1|1);
+    return sum;
+    }
+    int main()
+    {
+    int n;
+    int case1=1;
+    while(scanf("%d",&n)!=EOF)
+    {
+        printf("Case #%d:\n",case1++);
+        fro(i,1,n+1)
+          scanf("%I64d",&a[i]);
+        bulidtree(1,n,1);
+          int m;
+          scanf("%d",&m);
+          fro(i,0,m)
+          {
+              int q,a,b;
+              scanf("%d%d%d",&q,&a,&b);
+              if(q==0)
+              {
+                  if(a>b)
+                    swap(a,b);
+                  change(a,b,1,n,1);
+              }
+              else if(q==1)
+              {
+                  if(a>b)
+                    swap(a,b);
+                  printf("%I64d\n",query(a,b,1,n,1));
+              }
+          }
+          printf("\n");
+    }
+    }
 
 ### 洛谷线段树 未完成 awsl 万恶的TLE
 题目链接：<https://www.luogu.org/problem/P3372><br/>
