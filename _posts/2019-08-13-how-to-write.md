@@ -201,6 +201,62 @@ description: 文章金句。
 题目链接:<https://vjudge.net/problem/POJ-2001><br/>
 通过判断布尔标记ok解决。<br/>
 
+    const int maxn=1e5+10;
+    const int INF=0x3f3f3f3f;
+    int tree[maxn][26];
+    int coun[maxn];
+    bool ok[maxn];
+    int pc=1;
+    string a[1001];
+    void bulidtree(string s)
+    {
+    int len=s.size();
+    int root=0;
+    fro(i,0,len)
+    {
+        int ah=s[i]-'a';
+        if(!tree[root][ah])
+            tree[root][ah]=pc++;
+        root=tree[root][ah];
+        coun[root]++;
+    }
+    ok[root]=true;
+    } 
+    string query(string a)
+    {
+    int len=a.size();
+    int root=0;
+    int k=len;
+    fro(i,0,len)
+    {
+        int ah=a[i]-'a';
+        root=tree[root][ah];
+        if(coun[root]==1)
+        {
+            k=i;
+            break;
+        }
+    }
+    return a.substr(0,k+1);
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int n=0;
+    while(cin>>a[n])
+    {
+        bulidtree(a[n]);
+        n++;
+    }
+    fro(i,0,n)
+    {
+        string ss=query(a[i]);
+        cout<<a[i]<<" "<<ss<<endl;
+    }
+    return 0;
+    }
+
+
 ### 01字典树 hdu 4825 Xor Sum 异或运算模板
 题目链接：<https://vjudge.net/problem/HDU-4825><br/>
 01字典树，注意异或等位运算法则，通过看异或运算顺便复习了一下快速幂。<br/>
