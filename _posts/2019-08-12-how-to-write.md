@@ -24,6 +24,56 @@ description: 语言。
 题目链接：<https://vjudge.net/contest/318111#problem/M><br/>
 并查集模板，打开了并查集的新世界大门<br/>
 
+    const int maxn=5e4+10;
+    const int INF=0x3f3f3f3f;
+    int pre[maxn];
+    int total;
+    int unionfind(int x)//查找函数
+    {
+    int r=x,temp;
+    while(pre[r]!=r)
+        r=pre[r];//找到掌门
+    while(r!=x)//状态压缩
+    {
+        temp=pre[x];
+        pre[x]=r;
+        x=temp;
+    }
+    return r;
+    }
+    void join(int x,int y)//合并函数
+    {
+    int a=unionfind(x);
+    int b=unionfind(y);
+    if(a!=b)
+    {
+        pre[a]=b;
+        total--;
+    }
+    }
+    int main()
+    {
+    int m,n;
+    while(scanf("%d",&m)&&m)
+    {
+        total=m-1;
+        scanf("%d",&n);
+        fro(i,1,m+1)
+        {
+            pre[i]=i;//自成一派
+        }
+        fro(i,0,n)
+        {
+            int a,b;
+            scanf("%d%d",&a,&b);
+            //开始合并
+            join(a,b);
+        }
+        printf("%d\n",total);
+    }
+    return 0;
+    }
+
 ###  Billboard 线段树转换
 题目链接：<https://vjudge.net/contest/318111#problem/D><br/>
 线段树变形，第一眼我还不知道它是线段树（哭了）<br/>
