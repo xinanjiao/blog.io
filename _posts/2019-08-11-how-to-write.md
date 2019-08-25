@@ -94,8 +94,55 @@ description: 语言
 ### Improving the GPA (暴力枚举)
 题目链接：<https://vjudge.net/contest/313310#problem/A><br/>
 枚举出所有总和的可能<br/>
+给出两个数m,n，代表在n个数的平均数是m，在表的信息下，叫你求出最大和最小的绩点。<br/>
+我做的时候没有好的思路，结束后看了下网上的题解，由于是100的范围，可以暴力枚举即可。<br/>
 
-
+    const int maxn=2e5+10;
+    const int INF=0x3f3f3f3f;
+    int main()
+    {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int score,n;
+        cin>>score>>n;
+        double maxs=-INF;
+        double mins=INF;
+        int sum=score*n;
+        int i1,i2,j1,j2,k1,k2,l1,l2;
+        fro(i,0,n+1)
+        {
+          i1=i*100;
+          i2=i*85;
+          fro(j,0,n-i+1)
+          {
+              j1=j*84;
+              j2=j*80;
+              fro(k,0,n-j-i+1)
+              {
+                  k1=k*79;
+                  k2=k*75;
+                  fro(l,0,n-j-i-k+1)
+                  {
+                      l1=l*74;
+                      l2=l*70;
+                     int maxss=i1+j1+k1+l1+(n-i-k-l-j)*69;
+                     int minss=i2+j2+k2+l2+(n-i-k-l-j)*60;
+                      if(maxss>=sum&&minss<=sum)
+                      {
+                          double ss=i*4.0+j*3.5+k*3.0+l*2.5+(n-i-k-l-j)*2.0;
+                          double s2=i*4.0+j*3.5+k*3.0+l*2.5+(n-i-k-j-l)*2.0;
+                          maxs=max(maxs,ss);
+                          mins=min(mins,s2);
+                      }
+                  }
+              }
+          }
+        }
+        printf("%.4lf %.4lf\n",(double)mins/n,(double)maxs/n);
+    }
+    }
 
 ### Just a Joke (积分数学)HDU - 4969 
 题目链接：<https://vjudge.net/problem/HDU-4969><br/>
