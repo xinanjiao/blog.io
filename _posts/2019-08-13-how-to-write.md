@@ -10,9 +10,10 @@ description: 文章金句。
 ### 昨天是TLE的一天，那么今天就是RE的一天，实际上也不是很多RE，只不过做到了一道，巨坑的题吗，light oj上的。RE解决策略：(1)数组访问是否越界。（2）数组是否开小了，有时候开大了也不行（3）输入输出尽量选用较快输入输出........
 
 ### 今日份get ---- 字典树
-字典树入门精讲：<https://www.csdn.net/gather_25/MtTacg3sMzM1My1ibG9n.htm><br/>
+字典树入门精讲：<https://blog.csdn.net/jiutianhe/article/details/8076835><br/>
 字典树入门题：<https://blog.csdn.net/qq_38891827/article/details/80532462><br/>
 
+<p style="color: red;">字典树顾名思义就是把字符串像字典一样建成一棵树，树的结点没有字符，字符只是每个结点之间的连接线，字典树的查找和修改都是线性的，我喜欢用数组模拟字典树，root二维数组储存每个结点到下一个结点之间的字符，bool类型的一个数组判断下一个结点是否还有字符连接，可以用于查询操作，coun数组用于记录每个结点的字符的次数，由于查询和修改操作。</p>
 ## 题目（代码后补）
 
 ### 字典树 light oj 1224 DNA Prefix 坑得死人（数组开小了一直re）
