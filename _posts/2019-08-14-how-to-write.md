@@ -124,7 +124,92 @@ description: 语言。
 
 ###  CONTINUE...? ZOJ - 4033
 题目链接：<https://vjudge.net/contest/313326#problem/J><br/>
+详情请戳：<https://blog.csdn.net/feizaoSYUACM/article/details/81589968><br/>
 规律题，构造。。。。（好好理解理解）<br/>
+
+    const int maxn=2e5+10;
+    const int INF=0x3f3f3f3f;
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int m,sum=0;
+        cin>>m;
+        string s;
+        int a[maxn];
+        int g,b;
+        cin>>s;
+        fro(i,1,m+1)
+        {
+            a[i]=s[i-1]-'0';
+            sum+=i;
+        }
+        //cout<<sum<<endl;
+        if(sum%2==1)
+            cout<<"-1"<<endl;
+        else
+        {
+            if(m%2==0)
+            {
+                int k=1;
+                //m+=1;
+                int mm=m+1;
+                for(;k<=mm/2;k++)
+                {
+                    if(k%2==1)
+                    {
+                        g=2;b=4;
+                    }
+                    else
+                    {
+                        g=1;b=3;
+                    }
+                    if(a[k]==0)
+                        a[k]=g;
+                    else if(a[k]==1)
+                        a[k]=b;
+                    if(a[mm-k]==0)
+                        a[mm-k]=g;
+                    else if(a[mm-k]==1)
+                        a[mm-k]=b;
+                }
+            }
+            else
+            {
+                int k=0;
+                for(;k<=m/2;k++)
+                {
+                    if(k%2==1)
+                    {
+                        g=2;b=4;
+                    }
+                    else
+                    {
+                        g=1;b=3;
+                    }
+                    if(a[k]==0)
+                        a[k]=g;
+                    else if(a[k]==1)
+                        a[k]=b;
+                    if(a[m-k]==0)
+                        a[m-k]=g;
+                    else if(a[m-k]==1)
+                        a[m-k]=b;
+                }
+            }
+            fro(i,1,m+1)
+            {
+                cout<<a[i];
+            }
+            cout<<endl;
+        }
+    }
+    return 0;
+    }
+
 
 ### UVA - 11526 H(n) 数学 整数分块
 题目链接：<https://vjudge.net/contest/313337#problem/D><br/>
