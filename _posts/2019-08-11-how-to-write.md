@@ -359,11 +359,104 @@ description: 语言
     }
     }
 
-### 洛谷线段树 未完成 awsl 万恶的TLE
+### 洛谷线段树  awsl 万恶的TLE
 题目链接：<https://www.luogu.org/problem/P3372><br/>
-一直TLE，注意懒标记的下放,待修改<br/>
+一直TLE，注意懒标记的下放,看样子是数组开小了和数据范围要long long <br/>
 
-
+    const int maxn=2e6+10;
+    const int INF=0x3f3f3f3f;
+    int a[maxn];
+    ll tree[maxn*4];
+    ll Add[maxn*4];//懒惰标记
+    void PushDown(ll rt,ll ln,ll rn)//标记下传
+    {
+	//ln,rn为左子树，右子树的数字数量。
+	if(Add[rt])
+    {
+		//下推标记
+		Add[rt<<1]+=Add[rt];
+		Add[rt<<1|1]+=Add[rt];
+		//修改子节点的Sum使之与对应的Add相对应
+		tree[rt<<1]+=Add[rt]*ln;
+		tree[rt<<1|1]+=Add[rt]*rn;
+		//清除本节点标记
+		Add[rt]=0;
+	}
+    }
+    void bulidtree(ll l,ll r,ll rt)
+    {
+    if(l==r)
+    {
+        tree[rt]=a[l];
+        return;
+    }
+    ll mid=(r+l)>>1;
+    bulidtree(l,mid,rt<<1);
+    bulidtree(mid+1,r,rt<<1|1);
+    tree[rt]=tree[rt<<1]+tree[rt<<1|1];
+    }
+    ll query(ll al,ll ar,ll l,ll r,ll rt)
+    {
+    if(al<=l&&ar>=r)
+    {
+        return tree[rt];
+    }
+    ll mid=(r+l)>>1;
+    PushDown(rt,mid-l+1,r-mid);
+    ll sum=0;
+    if(al<=mid)
+        sum+=query(al,ar,l,mid,rt<<1);
+    if(ar>mid)
+        sum+=query(al,ar,mid+1,r,rt<<1|1);
+    return sum;
+    }
+    void add(ll al,ll ar,ll a,ll l,ll r,ll rt)
+    {
+    if(al<=l&&ar>=r)
+    {
+        tree[rt]+=a*(r-l+1);
+        Add[rt]+=a;
+        return ;
+    }
+    ll mid=(r+l)>>1;
+    PushDown(rt,mid-l+1,r-mid);
+    if(al<=mid)
+    {
+        add(al,ar,a,l,mid,rt<<1);
+    }
+    if(ar>mid)
+    {
+        add(al,ar,a,mid+1,r,rt<<1|1);
+    }
+    tree[rt]=tree[rt<<1]+tree[rt<<1|1];
+    }
+    int  main()
+    {
+    //ios::sync_with_stdio(false);
+    int m,n;
+    scanf("%d%d",&m,&n);
+    //fill(Add,Add+4*maxn,1);
+    fro(i,1,m+1)
+    {
+        scanf("%d",&a[i]);
+    }
+    bulidtree(1,m,1);
+    while(n--)
+    {
+        int a,b,c,d;
+        scanf("%d",&a);
+        if(a==1)
+        {
+            scanf("%d%d%d",&b,&c,&d);
+            add(b,c,d,1,m,1);
+        }
+        else if(a==2)
+        {
+            scanf("%d%d",&b,&c);
+            printf("%lld\n",query(b,c,1,m,1));
+        }
+    }
+    }
 
 
 
