@@ -135,8 +135,86 @@ description: 语言。
 
 ### 杭电1556 涂气球（Color the ball） 线段树解法 
 题目链接：<http://acm.hdu.edu.cn/showproblem.php?pid=1556><br/>
-都说线段树过不了，但是我还是过辽，先一直TLE,过辽因为改了延迟处理
+都说线段树过不了，但是我还是过辽，先一直TLE,过辽因为改了延迟处理。两种解法。<br/>
+1.线段树解法，时间1049ms,之前一直超时是在查询的时候，没有做延迟处理，所谓延迟处理下面有注释。
 
+    const int maxn=1e5+10;
+    const int INF=0x3f3f3f3f;
+    int tree[4*maxn];
+    int tage[4*maxn];
+    void pushdown(int l,int r,int rt)
+    {
+    if(tage[rt])
+    {
+        tage[rt<<1]+=tage[rt];
+        tage[rt<<1|1]+=tage[rt];
+        tree[rt<<1]+=tage[rt]*l;
+        tree[rt<<1|1]+=tage[rt]*r;
+        tage[rt]=0;
+    }
+    return ;
+    }
+     void bulidtree(int l,int r,int rt)
+    {
+    if(l==r)
+        return;
+    int mid=(l+r)>>1;
+    bulidtree(l,mid,rt<<1);
+    bulidtree(mid+1,r,rt<<1|1);
+    }
+    void change(int al,int ar,int a,int l,int r, int rt)
+    {
+    if(al<=l&&ar>=r)//罪魁祸首 woc
+    {
+        tree[rt]+=a*(r-l+1);//减少时间
+        tage[rt]+=a;
+        return;
+    }
+    int mid=(l+r)>>1;
+    pushdown(mid-l+1,r-mid,rt);
+    if(al<=mid)
+        change(al,ar,a,l,mid,rt<<1);
+    if(ar>mid)
+        change(al,ar,a,mid+1,r,rt<<1|1);
+    tree[rt]=tree[rt<<1]+tree[rt<<1|1];
+    return;
+    }
+    int query(int al,int ar,int l ,int r,int rt )
+    {//long long 比int更耗时
+    if(l==r)
+        return tree[rt];
+    int mid=(r+l)>>1;
+    pushdown(mid-l+1,r-mid,rt);
+    int sum=0;
+    if(al<=mid)
+        sum+=query(al,ar,l,mid,rt<<1);
+    if(ar>mid)
+        sum+=query(al,ar,mid+1,r,rt<<1|1);
+    return sum;
+    }
+    int main()
+    {
+    int n;
+    while(scanf("%d",&n)!=EOF)
+    {
+        if(n==0)
+            break;
+        mem(tree,0);
+        mem(tage,0);
+        bulidtree(1,n,1);
+        fro(i,0,n)
+        {
+            int a,b;
+            scanf("%d%d",&a,&b);
+            change(a,b,1,1,n,1);
+        }
+        fro(i,1,n+1)
+        {
+            printf(i==1?"%d":" %d",query(i,i,1,n,1));
+        }
+        printf("\n");
+    }
+    }
 
 
 ### HDU 1698 Just a Hook 线段树
