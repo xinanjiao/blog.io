@@ -24,6 +24,70 @@ description: 语言
 先把所以保安的位置在5000* 5000的图上用bfs向8个方向拓展，记录最小步数，最后直接用坐标查询即可。<br/>
 
 
+    const int maxn=3e5+10;
+    const int INF=0x3f3f3f3f;
+    struct point
+    {
+    int x,y,step;
+    }l,r,a[maxn];
+    bool vis[5010][5001];
+    int dis[5001][5001];
+    int dir[9][2]={{0,1},{1,0},{1,1},{-1,1},{0,-1},{-1,0},{-1,-1},{1,-1}};
+    int m,n;
+    bool judge(int x,int y)
+    {
+    if(x<0||x>5000||y<0||y>5000||vis[x][y])
+        return false;
+    return true;
+    }
+    void bfs()
+    {
+    queue<point> s;
+    fro(i,0,m)
+    {
+        a[i].step=0;
+        vis[a[i].x][a[i].y]=true;
+        s.push(a[i]);
+    }
+    while(!s.empty())
+    {
+        l=s.front();
+        s.pop();
+        dis[l.x][l.y]=l.step;
+        fro(i,0,8)
+        {
+             r.x=l.x+dir[i][0];
+             r.y=l.y+dir[i][1];
+             if(judge(r.x,r.y))
+             {
+                 r.step=l.step+1;
+                 vis[r.x][r.y]=true;
+                 s.push(r);
+             }
+        }
+    }
+    return;
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    mem(vis,false);
+    mem(dis,0);
+    cin>>m>>n;
+    fro(i,0,m)
+    {
+        cin>>a[i].x>>a[i].y;
+    }
+    bfs();
+    int x,y;
+    fro(i,0,n)
+    {
+        cin>>x>>y;
+        cout<<dis[x][y]<<endl;
+    }
+    return 0;
+    }
+
 ### A - Romantic 
 题目链接:<https://vjudge.net/contest/319143#problem/A><br/>
 拓展欧几里得板子题，大意输入a,b,输出满足a * x + b * y = 1;的非负整数x和整数y。这道题提交了多次，就是因为关闭了cin,cout的同步流，以后记住不能随便关这个<br/>
