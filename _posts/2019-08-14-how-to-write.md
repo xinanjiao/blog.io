@@ -69,8 +69,58 @@ description: 语言。
 
 ### Peak 水题
 题目链接：<https://vjudge.net/contest/313326#problem/A><br/>
-虽然是水题，但是题意没有读懂，以后长个记性<br/>
+虽然是水题，但是题意没有读懂，以后长个记性，我以为那个数组下标必须是数组中的元素...不知道我咋想的<br/>
 
+    const int maxn=5e5+10;
+    const int INF=0x3f3f3f3f;
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int a[maxn];
+        int n;
+        cin>>n;
+        fro(i,0,n)
+        cin>>a[i];
+        int pos;
+        bool ok=false;
+        bool ok1=false;
+        fro(i,0,n)
+        {
+            if(a[i+1]>a[i])
+                {
+                    ok1=true;
+                    continue;
+                }
+            else
+               {
+                   pos=i;
+                   break;
+               }
+        }
+        int i=0;
+        //cout<<pos<<endl;
+        for( i=pos+1;i<n;i++)
+        {
+            if(a[i-1]>a[i])
+                continue;
+            else
+            {
+                //ok=false;
+                break;
+            }
+        }
+        //cout<<i<<endl;
+        if(pos!=0&&pos!=n-1&&i==n)
+        puts("Yes");
+       else
+        puts("No");
+    }
+    return 0;
+    }
 
 ###  CONTINUE...? ZOJ - 4033
 题目链接：<https://vjudge.net/contest/313326#problem/J><br/>
