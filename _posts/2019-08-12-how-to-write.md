@@ -348,5 +348,44 @@ description: 语言。
 题目链接：<http://acm.hdu.edu.cn/showproblem.php?pid=4970><br/>
 1000ms限制，线段树我看是没辙了（反正我是试了好久，可能我太弱了），新学差分数组解法，时间复杂度o(n),线段树复杂度o(n* long(n))<br/>
 
+    const int maxn=2e5+10;
+    const int INF=0x3f3f3f3f;//差分数组实现
+    ll a[maxn],d[maxn],sum[maxn],f[maxn];
+    //a原始数组,d差分数组,sum为f前缀和,f为d的前缀和
+    int  main()
+    {
+    int n;
+    ios::sync_with_stdio(false);
+    while(cin>>n&&n)
+    {
+        mem(a,0);mem(d,0);mem(sum,0);mem(f,0);
+        int m;
+        cin>>m;
+        fro(i,1,m+1)
+        {
+            int s1,s2,s3;
+            cin>>s1>>s2>>s3;
+            a[s1]+=s3;
+            a[s2+1]-=s3;
+        }
+        fro(i,1,n+1)
+        {
+            f[i]=f[i-1]+a[i];
+            sum[i]=sum[i-1]+f[i];
+        }
+        int sum1=0;
+        int ss;
+        cin>>ss;
+        fro(i,0,ss)
+        {
+            ll s1,s2;
+            cin>>s1>>s2;
+            ll a=s1-(sum[n]-sum[s2-1]);
+            if(a>0)
+                sum1++;
+        }
+        cout<<sum1<<endl;
+    }
+    }
 
 ![哪吒](/img/lz.jpg)
