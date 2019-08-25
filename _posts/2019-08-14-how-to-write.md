@@ -215,6 +215,29 @@ description: 语言。
 题目链接：<https://vjudge.net/contest/313337#problem/D><br/>
 暴力超时，把除数分块，每次可以节约很多没意义的步骤<br/>
 
+    long long H(int n){
+    ll res=0;
+    for(ll i=n; i>=1; --i)
+    {
+        ll a=i,b=n/a;
+        ll aa=(n/(b+1))+1;
+        res+=(a-aa+1)*b;
+        i=aa;
+    }
+    return res;
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;cin>>t;
+    while(t--)
+    {
+        int a;
+        cin>>a;
+        cout<<H(a)<<endl;
+    }
+    return 0;
+    }
 
 ![哪吒](/img/lz4.jpg)
 
