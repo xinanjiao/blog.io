@@ -76,11 +76,68 @@ description: 语言。
 
 ###  Billboard 线段树转换
 题目链接：<https://vjudge.net/contest/318111#problem/D><br/>
-线段树变形，第一眼我还不知道它是线段树（哭了）<br/>
+线段树变形，第一眼我还不知道它是线段树（哭了），和以前的线段树不一样的是。以前线段树都是查询值，而这道题的线段树是查询点，而且建树方面也有学问，取了一个最小值。查询点和查询值不一样的是查询点是通过tree数组的值不同来更改，而查询点则是通过点来更改。<br/>
+
+    const int maxn=2e5+10;
+    const int INF=0x3f3f3f3f;
+    int tree[maxn*4];
+    int ans,w;
+    void bulidtree(int l,int r,int rt)
+    {
+    tree[rt]=w;
+    if(l==r)
+    {
+        return ;
+    }
+    int mid=(r+l)/2;
+    bulidtree(l,mid,rt<<1);
+    bulidtree(mid+1,r,rt<<1|1);
+    }
+    int query(int a,int l,int r,int rt)
+    {//值的查找与单点修改有点相似
+    //前者通过值来判断区间，后者通过位置判断
+    if(l==r)
+    {
+        tree[rt]-=a;
+        return l;
+    }
+    int aa=0;
+    int mid=(r+l)/2;
+    if(tree[rt<<1]>=a)//从左子树开始收索，从上到下
+        aa=query(a,l,mid,rt<<1);
+    else
+        aa=query(a,mid+1,r,rt<<1|1);
+    tree[rt]=max(tree[rt<<1],tree[rt<<1|1]);
+        return aa;
+    }
+    int main()
+    {
+    int h,n;
+    while(scanf("%d%d%d",&h,&w,&n)!=EOF)
+    {
+      h=min(h,n);
+        bulidtree(1,h,1);
+        fro(i,0,n)
+        {
+            int s;
+            scanf("%d",&s);
+            ans=-1;
+            if(tree[1]<s)//tree数组第一个位置最大
+                ans=-1;
+            else
+            {
+                ans=query(s,1,h,1);
+            }
+            printf("%d\n",ans);
+        }
+    }
+    }
 
 ### 杭电1556 涂气球（Color the ball） 线段树解法 
 题目链接：<http://acm.hdu.edu.cn/showproblem.php?pid=1556><br/>
 都说线段树过不了，但是我还是过辽，先一直TLE,过辽因为改了延迟处理
+
+
 
 ### HDU 1698 Just a Hook 线段树
 题目链接：<http://acm.hdu.edu.cn/showproblem.php?pid=1698><br/>
