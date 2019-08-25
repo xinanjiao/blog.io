@@ -146,7 +146,28 @@ description: 语言
 
 ### Just a Joke (积分数学)HDU - 4969 
 题目链接：<https://vjudge.net/problem/HDU-4969><br/>
+公式推导链接:<https://blog.csdn.net/morejarphone/article/details/51766422><br/>
 积分物理公式推导（不会---）<br/>
+题目大意：题意：一个人做匀速圆周运动，速度是v1，半径是R，一个人从圆心出发追赶，速度是v2，必须保证每一时刻两个人所在位置和圆心共线。给出追赶者最多能够跑动的距离，求能不能追上。<br/>
+
+    const int maxn=2e5+10;
+    const int INF=0x3f3f3f3f;
+    int main()
+    {
+    int n;
+    cin>>n;
+    while(n--)
+    {
+        double v1,v2,r,d;
+        cin>>v1>>v2>>r>>d;
+        double t=r/v1*asin(v1/v2);
+        double dd=(v2*t*1.0);
+        if(dd>d)
+            cout<<"Why give up treatment"<<endl;
+        else
+            cout<<"Wake up to code"<<endl;
+    }
+    }
 
 ### CS Course (线段树区间修改+区间取值) HDU - 6186
 题目链接：<https://vjudge.net/contest/313323#problem/B><br/>
