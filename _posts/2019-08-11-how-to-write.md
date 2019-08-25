@@ -172,6 +172,104 @@ description: 语言
 ### CS Course (线段树区间修改+区间取值) HDU - 6186
 题目链接：<https://vjudge.net/contest/313323#problem/B><br/>
 位运算拓展，注意tree数组用结构体要存三个数(尽量不用cin cout)<br/>
+奇妙的差分思想:<https://blog.csdn.net/i1020/article/details/77803985><br/>
+题目大意：给出一个序列，求删去某个下标的数后，求所有数的& | ^ 运算结果。<br/>
+
+    const int maxn=2e5+10;
+    const int INF=0x3f3f3f3f;
+    //int a[maxn];
+    struct node
+    {
+    int r,l;
+    int v1,v2,v3;
+    }tree[maxn*4];
+    int a1,a2,a3;
+    void pushup(int rt)
+    {
+    tree[rt].v1=tree[rt*2].v1&tree[rt*2+1].v1;
+    tree[rt].v2=tree[rt*2].v2|tree[rt*2+1].v2;
+    tree[rt].v3=tree[rt*2].v3^tree[rt*2+1].v3;
+    }
+    void bulidtree(int l,int r,int rt)
+    {
+    tree[rt].l=l;tree[rt].r=r;
+    if(l==r)
+    {
+        int l;
+        scanf("%d",&l);
+        tree[rt].v1=l;
+        tree[rt].v2=tree[rt].v1;
+        tree[rt].v3=tree[rt].v1;
+        return;
+    }
+    int mid=(tree[rt].l+tree[rt].r)/2;
+    bulidtree(l,mid,rt*2);
+    bulidtree(mid+1,r,rt*2+1);
+    pushup(rt);
+    }
+    void query(int al,int ar,int rt)
+    {
+    if(al==tree[rt].l&&ar==tree[rt].r)
+    {
+        a1=tree[rt].v1;
+        a2=tree[rt].v2;
+        a3=tree[rt].v3;
+        return ;
+    }
+    int mid=(tree[rt].l+tree[rt].r)/2;
+    if(ar<=mid)
+    query(al,ar,rt*2);
+     else if(al>mid)
+    query(al,ar,rt*2+1);
+    else
+    {
+        int b1,b2,b3;
+        query(al,mid,rt*2);
+        b1=a1;b2=a2;b3=a3;
+        query(mid+1,ar,rt*2+1);
+        a1&=b1;a2|=b2;a3^=b3;
+    }
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int n,q;
+    while(scanf("%d%d",&n,&q)!=EOF)
+    {
+        /*fro(i,1,n+1)
+        {
+            scanf("%d",&a[i]);
+        }*/
+        int b1,b2,b3;
+        bulidtree(1,n,1);
+        fro(i,0,q)
+        {
+            int x;
+            scanf("%d",&x);
+            if(x==1||x==n)
+            {
+                if(x==1)
+                {
+                    query(2,n,1);
+                    //cout<<a1<<" "<<a2<<" "<<a3<<endl;
+                }
+                else
+                {
+                    query(1,n-1,1);
+                   // cout<<a1<<" "<<a2<<" "<<a3<<endl;
+                }
+                printf("%d %d %d\n",a1,a2,a3);
+                continue;
+            }
+                query(1,x-1,1);
+                b1=a1;b2=a2;b3=a3;
+                query(x+1,n,1);
+                //cout<<(int)(b1&a1)<<" "<<(int)(b2|a2)<<" "<<(int)(b3^a3)<<endl;
+                printf("%d %d %d\n",b1&a1,b2|a2,b3^a3);
+        }
+    }
+    }
+
 
 ### Can you answer these queries? 线段树 区间相加
 题目链接:<https://vjudge.net/contest/313335#problem/A><br/>
