@@ -332,6 +332,82 @@ description: 文章金句。
 题目链接：<https://vjudge.net/problem/POJ-3630><br/>
 re多次，最后发现是没有更新结点。。。。<br/>
 
+    typedef pair<int,int> P;
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=1e6+10;
+    const int INF=0x3f3f3f3f;
+    int tree[maxn][11];
+    //ll coun[maxn];//计数
+    int pc;//模拟结点
+    bool ok[maxn];//节点下面是否还有节点
+    int count1=0;
+    void bulidtree(char *a)
+    {
+    int root=0;
+    int len=strlen(a);
+    fro(i,0,len)
+    {
+      int pos=a[i]-'0';
+      if(!tree[root][pos])
+      {
+          tree[root][pos]=++pc;
+      }
+      root=tree[root][pos];
+      //coun[root]++;
+     }
+    ok[root]=true;
+    }
+    bool query(char *a)
+     {
+    int root=0;
+    int len=strlen(a);
+    fro(i,0,len)
+    {
+        int pos=a[i]-'0';
+        if(ok[root])
+        {
+            //cout<<a<<" "<<pos<<endl;
+            return true;
+        }
+        root=tree[root][pos];
+    }
+    return false;
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+        mem(ok,false);
+        mem(tree,0);
+        pc=0;
+        int a;
+        bool ok1=false;
+        char s[10001][11];
+        scanf("%d",&a);
+        fro(i,0,a)
+        {
+            scanf("%s",s[i]);
+            bulidtree(s[i]);
+        }
+        fro(i,0,a)
+        {
+            if(query(s[i]))
+            {
+                ok1=true;
+                printf("NO\n");
+                break;
+            }
+        }
+        if(!ok1)
+        printf("YES\n");
+    }
+    return 0;
+    }
+
 ![哪吒](/img/lz2.jpg)
 
 
