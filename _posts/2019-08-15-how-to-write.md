@@ -74,6 +74,41 @@ description: 语言
 讲解：<https://blog.csdn.net/weixin_43916296/article/details/86379197 ><br/>
 拓展欧几里得衍生题，根据题意得出大概像a * x + y * b = C的样子，对后面是一个整数，不着急上面有讲解好好研究研究<br/>
 
+    const int INF=0x3f3f3f3f;
+    ll x,y;
+    int exgcd(ll a,ll b,ll &x,ll &y)
+    {
+    if(b==0)
+    {
+       x=1;
+       y=0;
+       return a;
+    }
+    int r=exgcd(b,a%b,x,y);
+    ll temp=x;
+    x=y;
+    y=temp-a/b*y;
+    return r;
+    }
+    int main()
+    {
+    //ios::sync_with_stdio(false);
+    ll x1,y1,m,n,l;
+    cin>>x1>>y1>>m>>n>>l;
+    ll a=n-m,c=x1-y1;
+    ll r=exgcd(a,l,x,y);
+    if(c%r!=0)
+        cout<<"Impossible"<<endl;
+    else
+        {
+            x=x*(c/r);
+            ll aa=l/r;
+            x=(x%aa+aa)%aa;
+           cout<<x<<endl;
+        }
+    return 0;
+     }
+
 ![哪吒](/img/lz3.jpg)
 
 
