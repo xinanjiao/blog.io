@@ -20,6 +20,66 @@ description: 文章金句。
 题目链接：<https://vjudge.net/problem/LightOJ-1224><br/>
 这就是坑人的题了，数组开大了re,开小了re，我也是服了，与也算是一道模板题，但需要注意的是，节约时间要读的时候确定最大值<br/>
 
+    const double PI = 3.1415926535897932;
+    const double EPS=1e-6;
+    const int maxn=2e6+10;
+    const int INF=0x3f3f3f3f;
+    int tree[maxn][4];
+    int coun[maxn];
+    bool ok[maxn];
+    int maxlen;
+    int pc;
+    map<char,int> m;
+    int change(char a)
+    {
+    return m[a];
+    }
+    void bulidtree(char *a)
+    {
+    int root=0;
+    int len=strlen(a);
+    for(int i=0;i<len;i++)
+    {
+        int s=change(a[i]);
+        if(!tree[root][s])
+            tree[root][s]=++pc;
+         coun[tree[root][s]]++;
+         maxlen=max(maxlen,coun[tree[root][s]]*(i+1));
+         root=tree[root][s];
+    }
+    ok[root]=true;
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    int t;
+    scanf("%d",&t);
+    m['A']=0;
+    m['C']=1;
+    m['G']=2;
+    m['T']=3;
+    int case1=1;
+    while(t--)
+    {
+    mem(tree,0);
+    mem(coun,0);
+    mem(ok,false);
+    pc=0;
+        int a;
+        scanf("%d",&a);
+        char s[55];
+        maxlen=-INF;
+        fro(i,0,a)
+        {
+            scanf("%s",s);
+            bulidtree(s);
+        }
+        //cout<<"Case "<<case1++<<": "<<maxlen<<endl;
+        printf("Case %d: %d\n",case1++,maxlen);
+    }
+    return 0;
+    }
+
 ### hdu 字典树 1251统计难题  模板题
 题目链接：<https://vjudge.net/problem/HDU-1251><br/>
 字典树题，结点记录前缀次数<br/>
