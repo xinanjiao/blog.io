@@ -259,37 +259,37 @@ code
         int a;ll b;
         //cin>>a>>b;
         s_d(op[i]);s_lld(data[i].x);
-        data[i].id=i;
+        data[i].id=i;//记录下标
     }
     //离散化处理
     sort(data+1,data+n+1,cmp);
     int cnt=1;
-    mp[cnt]=data[1].x;
-    opx[data[1].id]=cnt;
+    mp[cnt]=data[1].x;//储存原来的数
+    opx[data[1].id]=cnt;//映射
     fro(i,2,n+1)
     {
-        if(data[i].x!=data[i-1].x)
+        if(data[i].x!=data[i-1].x)//去重
             cnt++;
         mp[cnt]=data[i].x;
         opx[data[i].id]=cnt;//离散处理后的数字
     }
        fro(i,1,n+1)
         {
-            if(op[i]==1)
+            if(op[i]==1)//插入操作
         {
             bulidtree(opx[i],1,maxn,1);
         }
-        else if(op[i]==2)
+        else if(op[i]==2)//删除操作
         {
             deletetree(opx[i],1,maxn,1);
         }
-        else if(op[i]==3)
+        else if(op[i]==3)//查找排名
             cout<<findrank(opx[i],1,maxn,1)+1<<endl;
-        else if(op[i]==4)
+        else if(op[i]==4)//查找排名为a的数
             cout<<mp[findarank(mp[opx[i]],1,maxn,1)]<<endl;
-        else if(op[i]==5)
+        else if(op[i]==5)//找前驱
             cout<<mp[findpre(opx[i],1,maxn,1)]<<endl;
-        else
+        else//找后驱
             cout<<mp[findlast(opx[i],1,maxn,1)]<<endl;
         }
     return 0;
