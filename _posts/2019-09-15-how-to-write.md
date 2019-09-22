@@ -96,7 +96,60 @@ A[i] 包含于 C[i + 2k]、C[(i + 2k) + 2k]...；
      return res;
      }
 
+### 例题1 poj 2299 Ultra-QuickSort 
+题目链接：<https://vjudge.net/problem/POJ-2299><br/>
+题目大意：给出一个乱序的序列，需求需要经过多少次调换顺序才能变为递增序列。<br/>
+思路：就是告诉你求逆序对，求逆序对在前面求过，用到归并排序，这道题也可以这样做，也可以用线段树，但这道题还用新方法---树状数组吧！show my code ,基本操作，建树，插入。删除，求累加和，单点+区间修改，这道题要用到离散化
 
+    const double EPS=1e-6;
+    const int INF=0x3f3f3f3f;
+    const int maxn = 5e5+10;
+    int t;
+    struct node
+    {
+    int v, id;
+    }a[maxn];
+    int tree[maxn];
+    bool cmp(node a,node b)
+    {
+    return a.v<b.v;
+    }
+    int lowbit(int x){return x&(-x);}
+    void buildtree(int b)//建树
+    {
+    for(int i=b;i<=t;i+=lowbit(i))
+        tree[i]+=1;
+    }
+    ll query(int b)//查询
+    {
+    ll ans=0;
+    for(int i=b;i>=1;i-=lowbit(i))
+        ans+=tree[i];
+        return ans;
+    }
+    int main()
+    {
+    ios::sync_with_stdio(false);
+    while(cin>>t&&t)
+    {
+        mem(tree,0);
+        fro(i,1,t+1)
+        {
+        cin>>a[i].v;
+        a[i].id=i;
+        }
+        //离散化
+        sort(a+1,a+t+1,cmp);//排序后逆序对数不变
+        ll sum=0;
+        fro(i,1,t+1)
+        {
+            buildtree(a[i].id);
+            sum+=i-query(a[i].id);
+        }
+        cout<<sum<<endl;
+    }
+    return 0;
+    }
 
 
 
