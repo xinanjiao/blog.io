@@ -62,6 +62,57 @@ description: 语言。
     return 0;
     }
 
+### D - Herding HDU - 4709 
+题目链接：<https://vjudge.net/contest/327245#problem/D><br/>
+题目大意：给出几个坐标，要求计算所有坐标围成最小的面积。如果没有就输出“impoissbale"。<br/>
+思路:<br/>
+范围100，可三层循环暴力，每次求三个点围成的三角形即可，重点是计算三角形的面积，这里用到了叉积（计算几何），暑假学过，在回忆一下，叉积表示两个向量围成的平行四边形的面积，而一半就是三角形面积，具体看代码。<br/>
+<p style="color: red;">重点：当叉积为零时，三点共线</p>
+
+    struct point
+    {
+    double x,y;
+    }a[110];
+    double chaji(point a,point b,point c)
+    {
+    return ((b.x-a.x)*(c.y-a.y)-(c.x-a.x)*(b.y-a.y))/2.0;//两向量的叉积
+    }
+    int main()
+    {
+    //ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        mem(a,0);
+        fro(i,0,n)
+        cin>>a[i].x>>a[i].y;
+        double mina=INF*1.0;
+        bool flag=0;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                for(int k=j+1;k<n;k++)
+                {
+                    double arer=fabs(chaji(a[i],a[j],a[k]));
+                    if(arer!=0)
+                    {
+                        flag=1;
+                        mina=min(mina,arer);
+                    }
+                }
+            }
+        }
+        if(flag)
+        printf("%.2lf\n",mina);
+        else
+            printf("Impossible\n");
+    }
+    return 0;
+    }
 
 
 
