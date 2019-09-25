@@ -20,12 +20,12 @@ description: 语言
     int bfs(int a,int b)
     {
     mem(dis,0);
-    fro(i,0,8)//将一个点枚举8个方向
+    fro(i,0,8)
     {
         int x=a+dirtion[i][0];
         int y=b+dirtion[i][1];
         while(x>=0&&x<n&&y>=0&&y<n&&mas[x][y]!='#')
-        {//一直走
+        {
             dis[i]++;
             x+=dirtion[i][0];
             y+=dirtion[i][1];
@@ -34,7 +34,7 @@ description: 语言
     int sum=0;
     fro(i,0,8)
     {
-        sum=max(sum,dis[i]+dis[(i+2)%8]+1);//点睛之笔，方向安排得很巧妙，通过除余就可以得到对应的直角方向的值
+        sum=max(sum,dis[i]+dis[(i+2)%8]+1);
     }
     return sum;
     }
@@ -55,7 +55,7 @@ description: 语言
        fro(i,0,n)
          fro(j,0,n)
          {
-             if(mas[i][j]=='.')//把每个点当为拐点
+             if(mas[i][j]=='.')
              {
                  maxsum=max(maxsum,bfs(i,j));
              }
