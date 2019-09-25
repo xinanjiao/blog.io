@@ -6,7 +6,6 @@ categories: blog
 tags: [算法,搜索,线段树]
 description: 语言
 ---
-
 ### B - Wang Xifeng's Little Plot HDU - 5024（bfs）
 题目链接：<https://vjudge.net/contest/328694#problem/B><br/>
 题目大意：给出一张图，要求从一个点'.'开始，可以走八个方向，要求只拐一个弯，且等于90度，求能走的最长距离。<br/>
