@@ -3,7 +3,7 @@ layout: post
 title: ACM训练第12天
 date: 2019-8-03
 categories: blog
-tags: [算法,构造+规律,训练]
+tags: [算法,构造+规律,训练,素数筛]
 description: 语言。
 ---
 
