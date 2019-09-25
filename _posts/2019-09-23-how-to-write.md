@@ -64,6 +64,7 @@ description: 语言
     }
     }
 
+### A - A Corrupt Mayor's Performance Art HDU - 5023 （线段树变形）
 
 
 
