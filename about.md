@@ -1,11 +1,11 @@
 ---
 layout: page
-title: "About"
-description: "春风十里不如你" 
+title: "Chicken soup"
+description: "干了这碗鸡汤，啊 ~ 乖 张嘴" 
 header-img: "img/archives-widget.jpg"
 ---
 
-## 行了 开始自我介绍了
+<!-- ## 行了 开始自我介绍了
 **郑子豪** <br/>
 男 ~~你能找到女生和我一个名字我和你一个姓~~，重庆人喔，抄得一手标准川普，对之，普通话也还行叭，只不过，40，14，刘，牛，永远是我的痛罢了。
 ![郑子豪](/img/about10.jpg)
@@ -83,4 +83,199 @@ header-img: "img/archives-widget.jpg"
 
 <h4>李长振</h4>
 宿舍早出晚归之人，沉迷学习，无法自拔，无绯闻，洁身自好，不闻女色，活脱脱一在世佛陀，~~主要是计算机学院也没几个妹子，人家看不上~~，向他学习<br/>
-![李长振](/img/about3.jpg)
+![李长振](/img/about3.jpg) -->
+
+<p style="color:#FF0000;font-size: 25px;">你背单词时，阿拉斯加的鳕鱼正跃出水面；</p>
+
+<p style="color:#FF0000;font-size: 25px;">你算数学时，太平洋的海鸥振翅掠过城市上空；</p>
+
+<p style="color:#FF0000;font-size: 25px;">你晚自习时，极圈上的夜空散漫着五彩斑斓；</p>
+
+<p style="color:#FF0000;font-size: 25px;">但是少年你别着急，当你为自己的未来踏踏实实地努力时，那些你感觉没有可能看到的风景，</p>
+
+<p style="color:#FF0000;font-size: 25px;">那些你觉得终身不会遇到的人，正一步步向你走来。”</p>
+
+
+
+
+ <p style="color:#33FF33;font-size: 25px;">你背不下来的书，总有人能背下来，你做不出来的题，总有人能做出来，</p>
+
+ <p style="color:#33FF33;font-size: 25px;">你愿意拖到明天的事，总有人今天努力做完，那么不好意思，</p>
+
+ <p style="color:#33FF33;font-size: 25px;">你想去的学校也只能别人去了，你想过的人生也只能别人过了。</p>
+
+
+
+
+
+ <p style="color:#660099;font-size: 25px;">愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话</p>
+
+ <p style="color:#660099;font-size: 25px;">能做事的做事，能发声的发声。有一分热，发一分光。
+ </p>
+
+ <p style="color:#660099;font-size: 25px;">就像萤火一般，也可以在黑暗里发一点光，不必等候炬火。此后如竟没有炬火，</p>
+
+  <p style="color:#660099;font-size: 25px;">我便是唯一的光。
+ </p>
+
+ 
+
+ ​​​
+
+<p style="color:#FF6699;font-size: 25px;">
+ 五年后的你是什么样子，这取决于两件事：</p>
+
+<p style="color:#FF6699;font-size: 25px;">
+ 一个是你与哪些人为伍，</p>
+
+ <p style="color:#FF6699;font-size: 25px;">
+ 二是你每天拿出多少时间补充知识。</p>
+
+
+ 
+
+
+<p style="color: #99FFFF;font-size: 25px;">北京大学孙教授的一段话：“大学，就应该是早起吃点早餐；跑跑步；专业课认真听；</p>
+ 
+<p style="color: #99FFFF;font-size: 25px;">公共课看看自己喜欢的杂志；中午小睡一会儿；</p>
+ 
+<p style="color: #99FFFF;font-size: 25px;">下午参加个社团活动或打打篮球；晚上陪着喜欢的人散散步；</p>
+ 
+<p style="color: #99FFFF;font-size: 25px;">或去自习室安静地看看书…… </p>
+ 
+<p style="color: #99FFFF;font-size: 25px;">社会不需要学霸，也不认什么学生会主席，更不希望看到学生放弃学业去创业。</p>
+ 
+<p style="color: #99FFFF;font-size: 25px;">你只要能平稳完整地读完大学，寻找到自己所爱的人和兴趣，多去没有目的的看些能丰富自己思想的书，</p>
+ 
+<p style="color: #99FFFF;font-size: 25px;">认识几个好的不成样子的朋友，锻炼或是塑造自己的身体，</p>
+ 
+<p style="color: #99FFFF;font-size: 25px;">学精自己想要从事事业的专业知识…… </p>
+ 
+<p style="color: #99FFFF;font-size: 25px;">做到这些，平淡地度过大学这几年你就已经足够优秀了。 ”</p>         
+
+ 
+
+
+<p style="color: #990000;font-size: 25px;">如果你想在高考后换一部新的手机。买一台电脑。去看一次演唱会。享受一次单人旅行。</p>
+ 
+<p style="color: #990000;font-size: 25px;">每天早上能睡到自然醒。不用为写不完的作业发愁。不必再听父母的唠叨。自信地说我出去玩了。</p>
+ 
+<p style="color: #990000;font-size: 25px;">拉着恋人的手在街上疯癫。碰到班主任反而拉得更紧。那么，去努力吧。至少18岁的暑假需要你。</p>
+
+
+
+<p style="color: #3300CC;font-size: 25px;">你想不想在十年后，甚至更久后，</p>
+ 
+<p style="color: #3300CC;font-size: 25px;">在街上或者任何地方遇到</p>
+ 
+<p style="color: #3300CC;font-size: 25px;">自己曾经暗恋过的某某</p>
+ 
+<p style="color: #3300CC;font-size: 25px;">曾经嘲笑过你看不起的同学</p>
+ 
+<p style="color: #3300CC;font-size: 25px;">曾经跟你说你永远不可能有出息的老师</p>
+ 
+<p style="color: #3300CC;font-size: 25px;">曾经狠狠拒绝你因为你不够漂亮不够优秀的女生（或男生）</p>
+ 
+<p style="color: #3300CC;font-size: 25px;">曾经连正眼都没看过你一眼的那些所谓优等生</p>
+ 
+<p style="color: #3300CC;font-size: 25px;">都可以骄傲的扬起头笑着说看老子现在就是过得比你好 你还在奔波还在为生活担忧但是我早就过上了自己想要的生活</p>
+ 
+<p style="color: #3300CC;font-size: 25px;">如果你希望有那么一刻 那么一天</p>
+ 
+<p style="color: #3300CC;font-size: 25px;">那就拿起你的书吧</p>
+
+
+
+
+<p style="color: #FF0000;font-size: 27px;">如果没有躺赢的命 那就站起来跑</p>
+
+
+
+
+
+<p style="color: #660099;font-size: 25px;">我有一个对付负面情绪的办法，就是给自己设定一个身体程序：一旦出现某种情绪，就自动触发某个动作。</p>
+ 
+<p style="color: #660099;font-size: 25px;">这个“程序”可以是生气就去背单词，可以是焦虑就去看书，也可以是伤心就去挣钱。</p>
+ 
+<p style="color: #660099;font-size: 25px;">总之，就是一个能让你转移注意力又有长久收益的行为。</p>
+ 
+<p style="color: #660099;font-size: 25px;">虽然听起来很老土，但确实是我试过且证明很有用的方法。</p>
+ 
+<p style="color: #660099;font-size: 25px;">因为情绪是看不见摸不着的，但行为可以。一开始我只是为了转移注意力，才给自己设定了某个程序。</p>
+ 
+<p style="color: #660099;font-size: 25px;">但最近我发现，自己一旦出现某种情绪，大脑就会立马进入到触发动作的那一步。</p>
+ 
+<p style="color: #660099;font-size: 25px;">因为无论是行为还是思维，人总是会有惯性的。</p>
+ 
+<p style="color: #660099;font-size: 25px;">一件事只要你坚持的足够久，练习的足够多，它就会变成一个潜移默化的习惯，</p>
+ 
+<p style="color: #660099;font-size: 25px;">就会成为一种自然而然的条件反射。也就是说，熟练之后你分配给负面情绪的时间会越来越少，</p>
+ 
+<p style="color: #660099;font-size: 25px;">而分配给提升自己的时间会越来越多。别难过太久，伤心就去挣钱。</p>
+
+
+<p style="color: #FF0000;font-size: 27px;">乾坤未定，你我皆是黑马</p>
+
+
+
+ 
+<p style="color: #00FF00;font-size: 25px;">一个人没出息的九大根源：</p>
+ 
+<p style="color: #00FF00;font-size: 25px;">一、总找借口（22%）</p>
+ 
+<p style="color: #00FF00;font-size: 25px;">二、恐惧（19%）</p>
+ 
+<p style="color: #00FF00;font-size: 25px;">三、拒绝学习（11%）</p>
+ 
+<p style="color: #00FF00;font-size: 25px;">四、犹豫不决（13%）</p>
+
+<p style="color: #00FF00;font-size: 25px;">五、拖延（9%）</p>
+ 
+<p style="color: #00FF00;font-size: 25px;">六、三分钟热度（8%）</p>
+ 
+<p style="color: #00FF00;font-size: 25px;">七、害怕拒绝（7%)</p>
+ 
+<p style="color: #00FF00;font-size: 25px;">八、自我设限（6%）</p>
+ 
+<p style="color: #00FF00;font-size: 25px;">九、逃避现实（５％）</p>
+
+
+
+
+<p style="color: #FF0066;font-size: 25px;">希望，几年之后</p>
+ 
+<p style="color: #FF0066;font-size: 25px;">不要留下这么多遗憾</p>
+ 
+<p style="color: #FF0066;font-size: 25px;">书没读好</p>
+ 
+<p style="color: #FF0066;font-size: 25px;">喜欢的人也没在一起也没活成自己想要的样子</p>
+ 
+<p style="color: #FF0066;font-size: 25px;">一有想要改变现状的念头</p>
+ 
+<p style="color: #FF0066;font-size: 25px;">请当下、马上、立刻、开始吧！</p>
+
+
+
+
+<p style="color: #FFFF00;font-size: 27px;">立志要如山，行道要如水，不如山，不能坚定，不如水，不能曲达。</p>
+
+
+
+
+<p style="color: #6600FF;font-size: 25px;">你很优秀， 所以 ，在我还没有变得和你一样优秀之前 ，</p>
+ 
+<p style="color: #6600FF;font-size: 25px;">我一定不要有任何杂念， 任何歪心思 ，我会全身心投入到学习中 ，</p>
+ 
+<p style="color: #6600FF;font-size: 25px;">直到有一天能和你站在同一高度 ，</p>
+ 
+<p style="color: #6600FF;font-size: 25px;">那时候， 我一定有勇气对你说 ，你很优秀 ，但是我也不赖！</p>
+
+
+
+
+<p style="color: #FF0033;font-size: 30px;">我越来越相信，创造美好的代价是：努力、失望以及毅力。首先是疼痛，然后才是欢乐。</p>
+
+
+ 
+
+
