@@ -51,7 +51,7 @@ description: 文章金句。
     Case #15: 22374
 
 
-解题思路：我们都知道当斐波那契数大于64时，long long int 都存不下。所以就只能用大数来存储，即要用字符串来进行运算，那就要重载假发运算符，让最后的结果也为字符串。然后用字典树存储加查找。第一次我打算用字典树的，发现写到最后有点卡壳，有个地方不好实现，用map去查找了一发，T了，找到最后，实际上我的重载高精度加法很复杂，用的string，用string的话无法用数组形式的地址赋值，只能push_back(),这样就多了很多无意义的翻转操作，导致超时，最后写了字典树过辽，<div style="color: red">有个小插曲就是，当你把100000的值也压进字典树时就会错误！</div>，我打算有时间试试map会不会超时，毕竟有些字典树能做的是，map也能高效的完成！
+解题思路：我们都知道当斐波那契数大于64时，long long int 都存不下。所以就只能用大数来存储，即要用字符串来进行运算，那就要重载假发运算符，让最后的结果也为字符串。然后用字典树存储加查找。第一次我打算用字典树的，发现写到最后有点卡壳，有个地方不好实现，用map去查找了一发，T了，找到最后，实际上我的重载高精度加法很复杂，用的string，用string的话无法用数组形式的地址赋值，只能push_back(),这样就多了很多无意义的翻转操作，导致超时，最后写了字典树过辽，<p style="color: red">有个小插曲就是，当你把100000的值也压进字典树时就会错误！</p>，我打算有时间试试map会不会超时，毕竟有些字典树能做的是，map也能高效的完成！
 
     const int maxn = 6e6+100;
     int lowbit(int x){return x&(-x);}
@@ -106,7 +106,6 @@ description: 文章金句。
     cstring a[maxn];
     node tree[maxn][11];
     int pc;
-
     void buildtree(char *a,int tt)
     {
     int root=0;
@@ -173,7 +172,42 @@ description: 文章金句。
     }
 
 
+### uva1605 Building for UN 中途相遇法
 
+#### 题目大意：
+给联合国设计大楼，给你n个国家，满足以下要求，每个国家要求都要相邻（同一层国家的小方格边相邻，不同层的国家即每层对应的地方相同），每个国家用不同的英文大小写区分，输出所设计的大楼每层平面的长，宽，高，最后输出每层的平面图。
+
+<p style="color: red;font-size: 20px">中途相遇法</p>
+<p style="color: red"> 这是一种特殊的算法，大体思路就是从两个不同的方向来解决问题，最终“汇聚”到一起，双向广度优先搜索方法就有一点中途相遇法的味道。</p>
+
+方法：一共两层，每层都是n * n,第一层第i行全是国家i,第二层第j列全是国家j。
+
+    const int maxn = 1e5+100;
+    int lowbit(int x){return x&(-x);}
+    int main()
+    {
+    ios::sync_with_stdio(0);
+     string s="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+     int n;
+     while(cin>>n)
+     {
+         cout<<2<<" "<<n<<" "<<n<<endl;
+     fro(i,0,n)
+     {
+         fro(j,0,n)
+          cout<<s[i];
+        cout<<endl;
+     }
+     cout<<endl;
+     fro(i,0,n)
+     {
+         fro(j,0,n)
+         cout<<s[j];
+         cout<<endl;
+     }
+     }
+    return 0;
+    }
 
 
 
