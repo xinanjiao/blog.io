@@ -3,7 +3,7 @@ layout: post
 title: ACM训练第15天（字典树）
 date: 2019-8-13
 categories: blog
-tags: [算法,训练,数据结构]
+tags: [算法,训练,数据结构,字典树]
 description: 文章金句。
 ---
 
