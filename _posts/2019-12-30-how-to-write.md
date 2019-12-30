@@ -1,7 +1,7 @@
 ---
 layout: post
 title: uva12333+1605
-date: 2019-4-22
+date: 2019-12-30
 categories: blog
 tags: [字典树,中途相遇法,数据结构]
 description: 文章金句。
