@@ -127,8 +127,129 @@ description: 文章金句。
 
 ### 4 Values whose Sum is 0 UVA - 1152  中途相遇法/手动hash
 #### 题目大意
+给出四个长度为n的A,B,C,D集合，要求从四个集合中各选出一个值分别为a,b,c,d满足a+b+c+d=0。n<=4000
+
+####思路
+1.暴力枚举-----卒  O(n^4)
+2.将a+b的和放在map里面，然后也把c+d的值放在map里面，最后遍历map查找个数。-----卒，O(n^3* logn)。个问题紫书上说了一下，在uva上，当复杂度的后面常数太大的话，还是会超时，这对map不友好。
+3.将a+b的和放在一个数组里面，排序，二分查找是否有-c-d的值----AC(2970ms)  O(n^2logn)
+4.手写hash表，查找时间O(1).------AC(670ms)
+
+第一份代码为二分查找，也就是中途相遇法
+
+    int main(){
+    int t;
+    cin>>t;
+    int ok=0;
+    while(t--)
+    {
+        if(ok)
+            cout<<endl;
+        mem(res,0);
+        vector<int> a[4];
+        int n;
+        cin>>n;
+        fro(i,0,n)
+        {
+            fro(j,0,4)
+             {
+                 int b;
+                 cin>>b;
+                 a[j].push_back(b);
+             }
+        }
+        int cnt=0;
+        fro(i,0,n)
+        {
+            fro(j,0,n)
+            {
+                res[cnt++]=a[0][i]+a[1][j];
+            }
+        }
+        sort(res,res+cnt);
+        int sum=0;
+        fro(i,0,n)
+        {
+            fro(j,0,n)
+            {
+                int s;
+                s=-a[2][i]-a[3][j];
+                int k=lower_bound(res,res+cnt,s)-res;
+                int kk=upper_bound(res,res+cnt,s)-res;
+                //if(kk-k!=0)
+                   // sum++;
+                sum+=kk-k;
+            }
+        }
+        cout<<sum<<endl;
+        ok=1;
+    }
+    return 0;
+    }
 
 
 
+hash写法，内涵hash模板，必须记住
 
+    struct hash_list
+    {
+    static const int mask=0x7fffff;
+    int p[hashmaxn],q[hashmaxn];
+    void clear()
+    {
+       fro(i,0,mask+1)
+       q[i]=0;
+    }
+    int &operator[](int k)
+    {
+       int i;
+       for(i=k&mask;q[i]&&p[i]!=k;i=(i+1)&mask);
+       p[i]=k;
+       return q[i];
+    }
+    }newhash;
+    int main()
+    {
+    ios::sync_with_stdio(0);
+    int t,ok=0;
+    cin>>t;
+    while(t--)
+    {
+        if(ok)
+            cout<<endl;
+        vector<int> a[4];
+        int n;
+        cin>>n;
+        fro(i,0,n)
+        {
+            fro(j,0,4)
+            {
+                int b;
+                cin>>b;
+                a[j].push_back(b);
+            }
+        }
+        newhash.clear();
+        fro(i,0,n)
+        {
+            fro(j,0,n)
+            {
+                int tt=a[0][i]+a[1][j];
+                newhash[tt]++;
+            }
+        }
+        int sum=0;
+        fro(i,0,n)
+        {
+            fro(j,0,n)
+            {
+                int tt=-a[2][i]-a[3][j];
+                sum+=newhash[tt];
+            }
+        }
+        ok=1;
+        cout<<sum<<endl;
+    }
+    return 0;
+    }
 
