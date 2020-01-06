@@ -130,7 +130,9 @@ description: 语言
           cout<<"Wrong Scoreboard"<<endl;
     }
     }
-上面代码中define很漂亮，可以省去很多重复且不重要的代码，节约时间<br/>
+上面代码中define很漂亮，可以省去很多重复且不重要的代码，节约时间
+
+
 ### 排列
 题目链接:<http://acm.hdu.edu.cn/showproblem.php?pid=6235><br/>
 **题目大意**<br/>
