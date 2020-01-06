@@ -3,7 +3,7 @@ layout: post
 title: uva11134+hello 2020
 date: 2020-1-4
 categories: blog
-tags: [贪心]
+tags: [贪心,codeforce]
 description: 语言
 ---
 
@@ -95,7 +95,7 @@ description: 语言
     return 0;
     }
 
-## codefroce Hello 2020
+## codeforce Hello 2020
 
 ### New Year and Naming CodeForces - 1284A 模拟
 #### 题目大意
