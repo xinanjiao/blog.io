@@ -3,7 +3,7 @@ layout: post
 title: codeforce div613 C +uva 1608 12174(关于memset性能的讨论)
 date: 2020-1-14
 categories: blog
-tags: [数学,分治法,中途相遇法]
+tags: [数学,分治法,中途相遇法,codeforce]
 description: 语言
 ---
 
