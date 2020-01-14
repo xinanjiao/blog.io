@@ -139,3 +139,42 @@ description: 语言
     }
     return 0;
     }
+
+### Shuffle UVA - 12174 滑动窗口（虽然并没有用到
+
+#### 题目大意
+假设一种音乐播放器有一个乱序的功能，设定每播放S首歌为一个周期，随机播放编号为1 ~ S的歌曲。现在给一个长度为N的部分播放记录，请统计下次随机排序所发生的时间的可能性种数。(1 ≤ S,N ≤ 100000 )
+
+#### 分析
+都说用滑动窗口，我也看了看，滑动窗口的时间效率真的高，但我还是选择了这个很玄学的方法，等有时间再学学滑动窗口！
+
+    int book[maxn],last[maxn];
+    int main(){
+    ios::sync_with_stdio(0);
+    int t;
+    cin>>t;
+    while(t--){
+        mem(book,0);
+        mem(last,-1);
+        int m,n;
+        cin>>m>>n;
+        fro(i,0,n){
+            int a;
+            cin>>a;
+            if(last[a]!=-1&&i-last[a]<m){
+                for(int j=i;j<last[a]+m;j++){
+                    book[j%m]=1;
+                }
+            }
+            last[a]=i;
+        }
+        ll ans=0;
+        fro(i,0,m){
+            if(!book[i]){
+                ans++;
+            }
+        }
+        cout<<ans<<endl;
+    }
+    return 0;
+    }
