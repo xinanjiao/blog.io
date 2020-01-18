@@ -54,8 +54,8 @@ comments :
   disqus :
       short_name :  # 填写你的 disqus id
 #livere:#新增
-  enable: true#新增，控制评论显示
-  livere_uid: MTAyMC80ODMxMi8yNDgwNg==
+  #enable: true#新增，控制评论显示
+  #livere_uid: MTAyMC80ODMxMi8yNDgwNg==
 
 
 # Analytics and webmaster tools stuff goes here
