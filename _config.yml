@@ -44,7 +44,7 @@ defaults:
     values:
       layout: "post"
       author: "郑子豪" # 你的名字
-      header-img: "img/facebook.jpg" # We don't want posts without a header image, that whould mean white on white
+      header-img: "img/user.gif" # We don't want posts without a header image, that whould mean white on white
 
 # Comments 
 comments :
