@@ -168,5 +168,71 @@ description: 语言
     return 0;
 	}
 
+### Weak Key UVA - 1618 技巧枚举
+#### 题目大意
+对于一个长度为n的序列，找到四个数，Np,Nq,Ns,Nr(p>q>s>r)使得Nq>Nr>Np>Ns或Nq<Nr<Np<Ns。
+#### 思路
+当初的想法肯定超时，就不说了。<br>
+参考了网上的做法。<br>
+枚举Nq和Ns，因为他们一个最大一个最小，<br>
+预处理每个数左边小于它的数，和它右边大于它的数，记录。<br>
+每次枚举完Nq和Ns后。二分查找Nq当中大于Ns的数Np。二分查找Ns右边小于Nq的数Nr。如果满足Nr>Np就可以。
 
+	int n;
+	vector<int> a;
+	bool cheak(){
+    vector<int> l[5100],r[5100];
+        fro(i,0,n){
+            int ans=a[i];
+            for(int j=i-1;j>=0;j--){
+                if(a[j]<ans)
+                    l[i].push_back(a[j]);
+            }
+            for(int k=i+1;k<n;k++){
+                if(a[k]>ans)
+                    r[i].push_back(a[k]);
+            }
+            sort(l[i].begin(),l[i].end());
+            sort(r[i].begin(),r[i].end());
+           // cout<<"???"<<endl;
+        }
+        for(int i=0;i<n;i++){
+               int ans=a[i];
+            for(int j=i+1;j<n-1;j++){
+                if(a[j]<ans){
+                    if(l[i].size()==0||r[j].size()==0)
+                        continue;
+                    int p=upper_bound(l[i].begin(),l[i].end(),a[j])-l[i].begin();
+                    int q=lower_bound(r[j].begin(),r[j].end(),ans)-r[j].begin();
+                    if(p==l[i].size()||q==0)
+                        continue;
+                     if(r[j][q-1]>l[i][p])
+                        return true;
+                }
+            }
+        }
+        return false;
+	}
+	int main(){
+    ios::sync_with_stdio(0);
+    int t;
+    cin>>t;
+    while(t--){
+        cin>>n;
+        a.clear();
+        fro(i,0,n){
+            int aa;
+            cin>>aa;
+            a.push_back(aa);
+        }
+        bool ok=0;
+        if(cheak())
+            ok=1;
+        reverse(a.begin(),a.end());
+        if(cheak())
+            ok=1;
+        ok==1?cout<<"YES"<<endl:cout<<"NO"<<endl;
+    }
+    return 0;
+	}
 
