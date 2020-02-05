@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Codeforces Round 541 (Div. 2)  UVA 1025
+title: Codeforces Round541 (Div2) UVA 1025
 date: 2020-02-05
 categories: blog
 tags: [codeforce,动态规划]
