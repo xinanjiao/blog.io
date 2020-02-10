@@ -75,18 +75,18 @@ uva 1347 poj 2677 hdu 2224都是TSP模板的板子题，在这里总结板子如
 
 '''
 
-	struct TSP{
-	int x[maxn],y[maxn],n;
-	double dis[maxn][maxn];
-	double dp[maxn][maxn];
-	void Distance(int x1,int x2,int y1,int y2){return sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));}
-    void DP(){
-        dp[1][2]=dis[1][2];
-        for(int j=3;j<=n;j++){
-            //i!=j-1
-            for(int i=1;i<j-1;i++)
-                dp[i][j]=dp[i][j-1]+dis[j-1][j];
-             //i==j-1
+struct TSP{
+int x[maxn],y[maxn],n;
+double dis[maxn][maxn];
+double dp[maxn][maxn];
+void Distance(int x1,int x2,int y1,int y2){return sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));}
+void DP(){
+    dp[1][2]=dis[1][2];
+     for(int j=3;j<=n;j++){
+        //i!=j-1
+         for(int i=1;i<j-1;i++)
+            dp[i][j]=dp[i][j-1]+dis[j-1][j];
+            //i==j-1
             double mina=INF;
             for(int k=1;k<j-1;k++)
                 mina=min(mina,dp[k][j-1]+dis[k][j]);
@@ -109,7 +109,7 @@ uva 1347 poj 2677 hdu 2224都是TSP模板的板子题，在这里总结板子如
             printf("%.2lf\n",dp[n][n]);
         }
     }
-    }s;
+}s;
 
 '''
 和上面讲的异曲同工之妙！！！转换一下就好了
