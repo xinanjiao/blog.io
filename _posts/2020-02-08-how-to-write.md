@@ -73,7 +73,7 @@ b[n,n] =  min{ b[n，k] + distance（n，k）}  0<=k< n
 ### 例题
 uva 1347 poj 2677 hdu 2224都是TSP模板的板子题，在这里总结板子如下：
 
-'''
+```
 
 struct TSP{
 int x[maxn],y[maxn],n;
@@ -111,5 +111,5 @@ void DP(){
     }
 }s;
 
-'''
+```
 和上面讲的异曲同工之妙！！！转换一下就好了
