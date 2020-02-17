@@ -1,6 +1,6 @@
 ---
 layout: post
-title: poj之最小生成树专题
+title: POJ之最小生成树专题
 date: 2020-02-17
 categories: blog
 tags: [最小生成树]
