@@ -41,6 +41,8 @@ prim算法和kruskal都可，个人感觉这道题可能prim复杂度更低代�
 2. 应为输入含空格，所以最好gets输入，而且记得关掉同步流
 3. 边较多，数组开1e5才够。
 
+代码
+
 ```
 #include <iostream>
 #include <cstdio>
