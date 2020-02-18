@@ -27,8 +27,6 @@ description: 语言
 希望疫情尽快结束，前线的医护人员平平安安，加油！！！
 
 
-### Borg Maze POJ - 3026 最小生成树+BFS
-
 ```
 
 const int maxn = 1e5+10;
