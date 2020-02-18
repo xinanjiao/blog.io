@@ -109,7 +109,7 @@ void bfs(int u){
         for(int i=0;i<4;i++){
             int xx=b.x+dirtion[i][0];
             int yy=b.y+dirtion[i][1];
-            if(xx>=0&&xx<y&&yy>=0&&yy<x&&!book[xx][yy]&&mp[xx][yy]!='#'){
+            if(xx>=0&&xx<y&&yy>=0&&yy<x&&!book[xx][yy]&&mp[xx][yy]!='$'){
                     c.x=xx,c.y=yy,c.step=b.step+1;
                     q.push(c);
                     book[xx][yy]=1;
