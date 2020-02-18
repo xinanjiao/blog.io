@@ -25,13 +25,7 @@ description: 语言
 你们都是英雄！致敬<br>
 
 希望疫情尽快结束，前线的医护人员平平安安，加油！！！
-
-
 ```
-
-const int maxn = 1e5+10;
-const int hashmaxn=8388608;
-int lowbit(int x){return x&(-x);}
 char mp[60][60];
 bool book[60][60];
 int number[60][60];
