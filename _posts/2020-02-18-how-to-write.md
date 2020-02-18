@@ -24,7 +24,7 @@ description: 语言
 
 希望疫情尽快结束，前线的医护人员平平安安，加油！！！
 
-### Borg Maze POJ - 3026 最小生成树+BFS
+### Borg Maze POJ - 3026 最小生成树+BFS 经典！
 #### 题目大意
 在一个y行 x列的迷宫中，有可行走的通路空格’ ‘，不可行走的墙’$’，还有两种英文字母A和S，现在从S出发，要求用最短的路径L连接所有字母，输出这条路径L的总长度。有句话很关键。也就是：在's'点或者'A'点的时候可以分开行动，但步数另外算。
 #### 思路
@@ -38,99 +38,9 @@ prim算法和kruskal都可，个人感觉这道题可能prim复杂度更低代�
 应为输入含空格，所以最好gets输入，而且记得关掉同步流。<br>
 边较多，数组开1e5才够。<br>
 
-```
+代码无法展示，看链接<https://vjudge.net/problem/POJ-3026>
 
-char mp[60][60];
-bool book[60][60];
-int number[60][60];
-int dirtion[4][2]={{0,1},{0,-1},{1,0},{-1,0}};
-int root[maxn];
-int num,x,y,cnt;
-struct edge{
-    int from,to,cost;
-    edge(){}
-    edge(int a,int b,int c):from(a),to(b),cost(c){}
-}s[maxn];
-struct node{
-    int x,y,step;
-    node(){}
-    node(int a,int b):x(a),y(b){}
-}a,b,c;
-bool cmp(edge a,edge b){
-    return a.cost<b.cost;
-}
-void bfs(int u){
-    mem(book,0);
-    queue<node> q;
-    q.push(a);
-    while(!q.empty()){
-        b=q.front();
-        q.pop();
-        if(mp[b.x][b.y]=='A'||mp[b.x][b.y]=='S'){
-            s[cnt++]=edge(u,number[b.x][b.y],b.step);
-        }
-        for(int i=0;i<4;i++){
-            int xx=b.x+dirtion[i][0];
-            int yy=b.y+dirtion[i][1];
-            if(xx>=0&&xx<y&&yy>=0&&yy<x&&!book[xx][yy]&&mp[xx][yy]!='$'){
-                    c.x=xx,c.y=yy,c.step=b.step+1;
-                    q.push(c);
-                    book[xx][yy]=1;
-            }
-        }
-    }
-}
-int findroot(int a){
-    return root[a]==a?a:root[a]=findroot(root[a]);
-}
-int main()
-{
-   // ios::sync_with_stdio(false);
-    int n;
-    //cin>>n;
-    scanf("%d",&n);
-    while(n--){
-        mem(s,0);
-        mem(number,0);
-        cnt=0;
-       int cnt1=0;
-        scanf("%d %d",&x,&y);
-        mem(book,0);
-        char ss[60];
-        gets(ss);
-        for(int i=0;i<y;i++){
-            gets(mp[i]);
-            for(int j=0;j<x;j++){
-            //cin>>mp[i][j];
-            if(mp[i][j]=='S'||mp[i][j]=='A')
-                number[i][j]=cnt1++;
-            }
-        }
-       for(int i=0;i<y;i++){
-            for(int j=0;j<x;j++){
-                if(mp[i][j]=='A'||mp[i][j]=='S'){
-                    a.x=i,a.y=j,a.step=0;
-                    bfs(number[i][j]);
-                }
-            }
-       }
-       sort(s,s+cnt,cmp);
-       for(int i=0;i<=cnt;i++)
-        root[i]=i;
-       int sum=0;
-       for(int i=0;i<cnt;i++){
-        int xx=findroot(s[i].to);
-        int yy=findroot(s[i].from);
-        if(xx!=yy){
-            sum+=s[i].cost;
-            root[xx]=yy;
-        }
-       }
-       printf("%d\n",sum);
-    }
-    return 0;
-}
-```
+
 ### Sorting It All Out POJ - 1094 拓扑排序
 #### 题目大意
 用小于号"<"来定义两元素之间的关系，并于一个没有重复元素的有序上升序列 从小到大地排列这些元素。
