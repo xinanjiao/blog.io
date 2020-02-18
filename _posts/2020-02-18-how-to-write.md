@@ -44,40 +44,7 @@ prim算法和kruskal都可，个人感觉这道题可能prim复杂度更低代�
 代码
 
 ```
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
-#include <fstream>
-#include <algorithm>
-#include <cmath>
-#include <deque>
-#include <vector>
-#include <queue>
-#include <string>
-#include <cstring>
-#include <map>
-#include<time.h>
-#include <stack>
-#include <list>
-#include <set>
-#include <sstream>
-#include <iterator>
-using namespace std;
-#define FOPI freopen("codecoder.in", "r", stdin)
-#define DOPI freopen("codecoder.out", "w", stdout)
-#define ll long long int
-#define fro(i,a,n) for(ll i=a;i<n;i++)
-#define pre(i,a,n) for(ll i=n-1;i>=a;i--)
-#define mem(a,b) memset(a,b,sizeof(a))
-#define ls l,mid,rt<<1
-#define rs mid+1,r,rt<<1|1
-#define fi first
-#define se second
-typedef pair<ll,ll> P;
-ll gcd(ll a,ll b){return b==0?a:gcd(b,a%b);}
-const double PI = 3.1415926535897932;
-const double EPS=1e-10;
-const int INF=0x3f3f3f3f;
+
 const int maxn = 1e5+10;
 const int hashmaxn=8388608;
 int lowbit(int x){return x&(-x);}
