@@ -54,7 +54,90 @@ description: 语言
 
 图论的题，建好图就可了，建图是难点，有时看数据小就会被误导到暴力去，得多做题体会体会！!
 
+### Asteroids POJ - 3041 最小点覆盖
+####题目大意
+给一个N* N的矩阵，有些格子有障碍，要求我们消除这些障碍，问每次消除一行或一列的障碍，
 
+最少要几次。
+### 思路
+不知道最小点覆盖的话，虽然我知道是二分图匹配也不知道怎样建图。<br>
+想想也就是将行看成二分图的一边，列看为另外一边。<br>
+按这给关系将给出的坐标建图，。一次性可以消掉一列或一行。<br>
+现在的问题是 我们要在新图中选择最少的点使得所有边都至少有一个端点被选中了。这就是最小点覆盖问题！
+
+```
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <fstream>
+#include <algorithm>
+#include <cmath>
+#include <deque>
+#include <vector>
+#include <queue>
+#include <string>
+#include <cstring>
+#include <map>
+#include<time.h>
+#include <stack>
+#include <list>
+#include <set>
+#include <sstream>
+#include <iterator>
+using namespace std;
+#define FOPI freopen("codecoder.in", "r", stdin)
+#define DOPI freopen("codecoder.out", "w", stdout)
+#define ll long long int
+#define fro(i,a,n) for(ll i=a;i<n;i++)
+#define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+#define mem(a,b) memset(a,b,sizeof(a))
+#define ls l,mid,rt<<1
+#define rs mid+1,r,rt<<1|1
+#define fi first
+#define se second
+typedef pair<ll,ll> P;
+ll gcd(ll a,ll b){return b==0?a:gcd(b,a%b);}
+const double PI = 3.1415926535897932;
+const double EPS=1e-10;
+const int INF=0x3f3f3f3f;
+const int maxn = 1e5+10;
+const int hashmaxn=8388608;
+int lowbit(int x){return x&(-x);}
+int n,m;
+bool match[510][510];
+bool book[510];
+int used[510];
+bool dfs(int a){
+    for(int i=1;i<=n;i++){
+        if(!book[i]&&match[a][i]){
+            book[i]=1;
+            if(!used[i]||dfs(used[i])){
+                    used[i]=a;
+                return true;
+            }
+        }
+    }
+    return false;
+}
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin>>n>>m;
+    for(int i=0;i<m;i++){
+        int x,y;
+        cin>>x>>y;
+        match[x][y]=1;
+    }
+    int sum=0;
+    for(int i=1;i<=n;i++){
+        mem(book,0);
+        if(dfs(i))
+            sum++;
+    }
+    cout<<sum<<endl;
+    return 0;
+}
+```
 
 
 
