@@ -147,19 +147,20 @@ int main()
 首先要覆盖所有的点，所以就是求最小的边让所有点覆盖，也就是最小路径覆盖（看看定义）。<br>
 这里给出的是一张地图，还要根据地图建图。建完的二分图是无向图。<br>
 建图方法就是如果纸片能覆盖住四个方向的点，就加一条边！<br>
-在匈牙利算法的used数组那里，把它定义为了bool类型错了很多次！！
+在匈牙利算法的used数组那里，把它定义为了bool类型错了很多次！！<br>
 
-```
-//最小路径（边）覆盖=顶点数-最大匹配数
-int number[maxn][maxn];
-char mp[450][450];
-bool match[maxn][maxn];
-int used[maxn];
-bool book[maxn];
-int cnt,ans=0;
-int dirtion[4][2]={{0,1},{0,-1},{1,0},{-1,0}};
-bool dfs(int s){
-   // cout<<cnt<<endl;
+
+
+	//最小路径（边）覆盖=顶点数-最大匹配数
+	int number[maxn][maxn];
+	char mp[450][450];
+	bool match[maxn][maxn];
+	int used[maxn];
+	bool book[maxn];
+	int cnt,ans=0;
+	int dirtion[4][2]={{0,1},{0,-1},{1,0},{-1,0}};
+	bool dfs(int s){
+     // cout<<cnt<<endl;
     for(int j=1;j<=cnt;j++){
         if(!book[j]&&match[s][j]){
                 book[j]=1;
@@ -170,9 +171,9 @@ bool dfs(int s){
         }
     }
     return false;
-}
-int main()
-{
+	}
+	int main()
+	{
     //ios::sync_with_stdio(false);
     int t;
     scanf("%d",&t);
@@ -220,7 +221,6 @@ int main()
         printf("%d\n",cnt-ans/2);
     }
     return 0;
-}
-```
+	}
 
 
