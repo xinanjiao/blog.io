@@ -139,6 +139,125 @@ int main()
 }
 ```
 
+### Antenna Placement POJ - 3020 无向图的最小路径覆盖
+#### 题目大意
+有一张1 * 2大小的纸片，问需要覆盖所有标记的点的最小纸片数。
 
+#### 思路
+首先要覆盖所有的点，所以就是求最小的边让所有点覆盖，也就是最小路径覆盖（看看定义）。<br>
+这里给出的是一张地图，还要根据地图建图。建完的二分图是无向图。<br>
+建图方法就是如果纸片能覆盖住四个方向的点，就加一条边！<br>
+在匈牙利算法的used数组那里，把它定义为了bool类型错了很多次！！
+
+```
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <fstream>
+#include <algorithm>
+#include <cmath>
+#include <deque>
+#include <vector>
+#include <queue>
+#include <string>
+#include <cstring>
+#include <map>
+#include<time.h>
+#include <stack>
+#include <list>
+#include <set>
+#include <sstream>
+#include <iterator>
+using namespace std;
+#define FOPI freopen("codecoder.in", "r", stdin)
+#define DOPI freopen("codecoder.out", "w", stdout)
+#define ll long long int
+#define fro(i,a,n) for(ll i=a;i<n;i++)
+#define pre(i,a,n) for(ll i=n-1;i>=a;i--)
+#define mem(a,b) memset(a,b,sizeof(a))
+#define ls l,mid,rt<<1
+#define rs mid+1,r,rt<<1|1
+#define fi first
+#define se second
+typedef pair<ll,ll> P;
+ll gcd(ll a,ll b){return b==0?a:gcd(b,a%b);}
+const double PI = 3.1415926535897932;
+const double EPS=1e-10;
+const int INF=0x3f3f3f3f;
+const int maxn = 5e2+10;
+const int hashmaxn=8388608;
+int lowbit(int x){return x&(-x);}
+//最小路径（边）覆盖=顶点数-最大匹配数
+int number[maxn][maxn];
+char mp[450][450];
+bool match[maxn][maxn];
+int used[maxn];
+bool book[maxn];
+int cnt,ans=0;
+int dirtion[4][2]={{0,1},{0,-1},{1,0},{-1,0}};
+bool dfs(int s){
+   // cout<<cnt<<endl;
+    for(int j=1;j<=cnt;j++){
+        if(!book[j]&&match[s][j]){
+                book[j]=1;
+            if(used[j]==0||dfs(used[j])){
+                used[j]=s;
+                return true;
+            }
+        }
+    }
+    return false;
+}
+int main()
+{
+    //ios::sync_with_stdio(false);
+    int t;
+    scanf("%d",&t);
+    while(t--){
+        cnt=0;
+        ans=0;
+        mem(number,0);
+        mem(used,0);
+        mem(match,0);
+        int n,m;
+        scanf("%d%d",&n,&m);
+        getchar();
+        for(int i=0;i<n;i++){
+            gets(mp[i]);
+        }
+            for(int i=0;i<n;i++)
+            for(int j=0;j<m;j++){
+                if(mp[i][j]=='*')
+                    number[i][j]=++cnt;
+            }
+        //建无向图
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(number[i][j]){
+                    for(int k=0;k<4;k++){
+                        int xx=i+dirtion[k][0];
+                        int yy=j+dirtion[k][1];
+                        if(xx<0||xx>=n||yy<0||yy>=m)
+                            continue;
+                        if(number[xx][yy]){
+                            int aa=number[i][j];
+                            int bb=number[xx][yy];
+                            match[aa][bb]=1;//建边
+                        }
+                    }
+                }
+            }
+        }
+        //cout<<"---------"<<endl;
+        for(int i=1;i<=cnt;i++){
+            mem(book,0);
+            if(dfs(i))
+                ans++;
+        }
+        printf("%d\n",cnt-ans/2);
+    }
+    return 0;
+}
+```
 
 
