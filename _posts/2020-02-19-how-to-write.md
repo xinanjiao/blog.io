@@ -150,7 +150,6 @@ int main()
 在匈牙利算法的used数组那里，把它定义为了bool类型错了很多次！！
 
 ```
-
 //最小路径（边）覆盖=顶点数-最大匹配数
 int number[maxn][maxn];
 char mp[450][450];
