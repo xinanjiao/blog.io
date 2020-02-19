@@ -150,43 +150,7 @@ int main()
 在匈牙利算法的used数组那里，把它定义为了bool类型错了很多次！！
 
 ```
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
-#include <fstream>
-#include <algorithm>
-#include <cmath>
-#include <deque>
-#include <vector>
-#include <queue>
-#include <string>
-#include <cstring>
-#include <map>
-#include<time.h>
-#include <stack>
-#include <list>
-#include <set>
-#include <sstream>
-#include <iterator>
-using namespace std;
-#define FOPI freopen("codecoder.in", "r", stdin)
-#define DOPI freopen("codecoder.out", "w", stdout)
-#define ll long long int
-#define fro(i,a,n) for(ll i=a;i<n;i++)
-#define pre(i,a,n) for(ll i=n-1;i>=a;i--)
-#define mem(a,b) memset(a,b,sizeof(a))
-#define ls l,mid,rt<<1
-#define rs mid+1,r,rt<<1|1
-#define fi first
-#define se second
-typedef pair<ll,ll> P;
-ll gcd(ll a,ll b){return b==0?a:gcd(b,a%b);}
-const double PI = 3.1415926535897932;
-const double EPS=1e-10;
-const int INF=0x3f3f3f3f;
-const int maxn = 5e2+10;
-const int hashmaxn=8388608;
-int lowbit(int x){return x&(-x);}
+
 //最小路径（边）覆盖=顶点数-最大匹配数
 int number[maxn][maxn];
 char mp[450][450];
