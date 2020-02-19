@@ -141,144 +141,16 @@ int main()
 
 ### Antenna Placement POJ - 3020 无向图的最小路径覆盖
 #### 题目大意
-有一张1 * 2大小的纸片，问需要覆盖所有标记的点的最小纸片数。
+有一张 1 * 2大小的纸片，问需要覆盖所有标记的点的最小纸片数。
 
 #### 思路
 首先要覆盖所有的点，所以就是求最小的边让所有点覆盖，也就是最小路径覆盖（看看定义）。<br>
 这里给出的是一张地图，还要根据地图建图。建完的二分图是无向图。<br>
 建图方法就是如果纸片能覆盖住四个方向的点，就加一条边！<br>
 在匈牙利算法的used数组那里，把它定义为了bool类型错了很多次！！<br>
-```
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
-#include <fstream>
-#include <algorithm>
-#include <cmath>
-#include <deque>
-#include <vector>
-#include <queue>
-#include <string>
-#include <cstring>
-#include <map>
-#include<time.h>
-#include <stack>
-#include <list>
-#include <set>
-#include <sstream>
-#include <iterator>
-using namespace std;
-#define FOPI freopen("codecoder.in", "r", stdin)
-#define DOPI freopen("codecoder.out", "w", stdout)
-#define ll long long int
-#define fro(i,a,n) for(ll i=a;i<n;i++)
-#define pre(i,a,n) for(ll i=n-1;i>=a;i--)
-#define mem(a,b) memset(a,b,sizeof(a))
-#define ls l,mid,rt<<1
-#define rs mid+1,r,rt<<1|1
-#define fi first
-#define se second
-typedef pair<ll,ll> P;
-ll gcd(ll a,ll b){return b==0?a:gcd(b,a%b);}
-const double PI = 3.1415926535897932;
-const double EPS=1e-10;
-const int INF=0x3f3f3f3f;
-const int maxn = 1e5+10;
-const int hashmaxn=8388608;
-int lowbit(int x){return x&(-x);}
-char mp[60][60];
-bool book[60][60];
-int number[60][60];
-int dirtion[4][2]={{0,1},{0,-1},{1,0},{-1,0}};
-int root[maxn];
-int num,x,y,cnt;
-struct edge{
-    int from,to,cost;
-    edge(){}
-    edge(int a,int b,int c):from(a),to(b),cost(c){}
-}s[maxn];
-struct node{
-    int x,y,step;
-    node(){}
-    node(int a,int b):x(a),y(b){}
-}a,b,c;
-bool cmp(edge a,edge b){
-    return a.cost<b.cost;
-}
-void bfs(int u){
-    mem(book,0);
-    queue<node> q;
-    q.push(a);
-    while(!q.empty()){
-        b=q.front();
 
-        q.pop();
-        if(mp[b.x][b.y]=='A'||mp[b.x][b.y]=='S'){
-            s[cnt++]=edge(u,number[b.x][b.y],b.step);
-        }
-        for(int i=0;i<4;i++){
-            int xx=b.x+dirtion[i][0];
-            int yy=b.y+dirtion[i][1];
-            if(xx>=0&&xx<y&&yy>=0&&yy<x&&!book[xx][yy]&&mp[xx][yy]!='#'){
-                    c.x=xx,c.y=yy,c.step=b.step+1;
-                    q.push(c);
-                    book[xx][yy]=1;
-            }
-        }
-    }
-}
-int findroot(int a){
-    return root[a]==a?a:root[a]=findroot(root[a]);
-}
-int main()
-{
-   // ios::sync_with_stdio(false);
-    int n;
-    //cin>>n;
-    scanf("%d",&n);
-    while(n--){
-        mem(s,0);
-        mem(number,0);
-        cnt=0;
-       int cnt1=0;
-        scanf("%d %d",&x,&y);
-        mem(book,0);
-        char ss[60];
-        gets(ss);
-        for(int i=0;i<y;i++){
-            gets(mp[i]);
-            for(int j=0;j<x;j++){
-            //cin>>mp[i][j];
-            if(mp[i][j]=='S'||mp[i][j]=='A')
-                number[i][j]=cnt1++;
-            }
-        }
-       for(int i=0;i<y;i++){
-            for(int j=0;j<x;j++){
-                if(mp[i][j]=='A'||mp[i][j]=='S'){
-                    a.x=i,a.y=j,a.step=0;
-                    bfs(number[i][j]);
-                }
-            }
-       }
-       sort(s,s+cnt,cmp);
-       for(int i=0;i<=cnt;i++)
-        root[i]=i;
-       int sum=0;
-       for(int i=0;i<cnt;i++){
-        int xx=findroot(s[i].to);
-        int yy=findroot(s[i].from);
-        if(xx!=yy){
-            sum+=s[i].cost;
-            root[xx]=yy;
-        }
-       }
-       printf("%d\n",sum);
-    }
-    return 0;
-}
-```
-
+代码无法显示？<br>
+看链接：<https://vjudge.net/status/#un=zhengzihao&OJId=POJ&probNum=3020&res=0&language=&onlyFollowee=false>
 
 	
 
