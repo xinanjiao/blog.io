@@ -7,6 +7,9 @@ tags: [动态规划]
 description: 语言
 ---
 
+今天在看poj的km二分图最大流的时候，先花半天的时间复习了KM算法。。。最后居然那两道题不是考km算法，居然是网络流的EK算法，我就被劝退了，就先暂时跳过吧。
+
+
 ### Spell checker POJ - 1035 
 #### 题目大意
 给出一个字典，存放字符串。现在输入待查询的字符串，判断该字符串经过如下操作：
@@ -112,9 +115,61 @@ int main()
 
 
 
+### Partitioning by Palindromes UVA - 11584   动态规划
 
+#### 题目大意
+给出一个字符串，对他进行分割得到最小的回文串，一个字符也是一个回文串。
 
+#### 思路
+**列出状态转移方程为dp[i]=min(dp[i],dp[j-1]+1(当位置i和位置j之间是回文串时))。**
+决策n，总共状态转移为n * n的时间，如果边转移边判断是否为回文串就会为n^3的复杂度。<br>
+所以可以先预处理回文部分，然后O(1)的判断时间。总时间为n^2。
 
+**在c++14中，居然dp[-1]这样下标越界都不会报错，而且等于0，长知识了！！**
+
+```
+int dp[maxn];
+bool ispd[maxn][maxn];
+int main()
+{
+    ios::sync_with_stdio(false);
+    int t;
+    cin>>t;
+    while(t--){
+        mem(dp,INF);
+        mem(ispd,0);
+        string s;
+        cin>>s;
+        int n=s.size();
+        for(int i=0;i<n;i++){
+            int l=i,r=i;//奇数
+            while(l>=0&&r<n&&s[l]==s[r]){
+                ispd[l][r]=1;
+                l--;r++;
+            }
+            l=i,r=i+1;//偶数
+            while(l>=0&&r<n&&s[l]==s[r]){
+                ispd[l][r]=1;
+                l--;r++;
+            }
+        }
+        //dp[0]=1;
+        //dp[1]=1;
+        //cout<<dp[-1]<<endl;
+        for(int i=0;i<n;i++){
+            for(int j=i;j>=0;j--)
+                if(ispd[j][i]){
+                //cout<<"j= "<<j<<" "<<dp[j-1]<<endl;
+                dp[i]=min(dp[i],dp[j-1]+1);
+                //cout<<i<<" "<<dp[i]<<endl;
+                }
+        }
+        cout<<dp[n-1]<<endl;
+
+    }
+    return 0;
+}
+```
 
 
 
