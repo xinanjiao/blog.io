@@ -1,7 +1,7 @@
 ---
 layout: post
 title: poj 1035(暴力) uva 11584(动态规划)
-date: 2019-4-22
+date: 2020-02-20
 categories: blog
 tags: [动态规划]
 description: 语言
