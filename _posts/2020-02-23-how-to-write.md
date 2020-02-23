@@ -3,7 +3,7 @@ layout: post
 title: POJ之哈希专题（数字哈希续）
 date: 2020-02-23
 categories: blog
-tags: [数字哈希]
+tags: [数字哈希,数学]
 description: 文章金句。
 ---
 
@@ -135,5 +135,108 @@ int main()
 }
 ```
 
+### Squares POJ - 2002 (假hash，数组模拟标记) 数学
 
+#### 题目大意
+有一堆平面散点集n个点(n<=1000)，任取四个点，求能组成正方形的不同组合方式有多少。
 
+相同的四个点，不同顺序构成的正方形视为同一正方形。
+
+每个点的坐标大小的绝对值不大于20000
+
+#### 思路
+数学不好的话直接告退，可以看看另外一篇我写的博客《如何在知道正方形一条边的情况下求出另外两个点》。
+思路就明确了，花n^2的时间枚举两个点，求出他们可能组成正方形的点，看是否在点集中。<br>
+看是否在点集中可以用book[][]二维数组模拟，book[x][y]==1，表示坐标为(x,y)的数出现过。<br>
+
+**因为坐标可以为负数**，所以要将所有坐标加上20000，另外book数组必须为bool类型，不然就会MLE。<br>
+
+然后就是枚举了，最后的结果除以4，因为正方形其他点的重复枚举！
+
+```
+const int maxn = 4e4+10;
+const int hashmaxn=8388608;
+int lowbit(int x){return x&(-x);}
+struct node{
+    int x,y;
+    node(){}
+    node(int a,int b):x(a),y(b){}
+}a[1100],b,c;
+bool book[maxn][maxn];
+int main()
+{
+    ios::sync_with_stdio(0);
+    int n;
+    while(cin>>n&&n){
+
+        fro(i,1,n+1){
+            cin>>a[i].x>>a[i].y;
+            a[i].x+=20000;
+            a[i].y+=20000;
+            book[a[i].x][a[i].y]=1;
+        }
+        int sum=0;
+        fro(i,1,n+1){
+            b=a[i];
+            fro(j,1,i){
+             c=a[j];
+             int x1,y1,x2,y2,x3,x4,y3,y4;
+             int d1,d2;
+             d1=b.x-c.x;
+             d2=b.y-c.y;
+             x1=b.x+d2;y1=b.y-d1;
+             x2=c.x+d2;y2=c.y-d1;
+            if(book[x1][y1]&&book[x2][y2])
+                sum++;
+             x3=b.x-d2;y3=b.y+d1;
+             x4=c.x-d2;y4=c.y+d1;
+            if(book[x3][y3]&&book[x4][y4])
+            sum++;
+            }
+        }
+        fro(i,1,n+1)
+        book[a[i].x][a[i].y]=0;
+        cout<<sum/4<<endl;
+    }
+    return 0;
+}
+```
+
+### Babelfish POJ - 2503 map模拟就可
+
+#### 题目大意
+你刚从滑铁卢搬到一个大城市。这里的人讲一种难以理解的外语方言。幸运的是，你有一本字典来帮助你理解它们。
+
+输入内容包括多达100000个字典条目，后面是一个空行，后面是一条多达100000个单词的消息。每个字典条目都是一行，包含一个英语单词，后跟一个空格和一个外语单词。字典里没有外文词出现过一次。信息是外语中的一系列单词，每行一个单词。输入中的每个单词都是最多10个小写字母的序列。
+
+#### 思路
+明显是一对一关系，那么map就可以达到映射的功能。<br>
+
+出于对数据结构超时的恐惧，刚开始就毙了这个想法。打算直接字符串hash，发现很难，组后知道map实际也可以，而且bihash还快（狗头）。以后还是要试一遍数据结构！！<br>
+
+分析到这里，那就是一个水题啦！
+
+```
+const int hashmaxn=8388608;
+int lowbit(int x){return x&(-x);}
+int main()
+{
+    ios::sync_with_stdio(0);
+    map<string,string> mp;
+    string s,t,n;
+    while(getline(cin,s)){
+        if(s.size()==0)
+            break;
+        stringstream ss(s);
+        ss>>t>>n;
+        mp[n]=t;
+    }
+    while(cin>>s){
+        if(!mp.count(s))
+            cout<<"eh"<<endl;
+        else
+            cout<<mp[s]<<endl;
+    }
+    return 0;
+}
+```
