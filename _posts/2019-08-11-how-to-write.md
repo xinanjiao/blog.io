@@ -3,7 +3,7 @@ layout: post
 title: ACM训练第13天
 date: 2019-8-11
 categories: blog
-tags: [算法,数据结构,数学,训练]
+tags: [算法,数据结构,数学,训练,线段树]
 description: 语言
 ---
 ## 题目（代码后补）
