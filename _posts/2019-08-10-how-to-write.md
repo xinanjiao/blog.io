@@ -3,7 +3,7 @@ layout: post
 title: 线段树
 date: 2019-8-10
 categories: blog
-tags: [算法,训练,数据结构]
+tags: [算法,训练,数据结构,线段树]
 description: 语言
 ---
 参考博客：<https://www.cnblogs.com/TheRoadToTheGold/p/6254255.html><br/>
