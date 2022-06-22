@@ -86,7 +86,7 @@ header-img: "img/archives-widget.jpg"
 ![李长振](/img/about3.jpg) 
 
 
-
+<!--
 
 <p style="color:#FF0000;font-size: 25px;">你背单词时，阿拉斯加的鳕鱼正跃出水面；</p>
 
@@ -363,3 +363,4 @@ header-img: "img/archives-widget.jpg"
  
 <p style="color: red">大学究竟是什么？  它是学习！！无止境，尽可能的学习！！</p>
 
+--!>
