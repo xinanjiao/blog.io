@@ -4,7 +4,7 @@ title: "Chicken soup"
 description: "干了这碗鸡汤，啊 ~ 乖 张嘴" 
 header-img: "img/archives-widget.jpg"
 ---
-
+<!--
 ## 行了 开始自我介绍了
 **郑子豪** <br/>
 男 ~~你能找到女生和我一个名字我和你一个姓~~，重庆人喔，抄得一手标准川普，对之，普通话也还行叭，只不过，40，14，刘，牛，永远是我的痛罢了。
@@ -84,9 +84,9 @@ header-img: "img/archives-widget.jpg"
 <h4>李长振</h4>
 宿舍早出晚归之人，沉迷学习，无法自拔，无绯闻，洁身自好，不闻女色，活脱脱一在世佛陀，~~主要是计算机学院也没几个妹子，人家看不上~~，向他学习<br/>
 ![李长振](/img/about3.jpg) 
+-->
 
 
-<!--
 
 <p style="color:#FF0000;font-size: 25px;">你背单词时，阿拉斯加的鳕鱼正跃出水面；</p>
 
@@ -363,4 +363,3 @@ header-img: "img/archives-widget.jpg"
  
 <p style="color: red">大学究竟是什么？  它是学习！！无止境，尽可能的学习！！</p>
 
---!>
